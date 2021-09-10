@@ -16,6 +16,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//spring-boot-devtools : html 파일을 컴파일만 해주면 서버 재실행 없이 뷰 파일 변경 가능
+	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 }
 
 test {
