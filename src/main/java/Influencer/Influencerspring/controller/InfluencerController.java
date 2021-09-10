@@ -3,6 +3,7 @@ package Influencer.Influencerspring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class InfluencerController {
@@ -13,5 +14,12 @@ public class InfluencerController {
         model.addAttribute("data", "influencer!!");
         //templates에 있는 influencer.html로 data 가지고 넘어가라.
         return "influencer";
+    }
+
+    //외부에서 데이터 입력
+    @GetMapping("mvc-test")
+    public String mvcTest(@RequestParam(value = "name", required = true) String name, Model model){
+        model.addAttribute("name", name);
+        return "test-template";
     }
 }
