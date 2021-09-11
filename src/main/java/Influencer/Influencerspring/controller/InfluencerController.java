@@ -22,4 +22,5 @@ public class InfluencerController {
         model.addAttribute("name", name);
         return "test-template";
     }
+
 }
