@@ -29,8 +29,8 @@ public class InfluencerController {
     //API 연습1
     //template 엔진과의 차이 : view 가 없다.
     @GetMapping("hello-string")
-    //html에 나오는 body가 아님. http에서 header부와 body부가 있는데 그 body부에 name을 직접 넣어주겠다는 뜻
-    //view에 주고 그런거 없이 문자 그대로 감.
+    //html에 나오는 body가 아님. http에서 header부와 body부가 있는데 그 body부에 name을 직접 넣어주겠다는 뜻. 원래는 view한테 그냥 넘김.
+    //view에 주고 그런거 없이 문자 그대로 감. ex) "localhost:8080/hello-string?name=spring!!!!"
     @ResponseBody
     public String helloString(@RequestParam("name") String name){
         return "hello " + name; //-> "hello spring"
@@ -42,7 +42,7 @@ public class InfluencerController {
     public Hello helloApi(@RequestParam("name") String name){
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;   //json 형식으로 들어감.
+        return hello;   //기존의 문자열이 아니고 객체네? json 형식으로 들어감(name:spring)
     }
 
     static class Hello{
