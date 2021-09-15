@@ -190,7 +190,7 @@
 <body>
 <!-- header -->
 <div id="header">
-    <a href="../home" title="네이버 회원가입 페이지 보러가기">로고</a>
+    <a href="../" title="홈으로 돌아가기">로고</a>
 </div>
 
 
@@ -199,15 +199,15 @@
 
     <!-- content-->
     <div id="content">
-
+        <form action="/members/new" method="post">
         <!-- ID -->
         <div>
             <h3 class="join_title">
                 <label for="id">아이디</label>
             </h3>
             <span class="box int_id">
-                        <input type="text" id="id" class="int" maxlength="20">
-                        <span class="step_url">@naver.com</span>
+                        <input type="text" id="id" name="MEMBERID" class="int" maxlength="20">
+                        <!--<span class="step_url">@naver.com</span>-->
                     </span>
             <span class="error_next_box"></span>
         </div>
@@ -237,7 +237,7 @@
         <div>
             <h3 class="join_title"><label for="name">이름</label></h3>
             <span class="box int_name">
-                        <input type="text" id="name" class="int" maxlength="20">
+                        <input type="text" id="name" name="name" class="int" maxlength="20">
                     </span>
             <span class="error_next_box"></span>
         </div>
@@ -320,13 +320,13 @@
 
         <!-- JOIN BTN-->
         <div class="btn_area">
-            <button type="button" id="btnJoin">
+            <button type="submit" id="btnJoin">
                 <span>가입하기</span>
             </button>
+<!--            <input type="submit" id="btnJoin" value="가입하기" class="btn" >-->
         </div>
 
-
-
+        </form>
     </div>
     <!-- content-->
 
