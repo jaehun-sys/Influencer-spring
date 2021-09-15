@@ -27,12 +27,12 @@ public class MemberService {
         validateDuplicateMember(member);
 
         memberRepository.save(member);
-       return member.getId();
+       return member.getMemberno();
     }
 
     //같은 이름이 있는 중복 회원X
     private void validateDuplicateMember(Member member) {
-        memberRepository.findByName(member.getName())
+        memberRepository.findByName(member.getMemberid())
                 .ifPresent(m -> { //m에 값이 있으면,
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
@@ -43,7 +43,7 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId){
-        return memberRepository.findById(memberId);
+    public Optional<Member> findOne(Long memberno){
+        return memberRepository.findByMemberno(memberno);
     }
 }

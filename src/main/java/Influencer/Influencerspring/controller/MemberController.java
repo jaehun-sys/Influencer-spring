@@ -29,7 +29,14 @@ public class MemberController {
     @PostMapping("/members/new")    //회원가입 창에서 항목들 텍스트 입력받으면 처음 화면으로 돌아가게 했음
     public String create(MemberForm form){
         Member member = new Member();
+
+        member.setMemberid(form.getMemberid());
         member.setName(form.getName());
+        member.setNickname(form.getNickname());
+        member.setEmail(form.getEmail());
+        member.setBirthday(form.getBirthday());
+        member.setMem_sex(form.getMem_sex());
+        member.setPhoneno(form.getPhoneno());
 
         System.out.println("member: " + member);
         memberService.join(member);
@@ -39,7 +46,7 @@ public class MemberController {
     @GetMapping("/members")         //회원 조회
     public String list(Model model){
         List<Member> members = memberService.findMembers();
-        model.addAttribute("members", members);
+        model.addAttribute("members", members); // 왼쪽(초록색) 키에 있는 members에 오른쪽(value) members는 리스트로 싹 들어있다.
         return "members/memberList";
     }
 }

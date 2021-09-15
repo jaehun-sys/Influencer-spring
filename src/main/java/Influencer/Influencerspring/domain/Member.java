@@ -1,15 +1,23 @@
 package Influencer.Influencerspring.domain;
 
 public class Member {
-    private Long id;    //시스템 상의 id. 사용자가 정하는 id 말고
+    private Long memberno;    //시스템 상의 id. 사용자가 정하는 id 말고
     private String name;
+    private String memberid;
+    private String nickname;
+    private String password;
+    private String email;
+    private String birthday;
+    private String mem_sex;
+    private String phoneno;
 
-    public Long getId() {
-        return id;
+
+    public Long getMemberno() {
+        return memberno;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMemberno(Long memberno) {
+        this.memberno = memberno;
     }
 
     public String getName() {
@@ -18,5 +26,61 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMemberid() {
+        return memberid;
+    }
+
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getMem_sex() {
+        return mem_sex;
+    }
+
+    public void setMem_sex(String mem_sex) {
+        this.mem_sex = mem_sex;
+    }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
     }
 }

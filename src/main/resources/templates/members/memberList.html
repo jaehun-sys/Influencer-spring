@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
-
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>이름</th>
+                <th>닉네임</th>
+                <th>이메일</th>
+                <th>생일</th>
+                <th>성별</th>
+                <th>전화번호</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                <td th:text="${member.memberno}"></td>
+                <td th:text="${member.memberid}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.nickname}"></td>
+                <td th:text="${member.email}"></td>
+                <td th:text="${member.birthday}"></td>
+                <td th:text="${member.mem_sex}"></td>
+                <td th:text="${member.phoneno}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
 </body>
 </html>

@@ -24,7 +24,7 @@ class MemoryMemberRepositoryTest {  //굳이 public으로 안해도 됨. 딴데 
         member.setName("spring");
         repository.save(member);
 
-        Member result = repository.findById(member.getId()).get();
+        Member result = repository.findByMemberno(member.getMemberno()).get();
 
         //가져온 result랑 member랑 같은가?
         //1 System.out.println("result = "+(result==member));;

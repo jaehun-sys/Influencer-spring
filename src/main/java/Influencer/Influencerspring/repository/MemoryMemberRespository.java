@@ -14,14 +14,14 @@ public class MemoryMemberRespository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
-        member.setId(++sequence);   //save할 때마다 sequence 값을 1씩 올려줌.
-        store.put(member.getId(),member);   //save하기 전에 name은 넘어온 상태.
+        member.setMemberno(++sequence);   //save할 때마다 sequence 값을 1씩 올려줌.
+        store.put(member.getMemberno(),member);   //save하기 전에 name은 넘어온 상태.
         return member;
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
-        return Optional.ofNullable(store.get(id));   //stord에서 꺼내는 방식. 결과가 없으면 null을 반환(Optional)
+    public Optional<Member> findByMemberno(Long memberno) {
+        return Optional.ofNullable(store.get(memberno));   //stord에서 꺼내는 방식. 결과가 없으면 null을 반환(Optional)
     }
 
     @Override
