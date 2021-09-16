@@ -1,7 +1,13 @@
 package Influencer.Influencerspring.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Member {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberno;    //시스템 상의 id. 사용자가 정하는 id 말고
+
+    @Column(name = "name")
     private String name;
     private String memberid;
     private String nickname;
