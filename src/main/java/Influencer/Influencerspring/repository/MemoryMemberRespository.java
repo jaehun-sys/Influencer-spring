@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository : SpringConfig.java에서 @Bean 등록이 아닌 컴포넌트 스캔방식
 public class MemoryMemberRespository implements MemberRepository{
 
     //save를 할 때 저장을 할 곳

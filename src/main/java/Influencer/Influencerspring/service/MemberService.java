@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 //@Controller 처럼 얘가 서비스라는 것을 스프링에 알려줌. 스프링이 컨테이너에 등록해줌.
-@Service
+//@Service : SpringConfig.java에서 @Bean 등록이 아닌 컴포넌트 스캔방식
 public class MemberService {
 
     //회원 서비스를 만들려면 회원 리포지토리가 있어야 함.
     private final MemberRepository memberRepository;
 
-    @Autowired
+    //@Autowired : 얘도 컴포넌트 스캔 방식
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

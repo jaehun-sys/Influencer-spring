@@ -18,14 +18,14 @@
             </thead>
             <tbody>
             <tr th:each="member : ${members}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                <td th:text="${member.memberno}"></td>
-                <td th:text="${member.memberid}"></td>
-                <td th:text="${member.name}"></td>
-                <td th:text="${member.nickname}"></td>
-                <td th:text="${member.email}"></td>
-                <td th:text="${member.birthday}"></td>
-                <td th:text="${member.mem_sex}"></td>
-                <td th:text="${member.phoneno}"></td>
+                <td><span th:text="${member.memberno}"></span></td>
+                <td><span th:text="${member.memberid}"></span></td>
+                <td><span th:text="${member.name}"></span></td>
+                <td><span th:text="${member.nickname}"></span></td>
+                <td><span th:text="${member.email}"></span></td>
+                <td><span th:text="${member.birthday}"></span></td>
+                <td><span th:text="${member.mem_sex}"></span></td>
+                <td><span th:text="${member.phoneno}"></span></td>
             </tr>
             </tbody>
         </table>
