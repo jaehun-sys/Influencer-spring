@@ -21,25 +21,18 @@ public class SpringConfig {
 
     private EntityManager em;
 
-//    @Autowired
-//    public SpringConfig(EntityManager em) {
-//        this.em = em;
-//    }
+    @Autowired
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
+/*
 
     private final DataSource dataSource;
     @Autowired
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-//    @Bean
-//    public DataSource getDataSource() {
-//        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-//        dataSourceBuilder.driverClassName("org.mariadb.jdbc.Driver");
-//        dataSourceBuilder.url("jdbc:mariadb://ec2-54-180-157-48.ap-northeast-2.compute.amazonaws.com:3306/INFDB_AWS");
-//        dataSourceBuilder.username("INFLUENCER");
-//        dataSourceBuilder.password("INSTAGRAM12#$");
-//        return dataSourceBuilder.build();
-//    }
+*/
 
     @Bean
     public MemberService memberService() {
@@ -50,7 +43,7 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(getDataSource());
-        return new JdbcTemplateMemberRepository(dataSource);
-//        return new JpaMemberRepository(em);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
