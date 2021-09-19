@@ -1,7 +1,7 @@
 package Influencer.Influencerspring.controller;
 
 public class MemberForm {
-    private String memberno;
+    private Long memberno;
     private String memberid;
     private String name;
     private String nickname;
@@ -12,11 +12,11 @@ public class MemberForm {
     private String phoneno;
 
 
-    public String getMemberno() {
+    public Long getMemberno() {
         return memberno;
     }
 
-    public void setMemberno(String memberno) {
+    public void setMemberno(Long memberno) {
         this.memberno = memberno;
     }
 

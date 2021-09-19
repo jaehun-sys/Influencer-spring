@@ -1,8 +1,7 @@
 package Influencer.Influencerspring.service;
 
 import Influencer.Influencerspring.domain.Member;
-import Influencer.Influencerspring.repository.MemoryMemberRespository;
-import org.assertj.core.api.Assertions;
+import Influencer.Influencerspring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceTest {
 
     MemberService memberService;
-    MemoryMemberRespository memberRespository;
+    MemoryMemberRepository memberRespository;
 
     @BeforeEach
     public void beforeEach(){
-        memberRespository = new MemoryMemberRespository();
+        memberRespository = new MemoryMemberRepository();
         memberService = new MemberService(memberRespository);
     }
 
@@ -44,10 +43,10 @@ class MemberServiceTest {
     public void 중복_회원_예외(){
         //given
         Member member1 = new Member();
-        member1.setName("Kim");
+        member1.setMemberid("Kim");
 
         Member member2 = new Member();
-        member2.setName("Kim");
+        member2.setMemberid("Kim");
 
         //when
         memberService.join(member1);

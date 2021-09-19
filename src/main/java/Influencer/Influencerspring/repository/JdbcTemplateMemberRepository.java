@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Repository
 public class JdbcTemplateMemberRepository implements MemberRepository{
 
     private final JdbcTemplate jdbcTemplate;
@@ -52,6 +51,12 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     }
 
     @Override
+    public Optional<Member> findByMemberid(String memberid) {
+        List<Member> result = jdbcTemplate.query("select * from member where memberid = ?", memberRowMapper(), memberid);
+        return result.stream().findAny();
+    }
+
+    @Override
     public List<Member> findAll() {
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
@@ -60,13 +65,13 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return (rs, rowNum) -> {
             Member member = new Member();
             member.setMemberno(rs.getLong("memberno"));
-            member.setMemberid(rs.getString("memberid"));
+//            member.setMemberid(rs.getString("memberid"));
             member.setName(rs.getString("name"));
-            member.setNickname(rs.getString("password"));
-            member.setEmail(rs.getString("email"));
-            member.setBirthday(rs.getString("birthday"));
-            member.setMem_sex(rs.getString("mem_sex"));
-            member.setPhoneno(rs.getString("phoneno"));
+//            member.setNickname(rs.getString("password"));
+//            member.setEmail(rs.getString("email"));
+//            member.setBirthday(rs.getString("birthday"));
+//            member.setMem_sex(rs.getString("mem_sex"));
+//            member.setPhoneno(rs.getString("phoneno"));
             return member;
         };
     }

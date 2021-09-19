@@ -1,13 +1,15 @@
 package Influencer.Influencerspring.service;
 
-
 import Influencer.Influencerspring.repository.JdbcTemplateMemberRepository;
 import Influencer.Influencerspring.repository.JpaMemberRepository;
 import Influencer.Influencerspring.repository.MemberRepository;
+import Influencer.Influencerspring.repository.MemoryMemberRepository;
+import Influencer.Influencerspring.service.MemberService;
+import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
@@ -17,28 +19,37 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-/*    private EntityManager em;
+    private EntityManager em;
 
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
-    }*/
+//    @Autowired
+//    public SpringConfig(EntityManager em) {
+//        this.em = em;
+//    }
 
-    private DataSource dataSource;
-
+    private final DataSource dataSource;
     @Autowired
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+//    @Bean
+//    public DataSource getDataSource() {
+//        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+//        dataSourceBuilder.driverClassName("org.mariadb.jdbc.Driver");
+//        dataSourceBuilder.url("jdbc:mariadb://ec2-54-180-157-48.ap-northeast-2.compute.amazonaws.com:3306/INFDB_AWS");
+//        dataSourceBuilder.username("INFLUENCER");
+//        dataSourceBuilder.password("INSTAGRAM12#$");
+//        return dataSourceBuilder.build();
+//    }
 
     @Bean
-    public MemberService memberService(){
+    public MemberService memberService() {
         return new MemberService(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository(){
-//        return new MemoryMemberRespository();
+//        return new MemoryMemberRepository();
+//        return new JdbcMemberRepository(getDataSource());
         return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
     }

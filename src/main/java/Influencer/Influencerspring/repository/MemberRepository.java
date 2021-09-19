@@ -15,5 +15,9 @@ public interface MemberRepository {
 
     //(예시)중복 이름이 있으면 안된다
     Optional<Member> findByName(String name);
+
+//    //중복 아이디가 있으면 안된다
+    Optional<Member> findByMemberid(String memberid);
+
     List<Member> findAll();
 }

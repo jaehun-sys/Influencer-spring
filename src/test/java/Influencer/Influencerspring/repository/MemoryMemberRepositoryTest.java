@@ -2,7 +2,6 @@ package Influencer.Influencerspring.repository;
 
 import Influencer.Influencerspring.domain.Member;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;  //자동 import되지 않음
@@ -10,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;  //자동 import되지
 class MemoryMemberRepositoryTest {  //굳이 public으로 안해도 됨. 딴데 갖다 쓸게 아니니까.
                                     //test 순서는 보장이 안됨. 메소드별로 따로따로 동작함. 그래서 data를 클리어해줘야함.
 
-    MemoryMemberRespository repository = new MemoryMemberRespository();
+    MemoryMemberRepository repository = new MemoryMemberRepository();
 
     //테스트 메소드가 끝날때마다 실행되는 것. callback 메시지같은거라고 보면 된다.
     @AfterEach
@@ -34,7 +33,7 @@ class MemoryMemberRepositoryTest {  //굳이 public으로 안해도 됨. 딴데 
     }
 
     @Test
-    public void findBYName(){
+    public void findByName(){
         //"spring1" 이라는 회원을 가입시켰다.
         Member member1 = new Member();
         member1.setName("spring1");

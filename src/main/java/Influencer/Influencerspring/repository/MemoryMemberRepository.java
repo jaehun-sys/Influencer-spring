@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository //: SpringConfig.java에서 @Bean 등록이 아닌 컴포넌트 스캔방식
-public class MemoryMemberRespository implements MemberRepository{
+//@Repository //: SpringConfig.java에서 @Bean 등록이 아닌 컴포넌트 스캔방식
+public class MemoryMemberRepository implements MemberRepository{
 
     //save를 할 때 저장을 할 곳
     private static Map<Long, Member> store = new HashMap<>();   //실무에서는 동시성 문제를 고려해야 함. 지금은 그냥 예제.
@@ -21,7 +21,7 @@ public class MemoryMemberRespository implements MemberRepository{
 
     @Override
     public Optional<Member> findByMemberno(Long memberno) {
-        return Optional.ofNullable(store.get(memberno));   //stord에서 꺼내는 방식. 결과가 없으면 null을 반환(Optional)
+        return Optional.ofNullable(store.get(memberno));   //store에서 꺼내는 방식. 결과가 없으면 null을 반환(Optional)
     }
 
     @Override
@@ -29,6 +29,13 @@ public class MemoryMemberRespository implements MemberRepository{
         return store.values().stream()                              //java8의 람다를 사용. loop를 돌면서
                 .filter(member -> member.getName().equals(name))    //member.getName()이 인자로 넘어온 name과 같으면 filter를 하고
                 .findAny();                                         //찾으면 반환
+    }
+
+    @Override
+    public Optional<Member> findByMemberid(String memberid){
+        return store.values().stream()
+                .filter(member -> member.getMemberid().equals(memberid))
+                .findAny();
     }
 
     @Override
