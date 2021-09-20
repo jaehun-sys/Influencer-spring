@@ -34,7 +34,7 @@ public class JpaMemberRepository implements MemberRepository{
         List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name",name)
                 .getResultList();
-        return result.stream().findAny();
+        return result.stream().findAny();   //findby를 하나만 하기로 했으니까.
     }
 
     @Override

@@ -2,19 +2,27 @@ package Influencer.Influencerspring.domain;
 
 import javax.persistence.*;
 
-@Entity
+@Entity //table이라고 매핑
 public class Member {
+    //pk라고 매핑. & insert함과 동시에 db에서 값을 생성해주고있음.
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberno;    //시스템 상의 id. 사용자가 정하는 id 말고
 
     @Column(name = "name")
     private String name;
+    @Column(name = "memberid")
     private String memberid;
+    @Column(name = "nickname")
     private String nickname;
+    @Column(name = "password")
     private String password;
+    @Column(name = "email")
     private String email;
+    @Column(name = "birthday")
     private String birthday;
+    @Column(name = "mem_sex")
     private String mem_sex;
+    @Column(name = "phoneno")
     private String phoneno;
 
 
