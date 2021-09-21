@@ -17,8 +17,8 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/index1")
+    @GetMapping("/1")
     public String index1(){
-        return "index1";
+        return "dist/index";
     }
 }
