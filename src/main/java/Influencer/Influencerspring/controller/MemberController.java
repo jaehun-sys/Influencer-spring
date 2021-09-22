@@ -30,7 +30,7 @@ public class MemberController {
     public String create(MemberForm form){
         Member member = new Member();
 
-        member.setMemberno(form.getMemberno());
+        member.setMemberno(form.getMemberno()); //얘는 시스템이 부여하는 값인데..
         member.setMemberid(form.getMemberid());
         member.setName(form.getName());
         member.setNickname(form.getNickname());

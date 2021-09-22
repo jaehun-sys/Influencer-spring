@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class InfluencerController {
 
+    @GetMapping("true-false")
+    public String validateTrueFalse(){
+        return "true-false";
+    }
+
     @GetMapping("hello") //웹 어플리케이션에서 "/influencer"라고 들어오면 influencer 메소드를 호출
     public String influencer(Model model){
         //data를 influencer로 넘기겠다는 뜻(key는 data,  value는 influencer)

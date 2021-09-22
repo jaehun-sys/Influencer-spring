@@ -21,4 +21,9 @@ public class HomeController {
     public String index1(){
         return "dist/index";
     }
+
+    @GetMapping("/true-false")
+    public String trueFalse(){
+        return "true-false";
+    }
 }
