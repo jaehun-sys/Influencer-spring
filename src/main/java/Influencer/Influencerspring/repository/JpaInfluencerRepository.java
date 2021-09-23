@@ -1,0 +1,33 @@
+package Influencer.Influencerspring.repository;
+
+import Influencer.Influencerspring.domain.InfProfile;
+import Influencer.Influencerspring.domain.Member;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Optional;
+
+public class JpaInfluencerRepository implements InfluencerRepository{
+
+    public JpaInfluencerRepository(EntityManager em) {
+        this.em = em;
+    }
+
+    private final EntityManager em;
+
+    @Override
+    public Optional<InfProfile> findByInf_username(String inf_username) {
+        List<InfProfile> result = em.createQuery("select m from InfProfile m where m.inf_username = :inf_username", InfProfile.class)
+                .setParameter("inf_username", inf_username)
+                .getResultList();
+        return result.stream().findAny();
+    }
+
+    @Override
+    public List<InfProfile> findAll() {
+        List<InfProfile> result = em.createQuery("select m from InfProfile m", InfProfile.class)
+                .getResultList();
+        return result;
+    }
+
+}

@@ -13,9 +13,7 @@ public class JpaMemberRepository implements MemberRepository{
     public JpaMemberRepository(EntityManager em) {
         this.em = em;
     }
-
     private final EntityManager em;
-
 
     @Override
     public Member save(Member member) {

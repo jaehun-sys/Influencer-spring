@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class InfluencerController {
 
-    @GetMapping("true-false")
-    public String validateTrueFalse(){
+    @GetMapping("/true-false")
+    public String trueFalse(){
         return "true-false";
+    }
+
+    @GetMapping("/hashtag-search")
+    public String hashtagSearch(){
+        return "hashtag-search";
     }
 
     @GetMapping("hello") //웹 어플리케이션에서 "/influencer"라고 들어오면 influencer 메소드를 호출

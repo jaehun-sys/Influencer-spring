@@ -1,31 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>진짜/가짜 판별</title>
+</head>
 <body>
 <div class="container">
     <div>
         <table>
             <thead>
             <tr>
-                <th>#</th>
-                <th>id</th>
-                <th>이름</th>
-                <th>닉네임</th>
-                <th>이메일</th>
-                <th>생일</th>
-                <th>성별</th>
-                <th>전화번호</th>
+                <th>계정명</th>
+                <th>프로필사진</th>
+                <th>팔로워</th>
+                <th>팔로잉</th>
+                <th>진짜 팔로워</th>
+<!--                <th>진짜 팔로워 비율</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr th:each="member : ${members}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                <td><span th:text="${member.memberno}"></span></td>
-                <td><span th:text="${member.memberid}"></span></td>
-                <td><span th:text="${member.name}"></span></td>
-                <td><span th:text="${member.nickname}"></span></td>
-                <td><span th:text="${member.email}"></span></td>
-                <td><span th:text="${member.birthday}"></span></td>
-                <td><span th:text="${member.mem_sex}"></span></td>
-                <td><span th:text="${member.phoneno}"></span></td>
+            <tr th:each="inf_profile : ${inf_profile}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                <td><span th:text="${inf_profile.inf_username}"></span></td>
+                <td><span th:text="${inf_profile.pic_url}"></span></td>
+                <td><span th:text="${inf_profile.fol_count}"></span></td>
+                <td><span th:text="${inf_profile.folwing_count}"></span></td>
+                <td><span th:text="${inf_profile.real_fol_count}"></span></td>
+<!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
             </tr>
             </tbody>
         </table>
