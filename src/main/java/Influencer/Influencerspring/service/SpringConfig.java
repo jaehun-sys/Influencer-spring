@@ -1,9 +1,6 @@
 package Influencer.Influencerspring.service;
 
-import Influencer.Influencerspring.repository.JdbcTemplateMemberRepository;
-import Influencer.Influencerspring.repository.JpaMemberRepository;
-import Influencer.Influencerspring.repository.MemberRepository;
-import Influencer.Influencerspring.repository.MemoryMemberRepository;
+import Influencer.Influencerspring.repository.*;
 import Influencer.Influencerspring.service.MemberService;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +22,7 @@ public class SpringConfig {
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+
 /*
 
     private final DataSource dataSource;
@@ -45,5 +43,10 @@ public class SpringConfig {
 //        return new JdbcMemberRepository(getDataSource());
 //        return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
+    }
+
+    @Bean
+    public InfluencerRepository influencerRepository(){
+        return new JpaInfluencerRepository(em);
     }
 }

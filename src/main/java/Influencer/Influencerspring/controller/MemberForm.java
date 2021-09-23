@@ -7,7 +7,10 @@ public class MemberForm {
     private String nickname;
     private String password;
     private String email;
-    private String birthday;
+    //    private String birthday;
+    private String yy;
+    private String mm;
+    private String dd;
     private String mem_sex;
     private String phoneno;
 
@@ -60,12 +63,28 @@ public class MemberForm {
         this.email = email;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getYy() {
+        return yy;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setYy(String yy) {
+        this.yy = yy;
+    }
+
+    public String getMm() {
+        return mm;
+    }
+
+    public void setMm(String mm) {
+        this.mm = mm;
+    }
+
+    public String getDd() {
+        return dd;
+    }
+
+    public void setDd(String dd) {
+        this.dd = dd;
     }
 
     public String getMem_sex() {

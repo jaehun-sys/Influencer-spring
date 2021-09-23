@@ -242,6 +242,15 @@
             <span class="error_next_box"></span>
         </div>
 
+        <!-- NiCKNAME -->
+        <div>
+            <h3 class="join_title"><label for="nickname">닉네임</label></h3>
+            <span class="box int_name">
+                    <input type="text" id="nickname" name="nickname" class="int" maxlength="20">
+                </span>
+            <span class="error_next_box"></span>
+        </div>
+
         <!-- BIRTH -->
         <div>
             <h3 class="join_title"><label for="yy">생년월일</label></h3>
@@ -250,14 +259,14 @@
                 <!-- BIRTH_YY -->
                 <div id="bir_yy">
                             <span class="box">
-                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
+                                <input type="text" id="yy" name="yy" class="int" maxlength="4" placeholder="년(4자)">
                             </span>
                 </div>
 
                 <!-- BIRTH_MM -->
                 <div id="bir_mm">
                             <span class="box">
-                                <select id="mm" class="sel">
+                                <select id="mm" name="mm" class="sel">
                                     <option>월</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -278,8 +287,8 @@
                 <!-- BIRTH_DD -->
                 <div id="bir_dd">
                             <span class="box">
-                                <select id="dd" class="sel">
-                                    <option>월</option>
+                                <select id="dd" name="dd" class="sel">
+                                    <option>일</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -323,7 +332,7 @@
         <div>
             <h3 class="join_title"><label for="mem_sex">성별</label></h3>
             <span class="box mem_sex">
-                        <select id="mem_sex" class="sel">
+                        <select id="mem_sex" name="mem_sex" class="sel">
                             <option>성별</option>
                             <option value="M">남자</option>
                             <option value="F">여자</option>
@@ -335,18 +344,18 @@
         <!-- EMAIL -->
         <div>
             <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
-            <span class="box int_email">
-                        <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
-                    </span>
+                <span class="box int_email">
+                    <input type="text" id="email" name="email" class="int" maxlength="100" placeholder="선택입력">
+                </span>
             <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>
         </div>
 
         <!-- MOBILE -->
         <div>
             <h3 class="join_title"><label for="phoneno">휴대전화</label></h3>
-            <span class="box int_mobile">
-                        <input type="tel" id="phoneno" name="phoneno" class="int" maxlength="16" placeholder="전화번호 입력">
-                    </span>
+                <span class="box int_mobile">
+                    <input type="tel" id="phoneno" name="phoneno" class="int" maxlength="16" placeholder="전화번호 입력">
+                </span>
             <span class="error_next_box"></span>
         </div>
 

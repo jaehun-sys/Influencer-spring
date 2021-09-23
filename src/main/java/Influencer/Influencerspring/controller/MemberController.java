@@ -34,8 +34,9 @@ public class MemberController {
         member.setMemberid(form.getMemberid());
         member.setName(form.getName());
         member.setNickname(form.getNickname());
+        member.setPassword(form.getPassword());
         member.setEmail(form.getEmail());
-        member.setBirthday(form.getBirthday());
+        member.setBirthday((form.getYy()+form.getMm()+form.getDd()));   //년월일 합치기
         member.setMem_sex(form.getMem_sex());
         member.setPhoneno(form.getPhoneno());
 
