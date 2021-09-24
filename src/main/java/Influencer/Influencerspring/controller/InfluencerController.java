@@ -9,10 +9,7 @@ import org.apache.tomcat.util.net.TLSClientHelloExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,11 +25,10 @@ public class InfluencerController {
     }
 
     @GetMapping("/true-false")
-    public String trueFalseResult(@RequestParam(value="username") String username, Model model){
-        Optional<InfProfile> influencer = InfluencerService.findTrueFalse(username);
-        model.addAttribute("username", influencer);
-
-        return "true-false/true-falseResult";
+    public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
+        List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+        model.addAttribute("inf_profile", inf_profile);
+        return "true-false";
     }
 
     @GetMapping("/hashtag-search")

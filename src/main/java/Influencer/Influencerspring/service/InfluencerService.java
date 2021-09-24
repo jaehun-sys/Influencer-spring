@@ -11,8 +11,8 @@ import java.util.Optional;
 @Transactional
 public class InfluencerService {
 
-    private static InfluencerRepository influencerRepository;
-//    private final InfluencerRepository influencerRepository;
+//    private static InfluencerRepository influencerRepository;
+    private final InfluencerRepository influencerRepository;
 
     public InfluencerService(InfluencerRepository influencerRepository) {
         this.influencerRepository = influencerRepository;
@@ -23,7 +23,7 @@ public class InfluencerService {
     }
 
     /* 진짜 가짜 조회 */
-    public static Optional<InfProfile> findTrueFalse(String inf_username){
+    public List<InfProfile> findTrueFalse(String inf_username){
         return influencerRepository.findByInf_username(inf_username);
     }
 

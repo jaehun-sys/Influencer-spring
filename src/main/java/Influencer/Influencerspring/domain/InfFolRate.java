@@ -1,20 +1,29 @@
 package Influencer.Influencerspring.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class InfFolRate {
+    @Id
     private String inf_pk;
+    @Column
     private float rate_sex_f;
+    @Column
     private String rate_susp;
+    @Column
     private String rate_real;
+    @Column
     private String rate_mass;
+    @Column
     private String rate_inf;
+    @Column
     private String real_fol_count;
+    @Column
     private String real_fol_rate;
 
-    @Id
+
     public String getInf_pk() {
         return inf_pk;
     }

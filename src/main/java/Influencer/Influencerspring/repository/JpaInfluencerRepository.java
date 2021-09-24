@@ -17,13 +17,12 @@ public class JpaInfluencerRepository implements InfluencerRepository{
     private final EntityManager em;
 
     @Override
-    public Optional<InfProfile> findByInf_username(String inf_username) {
-        List<InfProfile> result = em.createQuery("select m.inf_username, m.pic_url, " +
-                        "m.fol_count, m.folwing_count, m.real_fol_count " +
-                        "from InfProfile m where m.inf_username = :inf_username", InfProfile.class)
+    public List<InfProfile> findByInf_username(String inf_username) {
+        List<InfProfile> result = em.createQuery("select i.inf_username, i.pic_url, i.fol_count, i.folwing_count, i.real_fol_count from InfProfile i where i.inf_username = :inf_username", InfProfile.class)
                 .setParameter("inf_username", inf_username)
                 .getResultList();
-        return result.stream().findAny();
+        System.out.println(result.get(0).getClass());
+        return result;//.stream().findAny();
     }
 
     @Override

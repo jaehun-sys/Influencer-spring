@@ -1,37 +1,25 @@
-package Influencer.Influencerspring.domain;
+package Influencer.Influencerspring.domain.dto;
+
+import Influencer.Influencerspring.domain.InfProfile;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
-@Entity
-public class InfProfile {
-    @Id
+public class InfProfileDTO {
     private String inf_pk;
-    @Column(name="inf_username")
     private String inf_username;
-    @Column(name="bio")
     private String bio;
-    @Column(name="fol_count")
     private String fol_count;
-    @Column(name="folwing_count")
     private String folwing_count;
-    @Column(name="feed_count")
     private String feed_count;
-    @Column(name="cat")
     private String cat;
-    @Column(name="bus_cat_name")
     private String bus_cat_name;
-    @Column(name="cat_enum")
     private String cat_enum;
-    @Column(name="inf_sex")
     private String inf_sex;
-    @Column(name="inf_age")
     private String inf_age;
-    @Column(name="pic_url")
     private String pic_url;
-    @Column(name="real_fol_count")
     private String real_fol_count;
+
+
 
     public String getInf_pk() {
         return inf_pk;
