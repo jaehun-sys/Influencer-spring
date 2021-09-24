@@ -1,12 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>진짜/가짜 판별</title>
 </head>
 <body>
 <div class="container">
     <div>
+
         <table>
+            <h2>* Fake vs Real</h2>
+            <form action="/true-false" method="get">
+                <input type="text" name="username" size=30 value="인플루언서 계정을 입력하세요">
+                <input type="submit" value="검색">
+            </form>
             <thead>
             <tr>
                 <th>계정명</th>
@@ -28,6 +35,7 @@
             </tr>
             </tbody>
         </table>
+
     </div>
 </div> <!-- /container -->
 </body>

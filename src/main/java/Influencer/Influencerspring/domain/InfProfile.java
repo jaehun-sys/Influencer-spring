@@ -1,5 +1,9 @@
 package Influencer.Influencerspring.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class InfProfile {
     private String inf_pk;
     private String inf_username;
@@ -15,6 +19,7 @@ public class InfProfile {
     private String pic_url;
     private String real_fol_count;
 
+    @Id
     public String getInf_pk() {
         return inf_pk;
     }

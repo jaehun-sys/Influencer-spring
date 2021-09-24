@@ -11,19 +11,19 @@ import java.util.Optional;
 @Transactional
 public class InfluencerService {
 
+    private static InfluencerRepository influencerRepository;
+//    private final InfluencerRepository influencerRepository;
+
     public InfluencerService(InfluencerRepository influencerRepository) {
         this.influencerRepository = influencerRepository;
     }
 
-    private final InfluencerRepository influencerRepository;
-
-
-    /* 전체 회원 조회 */
-    public List<InfProfile> findMembers(){
+    public List<InfProfile> findInfluencers(){
         return influencerRepository.findAll();
     }
 
-    public Optional<InfProfile> findOne(String inf_username){
+    /* 진짜 가짜 조회 */
+    public static Optional<InfProfile> findTrueFalse(String inf_username){
         return influencerRepository.findByInf_username(inf_username);
     }
 

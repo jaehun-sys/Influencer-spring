@@ -1,18 +1,38 @@
 package Influencer.Influencerspring.controller;
 
+import Influencer.Influencerspring.domain.InfFolRate;
+import Influencer.Influencerspring.domain.InfProfile;
+import Influencer.Influencerspring.domain.Member;
+import Influencer.Influencerspring.service.InfluencerService;
+import Influencer.Influencerspring.service.MemberService;
 import org.apache.tomcat.util.net.TLSClientHelloExtractor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class InfluencerController {
 
+    private final InfluencerService influencerService;
+
+    @Autowired
+    public InfluencerController(InfluencerService influencerService) {
+        this.influencerService = influencerService;
+    }
+
     @GetMapping("/true-false")
-    public String trueFalse(){
-        return "true-false";
+    public String trueFalseResult(@RequestParam(value="username") String username, Model model){
+        Optional<InfProfile> influencer = InfluencerService.findTrueFalse(username);
+        model.addAttribute("username", influencer);
+
+        return "true-false/true-falseResult";
     }
 
     @GetMapping("/hashtag-search")
@@ -20,6 +40,12 @@ public class InfluencerController {
         return "hashtag-search";
     }
 
+    @GetMapping("/influencer-recommend")
+    public String influencerRecommend(){
+        return "influencer-recommend";
+    }
+
+/* 연습한거 */
     @GetMapping("hello") //웹 어플리케이션에서 "/influencer"라고 들어오면 influencer 메소드를 호출
     public String influencer(Model model){
         //data를 influencer로 넘기겠다는 뜻(key는 data,  value는 influencer)

@@ -38,6 +38,11 @@ public class SpringConfig {
     }
 
     @Bean
+    public InfluencerService influencerService(){
+        return new InfluencerService(influencerRepository());
+    }
+
+    @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(getDataSource());
