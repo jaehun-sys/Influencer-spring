@@ -1,9 +1,13 @@
 package Influencer.Influencerspring.domain;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
+@Data
+@Table(name = "inf_profile")
 @Entity
 public class InfProfile {
     @Id
@@ -32,6 +36,8 @@ public class InfProfile {
     private String pic_url;
     @Column(name="real_fol_count")
     private String real_fol_count;
+
+
 
     public String getInf_pk() {
         return inf_pk;
