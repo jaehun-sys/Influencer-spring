@@ -29,10 +29,11 @@ public class JpaInfluencerRepository implements InfluencerRepository{
 //        typedQuery.setParameter("inf_username", inf_username);
 //        List<InfProfile> resultList = typedQuery.getResultList();
 
-        List<InfProfile> resultList = em.createQuery("select i from InfProfile i", InfProfile.class)
+        List<InfProfile> resultList = em.createQuery("select i from InfProfile i where i.inf_username = :inf_username", InfProfile.class)
+                .setParameter("inf_username",inf_username)
                 .getResultList();
 
-        System.out.println(resultList.get(0));
+//        System.out.println(resultList.get(0));
 //        List<InfProfile> result = query.getResultList();
 //        System.out.println(result.get(0).getClass());
         return resultList;//result;//.stream().findAny();
