@@ -14,5 +14,5 @@ public interface InfluencerRepository {
 
     List<InfProfile> findAll();
 
-    Optional<Hashtag> findByHashtag(String keyword);
+    Optional<Hashtag> findByKeyword(String keyword);
 }

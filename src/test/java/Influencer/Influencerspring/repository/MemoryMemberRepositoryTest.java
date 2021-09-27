@@ -1,6 +1,7 @@
 package Influencer.Influencerspring.repository;
 
 import Influencer.Influencerspring.domain.Member;
+import Influencer.Influencerspring.repository.temp.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;

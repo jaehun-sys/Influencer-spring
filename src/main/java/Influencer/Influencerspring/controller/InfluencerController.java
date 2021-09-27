@@ -35,7 +35,7 @@ public class InfluencerController {
     @GetMapping("/hashtag-search")
     public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
         Optional<Hashtag> hashtag = influencerService.findHashtag(keyword);
-        model.addAttribute("keyword", keyword);
+        model.addAttribute("keyword", hashtag);
         return "hashtag-search";
     }
 
@@ -43,6 +43,11 @@ public class InfluencerController {
     public String influencerRecommend(){
         return "influencer-recommend";
     }
+
+
+
+
+
 
 /* 연습한거 */
     @GetMapping("hello") //웹 어플리케이션에서 "/influencer"라고 들어오면 influencer 메소드를 호출

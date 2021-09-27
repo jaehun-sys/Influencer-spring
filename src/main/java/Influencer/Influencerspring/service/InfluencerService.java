@@ -30,6 +30,6 @@ public class InfluencerService {
 
     /* 해시태그 조회 */
     public Optional<Hashtag> findHashtag(String keyword){
-        return influencerRepository.findByHashtag(keyword);
+        return influencerRepository.findByKeyword(keyword);
     }
 }

@@ -1,12 +1,13 @@
-package Influencer.Influencerspring.repository;
+package Influencer.Influencerspring.repository.temp;
 
 import Influencer.Influencerspring.domain.Member;
+import Influencer.Influencerspring.repository.MemberRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 //@Repository //: SpringConfig.java에서 @Bean 등록이 아닌 컴포넌트 스캔방식
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository {
 
     //save를 할 때 저장을 할 곳
     private static Map<Long, Member> store = new HashMap<>();   //실무에서는 동시성 문제를 고려해야 함. 지금은 그냥 예제.

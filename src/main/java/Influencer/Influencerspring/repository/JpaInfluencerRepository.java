@@ -42,13 +42,15 @@ public class JpaInfluencerRepository implements InfluencerRepository{
     }
 
     @Override
-    public Optional<Hashtag> findByHashtag(String keyword) {
+    public Optional<Hashtag> findByKeyword(String keyword) {
         List<Hashtag> result = em.createQuery(
                 "SELECT h " +
                         "FROM   Hashtag h " +
-                        "WHERE  h.keyword LIKE CONCAT ( ''%',:keyword, '%'') ", Hashtag.class)
+                        "WHERE  h.keyword LIKE CONCAT ( '%',:keyword, '%') ", Hashtag.class)
                 .setParameter("keyword",keyword)
                 .getResultList();
+        System.out.println(result.stream().findAny());
+        //System.out.println(result.get(0).getClass());
         return result.stream().findAny();
     }
 
