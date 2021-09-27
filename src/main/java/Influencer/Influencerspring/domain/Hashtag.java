@@ -1,14 +1,27 @@
 package Influencer.Influencerspring.domain;
 
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Data
+@Table(name = "hashtag")
+@Entity
 public class Hashtag {
     @Id
     String inf_pk;
+    @Column(name = "keyword")
     String keyword;
+    @Column(name = "related_rank")
     String related_rank;
+    @Column(name = "related_hash")
     String related_hash;
+    @Column(name = "avg_liked")
     String avg_liked;
+    @Column(name = "related_username")
     String related_username;
 
     public String getInf_pk() {

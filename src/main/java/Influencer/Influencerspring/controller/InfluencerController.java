@@ -1,5 +1,6 @@
 package Influencer.Influencerspring.controller;
 
+import Influencer.Influencerspring.domain.Hashtag;
 import Influencer.Influencerspring.domain.InfFolRate;
 import Influencer.Influencerspring.domain.InfProfile;
 import Influencer.Influencerspring.domain.Member;
@@ -32,7 +33,9 @@ public class InfluencerController {
     }
 
     @GetMapping("/hashtag-search")
-    public String hashtagSearch(){
+    public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
+        Optional<Hashtag> hashtag = influencerService.findHashtag(keyword);
+        model.addAttribute("keyword", keyword);
         return "hashtag-search";
     }
 

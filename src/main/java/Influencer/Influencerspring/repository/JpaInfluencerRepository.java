@@ -42,19 +42,20 @@ public class JpaInfluencerRepository implements InfluencerRepository{
     }
 
     @Override
+    public Optional<Hashtag> findByHashtag(String keyword) {
+        List<Hashtag> result = em.createQuery(
+                "SELECT h " +
+                        "FROM   Hashtag h " +
+                        "WHERE  h.keyword LIKE CONCAT ( ''%',:keyword, '%'') ", Hashtag.class)
+                .setParameter("keyword",keyword)
+                .getResultList();
+        return result.stream().findAny();
+    }
+
+    @Override
     public List<InfProfile> findAll() {
         List<InfProfile> result = em.createQuery("select m from InfProfile m", InfProfile.class)
                 .getResultList();
         return result;
-    }
-
-    @Override
-    public Optional<Hashtag> findByHashtag(String keyword) {
-        List<Hashtag> result = em.createQuery("SELECT h " +
-                        "FROM   HASHTAG h" +
-                        "WHERE  h.KEYWORD LIKE '%:keyword%'", Hashtag.class)
-                .setParameter("keyword",keyword)
-                .getResultList();
-        return result.stream().findAny();
     }
 }
