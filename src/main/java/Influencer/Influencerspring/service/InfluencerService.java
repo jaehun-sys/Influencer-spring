@@ -1,5 +1,6 @@
 package Influencer.Influencerspring.service;
 
+import Influencer.Influencerspring.domain.Hashtag;
 import Influencer.Influencerspring.domain.InfProfile;
 
 import Influencer.Influencerspring.repository.InfluencerRepository;
@@ -27,4 +28,8 @@ public class InfluencerService {
         return influencerRepository.findByInf_username(inf_username);
     }
 
+    /* 해시태그 조회 */
+    public Optional<Hashtag> findHashtag(String keyword){
+        return influencerRepository.findByHashtag(keyword);
+    }
 }

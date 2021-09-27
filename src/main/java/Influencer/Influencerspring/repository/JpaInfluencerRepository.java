@@ -1,9 +1,11 @@
 package Influencer.Influencerspring.repository;
 
+import Influencer.Influencerspring.domain.Hashtag;
 import Influencer.Influencerspring.domain.InfFolRate;
 import Influencer.Influencerspring.domain.InfProfile;
 import Influencer.Influencerspring.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.web.HateoasPageableHandlerMethodArgumentResolver;
 
 import javax.management.Query;
 import javax.persistence.EntityManager;
@@ -46,4 +48,13 @@ public class JpaInfluencerRepository implements InfluencerRepository{
         return result;
     }
 
+    @Override
+    public Optional<Hashtag> findByHashtag(String keyword) {
+        List<Hashtag> result = em.createQuery("SELECT h " +
+                        "FROM   HASHTAG h" +
+                        "WHERE  h.KEYWORD LIKE '%:keyword%'", Hashtag.class)
+                .setParameter("keyword",keyword)
+                .getResultList();
+        return result.stream().findAny();
+    }
 }
