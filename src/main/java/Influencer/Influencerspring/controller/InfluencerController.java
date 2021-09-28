@@ -32,19 +32,19 @@ public class InfluencerController {
     public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
         model.addAttribute("inf_profile", inf_profile);
-        return "true_false";
+        return "temp/true_false";
     }
 
     @GetMapping("/hashtag_search")
     public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
         model.addAttribute("hashtags", hashtags);
-        return "hashtag_search";
+        return "temp/hashtag_search";
     }
 
     @GetMapping("/influencer_recommend")
     public String influencerRecommend(){
-        return "influencer_recommend";
+        return "temp/influencer_recommend";
     }
 
 

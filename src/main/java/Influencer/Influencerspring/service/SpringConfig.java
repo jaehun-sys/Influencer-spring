@@ -37,6 +37,7 @@ public class SpringConfig {
         return new HashtagService(hashtagRepository());
     }
 
+
     /* 리포지토리 빈 */
     @Bean
     public MemberRepository memberRepository(){

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+   <title>Quantum Able Bootstrap 4 Admin Dashboard Template</title>
+
+   <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+   <!-- Meta -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="codedthemes">
+   <meta name="keywords" content=", Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+   <meta name="author" content="codedthemes">
+
+   <!-- Favicon icon -->
+   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+   <!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+   <!-- themify -->
+   <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+
+   <!-- iconfont -->
+   <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+
+   <!-- Required Fremwork -->
+   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+
+   <!-- simple line icon -->
+   <link rel="stylesheet" type="text/css" href="assets/icon/simple-line-icons/css/simple-line-icons.css">
+
+   <!-- bash syntaxhighlighter css -->
+   <link type="text/css" rel="stylesheet" href="assets/plugins/syntaxhighlighter/styles/shCoreDjango.css" />
+
+   <!-- Style.css -->
+   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+   <!-- Responsive.css-->
+   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+
+
+
+
+</head>
+
+<body class="sidebar-mini fixed">
+   <div class="wrapper">
+      <div class="loader-bg">
+         <div class="loader-bar">
+         </div>
+      </div>
+      <!-- Navbar-->
+       <header th:replace="fragments/header :: header"></header>
+       <!-- Side-Nav-->
+       <aside th:replace="fragments/sideNav :: sideNav"></aside>
+
+       <!-- Sidebar chat start -->
+       <div th:replace="fragments/sideChat :: sideChat"></div>
+      <!-- Sidebar chat end-->
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <div class="container-fluid">
+            <!-- Main content starts -->
+            <div class="tab-list">
+               <!-- Row Starts -->
+               <div class="row">
+                  <div class="col-lg-12 p-0">
+                     <div class="main-header">
+                        <h4>Tabs</h4>
+                        <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                           <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>
+                           </li>
+                           <li class="breadcrumb-item"><a href="#!"> Basic components </a>
+                           </li>
+                           <li class="breadcrumb-item"><a href="tabs.html">Tabs</a>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+               </div>
+               <!-- Row end -->
+               <!-- Row start -->
+               <div class="row">
+                  <div class="col-lg-12">
+                     <!-- Row start -->
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="card">
+                              <!-- Radio-Button start -->
+                              <div class="card-header">
+                                 <h5 class="card-header-text">Bootstrap Tab</h5>
+                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                              </div>
+                              <div class="card-block">
+                                 <!-- Row start -->
+                                 <div class="row">
+                                    <div class="col-lg-6">
+                                       <div class="sub-title">Default
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#default-tab-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="default-tab-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Default Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Default Tabs */
+
+                                                            &lt;ul class="nav nav-tabs  tabs" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home1" role="tab"&gt;Home&lt;a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile1" role="tab"&gt;Profile&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages1" role="tab"&gt;Messages&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings1" role="tab"&gt;Settings&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+
+                                                            /* Tab panes */
+
+                                                            &lt;div class="tab-content tabs"&gt;
+                                                                &lt;div class="tab-pane active" id="home1" role="tabpanel"&gt;
+                                                                    &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                    Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile1" role="tabpanel"&gt;
+                                                                    &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages1" role="tabpanel"&gt;
+                                                                    &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                    Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings1" role="tabpanel"&gt;
+                                                                    &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Nav tabs -->
+
+                                       <ul class="nav nav-tabs  tabs" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Home</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile1" role="tab">Profile</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Messages</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings1" role="tab">Settings</a>
+                                          </li>
+
+                                       </ul>
+                                       <!-- Tab panes -->
+                                       <div class="tab-content tabs">
+                                          <div class="tab-pane active" id="home1" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile1" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages1" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings1" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                       <div class="sub-title">Below Tabs
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#below-tab-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="below-tab-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Below Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                        /* Use For Below Tabs */
+
+                                                            &lt;div class="tab-content tabs"&gt;
+                                                                &lt;div class="tab-pane active" id="home2" role="tabpanel"&gt;
+                                                                    &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                    Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile2" role="tabpanel"&gt;
+                                                                    &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages2" role="tabpanel"&gt;
+                                                                    &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings2" role="tabpanel"&gt;
+                                                                    &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+
+                                                            &lt;ul class="nav nav-tabs tab-below tabs" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home2" role="tab"&gt;Home&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile2" role="tab"&gt;Profile&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages2" role="tab"&gt;Messages&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings2" role="tab"&gt;Settings&lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Tab panes -->
+
+                                       <div class="tab-content tabs">
+                                          <div class="tab-pane active" id="home2" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile2" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages2" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings2" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs tab-below tabs" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home2" role="tab">Home</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile2" role="tab">Profile</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages2" role="tab">Messages</a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings2" role="tab">Settings</a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+
+                                 <!-- Row end -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Row end -->
+                  </div>
+               </div>
+               <!-- Row end -->
+               <!-- Row start -->
+               <div class="row">
+                  <div class="col-lg-12">
+                     <!-- Row start -->
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="card">
+                              <!-- Radio-Button start -->
+                              <div class="card-header">
+                                 <h5 class="card-header-text">Material Tab</h5>
+                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                              </div>
+                              <div class="card-block">
+                                 <!-- Row start -->
+                                 <div class="row m-b-30">
+                                    <div class="col-lg-6">
+                                       <div class="sub-title">Default
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#default-material-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="default-material-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Default Material Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Default Material Tabs */
+
+                                                            &lt;ul class="nav nav-tabs md-tabs" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home3" role="tab"&gt;Home&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile3" role="tab"&gt;Profile&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages3" role="tab"&gt;Messages&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings3" role="tab"&gt;Settings&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+
+                                                            /* Tab panes */
+
+                                                            &lt;div class="tab-content"&gt;
+                                                                &lt;div class="tab-pane active" id="home3" role="tabpanel"&gt;
+                                                                    &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile3" role="tabpanel"&gt;
+                                                                    &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages3" role="tabpanel"&gt;
+                                                                    &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings3" role="tabpanel"&gt;
+                                                                    &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Nav tabs -->
+
+                                       <ul class="nav nav-tabs md-tabs" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home3" role="tab">Home</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile3" role="tab">Profile</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages3" role="tab">Messages</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings3" role="tab">Settings</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                       </ul>
+                                       <!-- Tab panes -->
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="home3" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile3" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages3" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings3" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                       <div class="sub-title">Below Tab
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#below-material-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="below-material-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Below Material Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Below Material Tabs */
+
+                                                            &lt;div class="tab-content"&gt;
+                                                                    &lt;div class="tab-pane active" id="home4" role="tabpanel"&gt;
+                                                                        &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="profile4" role="tabpanel"&gt;
+                                                                        &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="messages4" role="tabpanel"&gt;
+                                                                        &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                            Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="settings4" role="tabpanel"&gt;
+                                                                            &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;p&gt;
+                                                                    &lt;/div&gt;
+                                                            &lt;/div&gt;
+
+                                                            /* Nav tabs */
+
+                                                            &lt;ul class="nav nav-tabs md-tabs" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home4" role="tab"&gt;Home&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile4" role="tab"&gt;Profile&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages4" role="tab"&gt;Messages&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings4" role="tab"&gt;Settings&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Tab panes -->
+
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="home4" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile4" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages4" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings4" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs md-tabs" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home4" role="tab">Home</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile4" role="tab">Profile</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages4" role="tab">Messages</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings4" role="tab">Settings</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                                 <!-- Row end -->
+                                 <!-- Row start -->
+                                 <div class="row">
+                                    <div class="col-lg-6">
+                                       <div class="sub-title">Left Tab
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#left-material-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="left-material-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Left Material Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+                                                            /* Use For Left Material Tab */
+
+                                                            &lt;ul class="nav nav-tabs md-tabs tabs-left b-none" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home5" role="tab"&gt;Home&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile5" role="tab"&gt;Profile&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages5" role="tab"&gt;Messages&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings5" role="tab"&gt;Settings&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+
+                                                            /* Tab panes */
+
+                                                            &lt;div class="tab-content tabs-left-content"&gt;
+                                                                &lt;div class="tab-pane active" id="home5" role="tabpanel"&gt;
+                                                                    &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile5" role="tabpanel"&gt;
+                                                                    &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages5" role="tabpanel"&gt;
+                                                                    &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings5" role="tabpanel"&gt;
+                                                                    &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs md-tabs tabs-left b-none" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home5" role="tab">Home</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile5" role="tab">Profile</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages5" role="tab">Messages</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings5" role="tab">Settings</a>
+                                             <div class="slide"></div>
+                                          </li>
+
+                                       </ul>
+                                       <!-- Tab panes -->
+                                       <div class="tab-content tabs-left-content">
+                                          <div class="tab-pane active" id="home5" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile5" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages5" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings5" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                       <div class="sub-title">Right Tab
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#right-material-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="right-material-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Right Material Tabs </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Right Material Tab */
+
+                                                            &lt;div class="tab-content tabs-right-content"&gt;
+                                                                &lt;div class="tab-pane active" id="home6" role="tabpanel"&gt;
+                                                                    &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile6" role="tabpanel"&gt;
+                                                                    &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages6" role="tabpanel"&gt;
+                                                                    &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings6" role="tabpanel"&gt;
+                                                                    &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+
+                                                          /* Nav tabs */
+
+                                                            &lt;ul class="nav nav-tabs md-tabs tabs-right b-none" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home6" role="tab"&gt;Home&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile6" role="tab"&gt;Profile&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages6" role="tab"&gt;Messages&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings6" role="tab"&gt;Settings&lt;/a&gt;
+                                                                    &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Tab panes -->
+                                       <div class="tab-content tabs-right-content">
+                                          <div class="tab-pane active" id="home6" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile6" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages6" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings6" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs md-tabs tabs-right b-none" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home6" role="tab">Home</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile6" role="tab">Profile</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages6" role="tab">Messages</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings6" role="tab">Settings</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                                 <!-- Row end -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Row end -->
+
+                  </div>
+               </div>
+               <!-- Row start -->
+               <div class="row">
+                  <div class="col-lg-12">
+                     <!-- Row start -->
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="card">
+                              <!-- Radio-Button start -->
+                              <div class="card-header">
+                                 <h5 class="card-header-text">Tab Variant</h5>
+                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                              </div>
+                              <div class="card-block tab-icon">
+                                 <!-- Row start -->
+                                 <div class="row">
+                                    <div class="col-lg-6">
+                                       <!-- <h6 class="sub-title">Tab With Icon</h6> -->
+
+                                       <div class="sub-title">Tab With Icon
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#tab-icon-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="tab-icon-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Tab With Icon </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Tab Icon */
+
+                                                                &lt;ul class="nav nav-tabs md-tabs" role="tablist"&gt;
+                                                                    &lt;li class="nav-item"&gt;
+                                                                       &lt;a class="nav-link active" data-toggle="tab" href="#home7" role="tab"&gt;&lt;i class="icofont icofont-home"&gt;&lt;/i&gt;Home&lt;/a&gt;
+                                                                        &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                    &lt;/li&gt;
+                                                                    &lt;li class="nav-item"&gt;
+                                                                        &lt;a class="nav-link" data-toggle="tab" href="#profile7" role="tab"&gt;&lt;i class="icofont icofont-ui-user"&gt;&lt;/i&gt;Profile&lt;/a&gt;
+                                                                        &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                    &lt;/li&gt;
+                                                                    &lt;li class="nav-item"&gt;
+                                                                        &lt;a class="nav-link" data-toggle="tab" href="#messages7" role="tab"&gt;&lt;i class="icofont icofont-ui-message">&lt;/i&gt;Messages&lt;/a&gt;
+                                                                        &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                    &lt;/li&gt;
+                                                                    &lt;li class="nav-item"&gt;
+                                                                        &lt;a class="nav-link" data-toggle="tab" href="#settings7" role="tab"&gt;&lt;i class="icofont icofont-ui-settings">&lt;/i&gt;Settings&lt;/a&gt;
+                                                                        &lt;div class="slide"&gt;&lt;/div&gt;
+                                                                    &lt;/li&gt;
+                                                                &lt;/ul&gt;
+
+                                                                /* Tab panes */
+
+                                                                &lt;div class="tab-content"&gt;
+                                                                    &lt;div class="tab-pane active" id="home7" role="tabpanel"&gt;
+                                                                        &lt;p&gt;1. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                            Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="profile7" role="tabpanel"&gt;
+                                                                        &lt;p&gt;2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="messages7" role="tabpanel"&gt;
+                                                                        &lt;p&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of&gt;Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                            Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                    &lt;div class="tab-pane" id="settings7" role="tabpanel"&gt;
+                                                                        &lt;p&gt;4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor&gt;interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/div&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs md-tabs " role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home7" role="tab"><i class="icofont icofont-home"></i>Home</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile7" role="tab"><i class="icofont icofont-ui-user "></i>Profile</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages7" role="tab"><i class="icofont icofont-ui-message"></i>Messages</a>
+                                             <div class="slide"></div>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings7" role="tab"><i class="icofont icofont-ui-settings"></i>Settings</a>
+                                             <div class="slide"></div>
+                                          </li>
+
+                                       </ul>
+                                       <!-- Tab panes -->
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="home7" role="tabpanel">
+                                             <p>1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile7" role="tabpanel">
+                                             <p>2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages7" role="tabpanel">
+                                             <p>3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings7" role="tabpanel">
+                                             <p>4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6 tab-with-img">
+
+                                       <div class="sub-title">Tab With Images
+                                          <a href="" class="f-right" data-toggle="modal" data-target="#img-tabs-Modal">
+                                             <i class="icofont icofont-code-alt"></i>
+                                          </a>
+                                       </div>
+
+                                       <div class="modal fade modal-flex" id="img-tabs-Modal" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                   <h5 class="modal-title">Code Explanation for Tab with Images </h5>
+                                                </div>
+                                                <!-- end of modal-header -->
+                                                <div class="modal-body">
+                                                   <pre class="brush: html;">
+
+                                                            /* Use For Tab With Images */
+
+                                                            &lt;ul class="nav nav-tabs md-tabs img-tabs b-none" role="tablist"&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link active" data-toggle="tab" href="#home8" role="tab"&gt;
+                                                                        &lt;img src="assets/images/avatar-1.png" class="img-fluid img-circle" alt=""&gt;
+                                                                        &lt;span class="quote"&gt;&lt;i class="icofont icofont-quote-left bg-primary"&gt;&lt;/i&gt;&lt;/span&gt;
+                                                                    &lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#profile8" role="tab"&gt;
+                                                                        &lt;img src="assets/images/avatar-2.png" class="img-fluid img-circle" alt=""&gt;
+                                                                        &lt;span class="quote"&gt;&lt;i class="icofont icofont-quote-left bg-primary"&gt;&lt;/i&gt;&lt;/span&gt;
+                                                                    &lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                                &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#messages8" role="tab"&gt;
+                                                                        &lt;img src="assets/images/avatar-3.png" class="img-fluid img-circle" alt=""&gt;
+                                                                        &lt;span class="quote"&gt;&lt;i class="icofont icofont-quote-left bg-primary"&gt;&lt;/i&gt;&lt;/span&gt;
+                                                                    &lt;/a&gt;
+                                                                &lt;/li>
+                                                               &lt;li class="nav-item"&gt;
+                                                                    &lt;a class="nav-link" data-toggle="tab" href="#settings8" role="tab"&gt;
+                                                                        &lt;img src="assets/images/avatar-2.png" class="img-fluid img-circle" alt=""&gt;
+                                                                        &lt;span class="quote"&gt;&lt;i class="icofont icofont-quote-left bg-primary"&gt;&lt;/i&gt;&lt;/span&gt;
+                                                                    &lt;/a&gt;
+                                                                &lt;/li&gt;
+                                                            &lt;/ul&gt;
+
+                                                            /* Tab panes */
+
+                                                            &lt;div class="tab-content"&gt;
+                                                                &lt;div class="tab-pane active" id="home8" role="tabpanel"&gt;
+                                                                    &lt;p class="text-center">1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="profile8" role="tabpanel"&gt;
+                                                                    &lt;p class="text-center"&gt;2. Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="messages8" role="tabpanel"&gt;
+                                                                    &lt;p class="text-center"&gt;3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                                                        Aenean mas Cum sociis natoque penatibus et magnis dis.....&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                                &lt;div class="tab-pane" id="settings8" role="tabpanel"&gt;
+                                                                    &lt;p class="text-center"&gt;4. Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.&lt;/p&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        </pre>
+                                                </div>
+                                                <!-- end of modal-body -->
+                                             </div>
+                                             <!-- end of modal-content -->
+                                          </div>
+                                          <!-- end of modal-dialog -->
+                                       </div>
+                                       <!-- end of modal -->
+
+                                       <!-- Nav tabs -->
+                                       <ul class="nav nav-tabs md-tabs img-tabs b-none" role="tablist">
+                                          <li class="nav-item">
+                                             <a class="nav-link active" data-toggle="tab" href="#home8" role="tab">
+                                                <img src="assets/images/avatar-1.png" class="img-fluid img-circle" alt="">
+                                                <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#profile8" role="tab">
+                                                <img src="assets/images/avatar-2.png" class="img-fluid img-circle" alt="">
+                                                <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#messages8" role="tab">
+                                                <img src="assets/images/avatar-3.png" class="img-fluid img-circle" alt="">
+                                                <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item">
+                                             <a class="nav-link" data-toggle="tab" href="#settings8" role="tab">
+                                                <img src="assets/images/avatar-2.png" class="img-fluid img-circle" alt="">
+                                                <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                                             </a>
+
+                                          </li>
+                                       </ul>
+                                       <!-- Tab panes -->
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="home8" role="tabpanel">
+                                             <p class="text-center">1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="profile8" role="tabpanel">
+                                             <p class="text-center">2. Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                          <div class="tab-pane" id="messages8" role="tabpanel">
+                                             <p class="text-center">3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                                                nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                          </div>
+                                          <div class="tab-pane" id="settings8" role="tabpanel">
+                                             <p class="text-center">4. Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!-- Row end -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Row end -->
+                  </div>
+               </div>
+               <!-- loader ends -->
+            </div>
+            <!-- Row end -->
+
+         </div>
+         <!-- Container-fluid ends -->
+      </div>
+   </div>
+
+
+
+   <!-- Warning Section Starts -->
+   <!-- Older IE warning message -->
+   <!--[if lt IE 9]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="assets/images/browser/ie.png" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+   <!-- Warning Section Ends -->
+
+   <!-- Required Jqurey -->
+   <script src="assets/plugins/jquery/dist/jquery.min.js"></script>
+   <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+
+   <!-- Required Fremwork -->
+   <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+   <!-- waves effects.js -->
+   <script src="assets/plugins/Waves/waves.min.js"></script>
+
+   <!-- Scrollbar JS-->
+   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+   <script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+   <!--classic JS-->
+   <script src="assets/plugins/classie/classie.js"></script>
+
+   <!-- notification -->
+   <script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+   <!-- Highliter js -->
+   <script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
+   <script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+   <script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
+   <script type="text/javascript">
+      SyntaxHighlighter.all();
+   </script>
+
+   <!-- custom js -->
+   <script type="text/javascript" src="assets/js/main.min.js"></script>
+   <script type="text/javascript" src="assets/pages/elements.js"></script>
+   <script type="text/javascript" src="assets/js/menu.min.js"></script>
+
+
+</body>
+
+</html>
