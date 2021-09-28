@@ -12,17 +12,17 @@ import javax.persistence.Table;
 @Entity
 public class Hashtag {
     @Id
-    String inf_pk;
+    private String inf_pk;
     @Column(name = "keyword")
-    String keyword;
+    private String keyword;
     @Column(name = "related_rank")
-    String related_rank;
+    private String related_rank;
     @Column(name = "related_hash")
-    String related_hash;
+    private String related_hash;
     @Column(name = "avg_liked")
-    String avg_liked;
+    private String avg_liked;
     @Column(name = "related_username")
-    String related_username;
+    private String related_username;
 
     public String getInf_pk() {
         return inf_pk;

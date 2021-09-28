@@ -16,21 +16,20 @@
 
         <table>
             <h2>* 해시태그 검색</h2>
-            <form action="/hashtag-search" method="GET">
+            <form action="/hashtag_search" method="GET">
                 <input type="text" name="keyword" size=30 placeholder="해시태그를 입력하세요">
                 <button>검색</button>
-
             </form>
             <thead>
             <tr>
                 <th>해시태그</th>
                 <th>연관 해시태그</th>
-                <th>인기 게시물 평균 좋아요</th>+
+                <th>인기 게시물 평균 좋아요</th>
                 <th>연관 인플루언서</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="hashtag : ${hashtag}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+            <tr th:each="hashtag : ${hashtags}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                 <td><span th:text="${hashtag.keyword}"></span></td>
                 <td><span th:text="${hashtag.related_hash}"></span></td>
                 <td><span th:text="${hashtag.avg_liked}"></span></td>

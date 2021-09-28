@@ -3,7 +3,9 @@ package Influencer.Influencerspring.service;
 import Influencer.Influencerspring.domain.Hashtag;
 import Influencer.Influencerspring.domain.InfProfile;
 
+import Influencer.Influencerspring.repository.HashtagRepository;
 import Influencer.Influencerspring.repository.InfluencerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -12,7 +14,6 @@ import java.util.Optional;
 @Transactional
 public class InfluencerService {
 
-//    private static InfluencerRepository influencerRepository;
     private final InfluencerRepository influencerRepository;
 
     public InfluencerService(InfluencerRepository influencerRepository) {
@@ -28,8 +29,5 @@ public class InfluencerService {
         return influencerRepository.findByInf_username(inf_username);
     }
 
-    /* 해시태그 조회 */
-    public Optional<Hashtag> findHashtag(String keyword){
-        return influencerRepository.findByKeyword(keyword);
-    }
+
 }

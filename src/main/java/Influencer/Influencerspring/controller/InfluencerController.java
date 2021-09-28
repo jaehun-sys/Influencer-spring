@@ -4,6 +4,7 @@ import Influencer.Influencerspring.domain.Hashtag;
 import Influencer.Influencerspring.domain.InfFolRate;
 import Influencer.Influencerspring.domain.InfProfile;
 import Influencer.Influencerspring.domain.Member;
+import Influencer.Influencerspring.service.HashtagService;
 import Influencer.Influencerspring.service.InfluencerService;
 import Influencer.Influencerspring.service.MemberService;
 import org.apache.tomcat.util.net.TLSClientHelloExtractor;
@@ -18,30 +19,32 @@ import java.util.Optional;
 @Controller
 public class InfluencerController {
 
-    private final InfluencerService influencerService;
+    private InfluencerService influencerService;
+    private HashtagService hashtagService;
 
     @Autowired
-    public InfluencerController(InfluencerService influencerService) {
+    public InfluencerController(InfluencerService influencerService, HashtagService hashtagService) {
         this.influencerService = influencerService;
+        this.hashtagService = hashtagService;
     }
 
-    @GetMapping("/true-false")
+    @GetMapping("/true_false")
     public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
         model.addAttribute("inf_profile", inf_profile);
-        return "true-false";
+        return "true_false";
     }
 
-    @GetMapping("/hashtag-search")
+    @GetMapping("/hashtag_search")
     public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
-        Optional<Hashtag> hashtag = influencerService.findHashtag(keyword);
-        model.addAttribute("keyword", hashtag);
-        return "hashtag-search";
+        List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
+        model.addAttribute("hashtags", hashtags);
+        return "hashtag_search";
     }
 
-    @GetMapping("/influencer-recommend")
+    @GetMapping("/influencer_recommend")
     public String influencerRecommend(){
-        return "influencer-recommend";
+        return "influencer_recommend";
     }
 
 

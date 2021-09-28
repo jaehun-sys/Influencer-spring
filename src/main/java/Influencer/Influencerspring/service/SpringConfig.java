@@ -1,10 +1,7 @@
 package Influencer.Influencerspring.service;
 
 import Influencer.Influencerspring.repository.*;
-import Influencer.Influencerspring.service.MemberService;
-import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,31 +14,30 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     private EntityManager em;
+    private DataSource dataSource;
 
     @Autowired
-    public SpringConfig(EntityManager em) {
+    public SpringConfig(EntityManager em, DataSource dataSource) {
         this.em = em;
-    }
-
-/*
-
-    private final DataSource dataSource;
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-*/
 
+
+    /* 서비스 빈 */
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
     }
-
     @Bean
     public InfluencerService influencerService(){
         return new InfluencerService(influencerRepository());
     }
+    @Bean
+    public HashtagService hashtagService(){
+        return new HashtagService(hashtagRepository());
+    }
 
+    /* 리포지토리 빈 */
     @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
@@ -49,9 +45,12 @@ public class SpringConfig {
 //        return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
     }
-
     @Bean
     public InfluencerRepository influencerRepository(){
         return new JpaInfluencerRepository(em);
+    }
+    @Bean
+    public HashtagRepository hashtagRepository(){
+        return new JdbcTemplateHashtagRepository(dataSource);
     }
 }

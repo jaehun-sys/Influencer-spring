@@ -241,6 +241,19 @@ create table INF_TEXT(
 )default CHARSET=UTF8MB4 collate UTF8MB4_UNICODE_CI;
 
 
+#회원
+create table MEMBER(
+	MEMBERNO BIGINT      not null auto_increment COMMENT '멤버 번호'  	,
+	MEMBERID VARCHAR(30) not null 				 COMMENT '아이디'   	,
+	NAME     VARCHAR(30) not null 				 COMMENT '이름'    	,
+	NICKNAME VARCHAR(30) not null 				 COMMENT '닉네임'   	,
+	PASSWORD VARCHAR(50) not null 				 COMMENT '패스워드'  	,
+	EMAIL    VARCHAR(40) null     				 COMMENT '이메일주소'  ,
+	BIRTHDAY VARCHAR(20) null 				 	 COMMENT '생일'     	,
+	MEM_SEX  CHAR(1) 	 null 					 COMMENT '성별'		,
+	PHONENO  VARCHAR(11) null 				 	 COMMENT '휴대전화번호'	,
+	primary KEY(memberNo, MEMBERID)
+)default CHARSET=UTF8MB4 collate UTF8MB4_UNICODE_CI;
 
 #해시태그(테이블 새로 만들기)
 CREATE TABLE HASHTAG(
@@ -252,3 +265,4 @@ CREATE TABLE HASHTAG(
 	RELATED_USERNAME VARCHAR(50) NULL			COMMENT '인플루언서 USERNAME'  	,
 	PRIMARY KEY(INF_PK,RELATED_HASH)
 )DEFAULT CHARSET=UTF8MB4 collate UTF8MB4_UNICODE_CI;
+
