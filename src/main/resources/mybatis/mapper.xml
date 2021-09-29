@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-
+//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Influencer.Influencerspring.mapper.InfluencerMapper">
+    <select id="filteringList" resultType="Influencer.Influencerspring.domain.InfProEngTex">
+        select 				RANK() over (order by ie.avg_post desc) as RANKNO,
+        ip.PIC_URL		 					 	as PIC,
+        ip.INF_USERNAME 						as USERNAME,
+        ip.BIO 									as BIO,
+        ip.CAT 									as CAT,
+        ie.ALL_FEED_AVG 						as REACTION,
+        ie.AVG_POST 							as PARTICIPATE,
+        ip.FOL_COUNT 							as FOLLOWERS
+        from				inf_profile ip
+        left outer join		inf_engage ie
+        on				    ip.INF_PK = ie.INF_PK
+        left outer join		inf_text it
+        on				    ie.INF_PK = it.INF_PK
+        where  				ip.CAT = '패션'
+        #and				it.word like '%겨울%'
+        and				ip.INF_SEX = 'M'				#인플루언서 성별 여
+        and 			ip.inf_age between 20 and 30	#인플루언서 연령
+        and				ie.RATE_SEX_F < 50				#오디언스 성별 남
+        and 			ie.AVG_AGE between 20 and 30    #오디언스 연령
+        ;
+    </select>
+</mapper>

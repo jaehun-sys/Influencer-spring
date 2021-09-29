@@ -1,31 +1,36 @@
 package Influencer.Influencerspring.controller;
 
-import Influencer.Influencerspring.domain.Hashtag;
-import Influencer.Influencerspring.domain.InfFolRate;
-import Influencer.Influencerspring.domain.InfProfile;
-import Influencer.Influencerspring.domain.Member;
+import Influencer.Influencerspring.domain.*;
+import Influencer.Influencerspring.service.FilteringListService;
 import Influencer.Influencerspring.service.HashtagService;
 import Influencer.Influencerspring.service.InfluencerService;
-import Influencer.Influencerspring.service.MemberService;
-import org.apache.tomcat.util.net.TLSClientHelloExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class InfluencerController {
 
+
+    private FilteringListService filteringListService;
     private InfluencerService influencerService;
     private HashtagService hashtagService;
 
     @Autowired
-    public InfluencerController(InfluencerService influencerService, HashtagService hashtagService) {
+    public InfluencerController(InfluencerService influencerService, HashtagService hashtagService, FilteringListService filteringListService) {
         this.influencerService = influencerService;
         this.hashtagService = hashtagService;
+        this.filteringListService = filteringListService;
+    }
+
+    @GetMapping("/fake-real")
+    public String trueFalseResult1(){//@RequestParam(value="username", required=false) String username, Model model) throws Exception{
+//        List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+//        model.addAttribute("inf_profile", inf_profile);
+        return "fake-real";
     }
 
     @GetMapping("/true_false")
@@ -43,7 +48,30 @@ public class InfluencerController {
     }
 
     @GetMapping("/influencer_recommend")
-    public String influencerRecommend(){
+    public String influencerRecommend(@RequestAttribute InfProEngTex ipet, Model model ){
+
+        /* 입력 변수 */
+        System.out.println("카테고리   : "+ipet.getIncat());
+        System.out.println("성별      : "+ipet.getInsex());
+        System.out.println("인 최소나이: "+ipet.getMin_age());
+        System.out.println("인 최대나이: "+ipet.getMax_age());
+        System.out.println("오 최소나이: "+ipet.getAud_min_age());
+        System.out.println("오 최대나이: "+ipet.getAud_max_age());
+        System.out.println("인 나이구간: "+ipet.getInf_minmax());
+        System.out.println("오 나이구간: "+ipet.getAud_minmax());
+
+        /* 출력 변수 */
+        System.out.println("순위   : "+ipet.getRankno());
+        System.out.println("프사   : "+ipet.getPic());
+        System.out.println("계정명 : "+ipet.getUsername());
+        System.out.println("바이오 : "+ipet.getBio());
+        System.out.println("카테고리: "+ipet.getCat());
+        System.out.println("반응도 : "+ipet.getReaction());
+        System.out.println("활성도 : "+ipet.getActivity());
+        System.out.println("팔로워 : "+ipet.getFollowers());
+
+        model.addAttribute("list",filteringListService.filteringList(ipet));
+
         return "temp/influencer_recommend";
     }
 
