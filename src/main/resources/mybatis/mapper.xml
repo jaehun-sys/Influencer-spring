@@ -18,10 +18,10 @@
         where  				ip.cat = #{inputCat}
 
         <choose>
-            <when test="inputInfSex.equals('F')">
+            <when test='inputInfSex.equals("F")'>
                 and				ip.inf_sex = 'F'			#인플루언서 성별 여
             </when>
-            <when test="inputInfSex.equals('M')">
+            <when test='inputInfSex.equals("M")'>
                 and				ip.inf_sex = 'M'			#인플루언서 성별 남
             </when>
             <otherwise>
@@ -29,19 +29,19 @@
             </otherwise>
         </choose>
         <choose>
-            <when test="inputInfAge.equals('10~20')">
+            <when test='inputInfAge.equals("10~20")'>
                 and 			ip.inf_age between 10 and 20	#인플루언서 연령
             </when>
-            <when test="inputInfAge.equals('20~30')">
+            <when test='inputInfAge.equals("20~30")'>
                 and 			ip.inf_age between 20 and 30	#인플루언서 연령
             </when>
-            <when test="inputInfAge.equals('30~40')">
+            <when test='inputInfAge.equals("30~40")'>
                 and 			ip.inf_age between 30 and 40	#인플루언서 연령
             </when>
-            <when test="inputInfAge.equals('40~50')">
+            <when test='inputInfAge.equals("40~50")'>
                 and 			ip.inf_age between 40 and 50	#인플루언서 연령
             </when>
-            <when test="inputInfAge.equals('50+')">
+            <when test='inputInfAge.equals("50+")'>
                 and 			ip.inf_age between 50 and 150	#인플루언서 연령
             </when>
             <otherwise>
@@ -50,10 +50,10 @@
         </choose>
 
         <choose>
-            <when test="inputAudSex.equals('F')">
+            <when test='inputAudSex.equals("F")'>
                 and				ie.rate_sex_f between 50 and 100			#오디언스 성별 여
             </when>
-            <when test="inputAudSex.equals('M')">
+            <when test='inputAudSex.equals("M")'>
                 and				ie.rate_sex_f between 0 and 50				#오디언스 성별 남
             </when>
             <otherwise>
@@ -61,19 +61,19 @@
             </otherwise>
         </choose>
         <choose>
-            <when test="inputAudAge.equals('10~20')">
+            <when test='inputAudAge.equals("10~20")'>
                 and 			ie.avg_age between 10 and 20	#오디언스 연령
             </when>
-            <when test="inputAudAge.equals('20~30')">
+            <when test='inputAudAge.equals("20~30")'>
                 and 			ie.avg_age between 20 and 30	#오디언스 연령
             </when>
-            <when test="inputAudAge.equals('30~40')">
+            <when test='inputAudAge.equals("30~40")'>
                 and 			ie.avg_age between 30 and 40	#오디언스 연령
             </when>
-            <when test="inputAudAge.equals('40~50')">
+            <when test='inputAudAge.equals("40~50")'>
                 and 			ie.avg_age between 40 and 50	#오디언스 연령
             </when>
-            <when test="inputAudAge.equals('50+')">
+            <when test='inputAudAge.equals("50+")'>s
                 and 			ie.avg_age between 50 and 150	#오디언스 연령
             </when>
             <otherwise>

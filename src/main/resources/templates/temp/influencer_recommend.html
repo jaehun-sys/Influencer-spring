@@ -100,32 +100,32 @@
             <tbody>
             <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                 <a th:href = "@{Detail(username = ${ipet.username})}">
-                <td><span th:text="${ipet.rankno}"></span>순위</td>
+                <td><span th:text="${ipet.rankno}"></span></td>
 
 
-                <td><span th:text="${ipet.pic}">프사</span></td>   <!-- 얘랑 -->
+                <td><span th:text="${ipet.pic}"></span></td>   <!-- 얘랑 -->
                 <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
                 <!--둘째줄 왼쪽 시작 테이블-->
                     <table style="margin:auto; border:1px solid #444444;">
                         <tr>
                             <td>
 <!--                                계정명-->
-                                <span th:text="${ipet.username}">계정명</span>
+                                <span th:text="${ipet.username}"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>
 <!--                                바이오-->
-                                <span th:text="${ipet.bio}">바이오</span>
+                                <span th:text="${ipet.bio}"></span>
                             </td>
                         </tr>
                     </table>
                <!--둘째줄 왼쪽 끝 테이블-->
                 </td>
-                <td><a th:href = "@{/Detail(username = ${ipet.username})}"><span th:text="${ipet.reaction}"></span>반응도</a></td>
-                <td><span th:text="${ipet.activity}"></span>활성도</td>
-                <td><span th:text="${ipet.followers}"></span>팔로워</td>
-                <td><span th:text="${ipet.cat}"></span>카테고리</td>
+                <td><a th:href = "@{/Detail(username = ${ipet.username})}"><span th:text="${ipet.reaction}"></span></a></td>
+                <td><span th:text="${ipet.activity}"></span></td>
+                <td><span th:text="${ipet.followers}"></span></td>
+                <td><span th:text="${ipet.cat}"></span></td>
                 <!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
                 </a>
             </tr>
