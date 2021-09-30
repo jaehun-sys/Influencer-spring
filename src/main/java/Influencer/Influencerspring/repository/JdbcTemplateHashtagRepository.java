@@ -29,7 +29,6 @@ public class JdbcTemplateHashtagRepository implements HashtagRepository{
         return resultList;
     }
 
-
     private RowMapper<Hashtag> hashtagRowMapper(){
         return (rs, rowNum) -> {
             Hashtag hashtag = new Hashtag();

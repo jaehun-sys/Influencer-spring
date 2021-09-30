@@ -4,57 +4,130 @@
     <meta charset="UTF-8">
     <title>인플루언서 추천</title>
 </head>
+<script th:inline="javascript">
+  /*
+    <![CDATA[*/
+      let ddd = /*[[${List}]]*/ 'default';
+      console.log(ddd[0].pic);
+      console.log(ddd[0].username);
+      console.log(ddd[0].bio);
+    /*]]>
+  */
+</script>
 <body>
 <div class="container">
     <div>
 
-        <table>
+
             <h2>* 인플루언서 추천</h2>
-            <form action="/influencer_recommend" method="GET">
-                <input type="text" name="username" size=30 placeholder="인플루언서 계정을 입력하세요">
-                <select name="job">
-                    <option value="">직업선택</option>
-                    <option value="학생">학생</option>
-                    <option value="회사원">회사원</option>
-                    <option value="기타">기타</option>
+            <form action="/2" method="GET">
+
+                <!-- 켐페인 선택 -->
+                <span>캠페인선택</span>
+                <select name="inputCat">
+                    <option value="여행">여행</option>
+                    <option value="뷰티">뷰티</option>
+                    <option value="홈러빙">홈러빙</option>
+                    <option value="키즈">키즈</option>
+                    <option value="푸드">푸드</option>
+                    <option value="패션">패션</option>
+                    <option value="디지털">디지털</option>
+                    <option value="예술">예술</option>
+                    <option value="동물">동물</option>
                 </select>
-                <button>검색</button>
+<!--                <form>-->
+<!--                    &lt;!&ndash; 켐페인 관련 키워드 &ndash;&gt;-->
+<!--                    <span>캠페인 관련 키워드</span>-->
+<!--                    <input type="text" name="keyword" size=60 placeholder="켐페인 관련 키워드를 입력하세요">-->
+<!--                </form>-->
+                <!-- 인플루언서 성별 -->
+                <span>인플루언서 성별</span>
+                <select name="inputInfSex">
+                    <option value="전체">전체</option>
+                    <option value="F">여성</option>
+                    <option value="M">남성</option>
+                </select>
+                <!-- 인플루언서 연령 -->
+                <span>인플루언서 연령</span>
+                <select name="inputInfAge">
+                    <option value="전체">전체</option>
+                    <option value="10~20">10~20</option>
+                    <option value="20~30">20~30</option>
+                    <option value="30~40">30~40</option>
+                    <option value="40~50">40~50</option>
+                    <option value="50+">50+</option>
+                </select>
+                <!-- 오디언스 성별 -->
+                <span>오디언스 성별</span>
+                <select name="inputAudSex">
+                    <option value="전체">전체</option>
+                    <option value="F">여성</option>
+                    <option value="M">남성</option>
+                </select>
+                <!-- 오디언스 연령 -->
+                <span>오디언스 연령</span>
+                <select name="inputAudAge">
+                    <option value="전체">전체</option>
+                    <option value="10~20">10~20</option>
+                    <option value="20~30">20~30</option>
+                    <option value="30~40">30~40</option>
+                    <option value="40~50">40~50</option>
+                    <option value="50+">50+</option>
+                </select>
+
+                <button>추천</button>
                 <!--                <input type="submit" value="검색">-->
             </form>
-            <thead>
+
+
+
+
+
+        <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse;">
+            <thead >
             <tr>
                 <th>순위</th>
-                <th>프로필 정보</th>
+
+                <th colspan="2">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
+
+                <th>반응도</th>
+                <th>활성도</th>
                 <th>팔로워</th>
-                <th>팔로잉</th>
-                <th>진짜 팔로워</th>
-                <!--                <th>진짜 팔로워 비율</th>-->
+                <th>카테고리</th>
+
             </tr>
             </thead>
             <tbody>
-            <tr th:each="inf_profile : ${inf_profile}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                <td><span th:text="${inf_profile.inf_username}"></span></td>
-                <td>
-                    <span th:text="${inf_profile.pic_url}"></span>
+            <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                <a th:href = "@{Detail(username = ${ipet.username})}">
+                <td><span th:text="${ipet.rankno}"></span>순위</td>
+
+
+                <td><span th:text="${ipet.pic}">프사</span></td>   <!-- 얘랑 -->
+                <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
                 <!--둘째줄 왼쪽 시작 테이블-->
-                    <table border="1" width="200" height="100">
+                    <table style="margin:auto; border:1px solid #444444;">
                         <tr>
                             <td>
 <!--                                계정명-->
+                                <span th:text="${ipet.username}">계정명</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
 <!--                                바이오-->
+                                <span th:text="${ipet.bio}">바이오</span>
                             </td>
                         </tr>
                     </table>
                <!--둘째줄 왼쪽 끝 테이블-->
                 </td>
-                <td><span th:text="${inf_profile.fol_count}"></span></td>
-                <td><span th:text="${inf_profile.folwing_count}"></span></td>
-                <td><span th:text="${inf_profile.real_fol_count}"></span></td>
+                <td><a th:href = "@{/Detail(username = ${ipet.username})}"><span th:text="${ipet.reaction}"></span>반응도</a></td>
+                <td><span th:text="${ipet.activity}"></span>활성도</td>
+                <td><span th:text="${ipet.followers}"></span>팔로워</td>
+                <td><span th:text="${ipet.cat}"></span>카테고리</td>
                 <!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
+                </a>
             </tr>
             </tbody>
         </table>

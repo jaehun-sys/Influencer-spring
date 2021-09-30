@@ -1,7 +1,6 @@
 package Influencer.Influencerspring.domain;
 
-public class InfProEngTex {
-    /* 출력 변수 */
+public class FilterResult {
     private int rankno;
     private String pic;
     private String username;
@@ -10,13 +9,6 @@ public class InfProEngTex {
     private String reaction;
     private String activity;
     private String followers;
-
-    /* 입력(조건) 변수 */
-    private String inputCat;
-    private String inputInfAge;
-    private String inputInfSex;
-    private String inputAudSex;
-    private String inputAudAge;
 
     public int getRankno() {
         return rankno;
@@ -80,45 +72,5 @@ public class InfProEngTex {
 
     public void setFollowers(String followers) {
         this.followers = followers;
-    }
-
-    public String getInputCat() {
-        return inputCat;
-    }
-
-    public void setInputCat(String inputCat) {
-        this.inputCat = inputCat;
-    }
-
-    public String getInputInfAge() {
-        return inputInfAge;
-    }
-
-    public void setInputInfAge(String inputInfAge) {
-        this.inputInfAge = inputInfAge;
-    }
-
-    public String getInputInfSex() {
-        return inputInfSex;
-    }
-
-    public void setInputInfSex(String inputInfSex) {
-        this.inputInfSex = inputInfSex;
-    }
-
-    public String getInputAudSex() {
-        return inputAudSex;
-    }
-
-    public void setInputAudSex(String inputAudSex) {
-        this.inputAudSex = inputAudSex;
-    }
-
-    public String getInputAudAge() {
-        return inputAudAge;
-    }
-
-    public void setInputAudAge(String inputAudAge) {
-        this.inputAudAge = inputAudAge;
     }
 }
