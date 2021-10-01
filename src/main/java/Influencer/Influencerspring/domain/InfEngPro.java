@@ -7,7 +7,7 @@ public class InfEngPro {
     /* 출력 변수 */
     private String pic;
     private String bio;
-    private String cat;
+    private String category;
     private String feeds;
     private String followers;
     private String followings;
@@ -42,12 +42,12 @@ public class InfEngPro {
         this.bio = bio;
     }
 
-    public String getCat() {
-        return cat;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCat(String cat) {
-        this.cat = cat;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getFeeds() {

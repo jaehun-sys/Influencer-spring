@@ -7,7 +7,95 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>상세 페이지</title>
 </head>
+<script th:inline="javascript">
+  /*
+    <![CDATA[*/
+      let ddd = /*[[${userinfo}]]*/ 'default';
+      console.log(ddd[0].username);
+      console.log(ddd[0].bio);
+      console.log(ddd[0].category);
+      console.log(ddd[0].feeds);
+      console.log(ddd[0].followers);
+      console.log(ddd[0].followings);
+    /*]]>
+  */
+</script>
 <body>
     <h1>상세 페이지 랍니다!!</h1>
+    <div class="container">
+        <div>
+            <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse;">
+                <thead >
+                <tr>
+                    <th colspan="2">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
+                                                                            <!-- username, bio, pic -->
+                    <th>카테고리</th>                                       <!-- category -->
+                    <th>게시물 수</th>                                        <!-- feeds -->
+                    <th>팔로워</th>                                           <!-- followers -->
+                    <th>팔로윙</th>                                            <!--followings-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="inf : ${userinfo}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                        <td>
+                            <p><img th:src="|pics/${inf.username}.jpg|"></p>        <!-- 얘랑(프사) -->
+                        </td>
+                        <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
+                            <!--둘째줄 왼쪽 시작 테이블-->
+                            <table style="margin:auto; border:1px solid #444444;">
+                                <tr>
+                                    <td>
+                                        <!--                                계정명-->
+                                        <strong>
+                                                <span th:text="${inf.username}"></span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <!--                                바이오-->
+                                        <span th:text="${inf.bio}"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!--둘째줄 왼쪽 끝 테이블-->
+                        </td>
+                        <td><span th:text="${inf.category}"></span></td>
+                        <td><span th:text="${inf.feeds}"></span></td>
+                        <td><span th:text="${inf.followers}"></span></td>
+                        <td><span th:text="${inf.followings}"></span></td>
+                        <!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
+                    </a>
+                </tr>
+                </tbody>
+            </table>
+            <h2>분석 용약</h2>
+            <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse;">
+                <thead>
+                <tr>
+                    <th colspan="2">진짜 팔로워</th>             <!-- real_min 랑 real_max -->
+                    <th>반응도</th>                              <!--reaction-->
+                    <th>활성도</th>                              <!--activity-->
+                    <th colspan="2">보유 오디언스</th>             <!--avg_age 랑 aud_sex-->
+                    <th>팔로워 유형</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="inf : ${userinfo}">
+                    <td><span>최소 </span><span th:text="${inf.real_min}"></span></td>        <!-- 진짜 팔로워 -->
+                    <td><span>최대 </span><span th:text="${inf.real_max}"></span></td>        <!-- 진짜 팔로워 -->
+                    <td><span th:text="${inf.reaction}"></span></td>        <!-- 반응도 -->
+                    <td><span th:text="${inf.activity}"></span></td>        <!-- 활성도 -->
+                    <td><span>평균 </span><span th:text="${inf.avg_age}"></span><span>세</span></td>        <!-- 보유 오디언스 -->
+                    <td><span th:text="${inf.aud_sex}"></span></td>        <!-- 보유 오디언스 -->
+                    <td>사진</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div> <!-- /container -->
+
+
 </body>
 </html>

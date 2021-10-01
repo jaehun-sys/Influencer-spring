@@ -76,7 +76,14 @@ public class InfluencerController {
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
-            System.out.println(String.valueOf(filterResults.get(i)));
+            System.out.println("순위: "+String.valueOf(filterResults.get(i).getRankno()));
+            System.out.println("계정명: "+String.valueOf(filterResults.get(i).getUsername()));
+            System.out.println("바이오: "+String.valueOf(filterResults.get(i).getBio()));
+            System.out.println("카테고리: "+String.valueOf(filterResults.get(i).getCat()));
+            System.out.println("팔로워수: "+String.valueOf(filterResults.get(i).getFollowers()));
+            System.out.println("활성도: "+String.valueOf(filterResults.get(i).getActivity()));
+            System.out.println("반응도: "+String.valueOf(filterResults.get(i).getReaction()));
+
         }
 
         model.addAttribute("List",filteringListService.filterResults(form));
@@ -87,6 +94,23 @@ public class InfluencerController {
     @GetMapping("/Detail")
     public String Detail(@RequestParam("username") String username, Model model){
         System.out.println("상세페이지로 갈 username: " + username);
+
+        List<InfEngPro> result = filteringListService.details(username);
+        for(int i=0; i<result.size(); i++){
+            System.out.println(i+"계정명: "+result.get(i).getUsername());
+            System.out.println(i+"오디성별: "+result.get(i).getAud_sex());
+            System.out.println(i+"활성도: "+result.get(i).getActivity());
+            System.out.println(i+"바이오: "+result.get(i).getBio());
+            System.out.println(i+"오디연령: "+result.get(i).getAvg_age());
+            System.out.println(i+"카테고리: "+result.get(i).getCategory());
+            System.out.println(i+"피드수: "+result.get(i).getFeeds());
+            System.out.println(i+"팔로워수: "+result.get(i).getFollowers());
+            System.out.println(i+"팔로윙수: "+result.get(i).getFollowings());
+            System.out.println(i+"반응도: "+result.get(i).getReaction());
+            System.out.println(i+"진짜최소: "+result.get(i).getReal_min());
+            System.out.println(i+"진짜최대: "+result.get(i).getReal_max());
+        }
+        model.addAttribute("userinfo", filteringListService.details(username));
 
         return "temp/Detail";
     }

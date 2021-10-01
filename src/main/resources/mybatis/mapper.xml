@@ -73,7 +73,7 @@
             <when test='inputAudAge.equals("40~50")'>
                 and 			ie.avg_age between 40 and 50	#오디언스 연령
             </when>
-            <when test='inputAudAge.equals("50+")'>s
+            <when test='inputAudAge.equals("50+")'>
                 and 			ie.avg_age between 50 and 150	#오디언스 연령
             </when>
             <otherwise>

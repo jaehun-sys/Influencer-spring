@@ -8,9 +8,11 @@
   /*
     <![CDATA[*/
       let ddd = /*[[${List}]]*/ 'default';
-      console.log(ddd[0].pic);
+      console.log(ddd[0].cat);
       console.log(ddd[0].username);
       console.log(ddd[0].bio);
+      console.log(ddd[0].reaction);
+      console.log(ddd[0].activity);
     /*]]>
   */
 </script>
@@ -23,7 +25,7 @@
             <form action="/2" method="GET">
 
                 <!-- 켐페인 선택 -->
-                <span>캠페인선택</span>
+                <span>캠페인 선택</span>
                 <select name="inputCat">
                     <option value="">전체</option>
                     <option value="여행">여행</option>
@@ -36,13 +38,8 @@
                     <option value="예술">예술</option>
                     <option value="동물">동물</option>
                 </select>
-<!--                <form>-->
-<!--                    &lt;!&ndash; 켐페인 관련 키워드 &ndash;&gt;-->
-<!--                    <span>캠페인 관련 키워드</span>-->
-<!--                    <input type="text" name="keyword" size=60 placeholder="켐페인 관련 키워드를 입력하세요">-->
-<!--                </form>-->
                 <!-- 인플루언서 성별 -->
-                <span>인플루언서 성별</span>
+                <span style="line-height:200%;">인플루언서 성별</span>
                 <select name="inputInfSex">
                     <option value="전체">전체</option>
                     <option value="F">여성</option>
@@ -80,8 +77,50 @@
                 <!--                <input type="submit" value="검색">-->
             </form>
 
+            <!--캠페인 관련 키워드 start-->
+<!--            <form style="float:left;">-->
+                <span>캠페인 관련 키워드</span>
+                <input type="text" name="keyword" size=40 placeholder="켐페인 관련 키워드를 입력하세요">
+<!--            </form>-->
+            <!--캠페인 관련 키워드 end-->
+            <!-- 가중치 start -->
+<!--            <form action="" method="">-->
+                <table style="float:left;">
+                    <thead>
+                    <tr>
+                        <th>
+                            <span>진짜팔로워</span>
+                        </th>
+                        <th>
+                            <span>반응도</span>
+                        </th>
+                        <th>
+                            <span>활성도</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="range" min="0" max="10" id="fo-in">
+                            <div id="fo-out" ></div>
+                        </td>
+                        <td>
+                            <input type="range" min="0" max="10" id="re-in">
+                            <div id="re-out" ></div>
+                        </td>
+                        <td>
+                            <input type="range" min="0" max="10" id="ac-in">
+                            <div id="ac-out"></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button style="float:left; line-height:200%;">입력</button>
+<!--            </form>-->
+            <!-- 가중치 end -->
 
-        <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse;">
+        <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse; ">
             <thead >
             <tr>
                 <th>순위</th>
@@ -97,7 +136,6 @@
             </thead>
             <tbody>
             <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                <a th:href = "@{Detail(username = ${ipet.username})}">
                 <td><span th:text="${ipet.rankno}"></span></td>
 
 
@@ -138,6 +176,16 @@
 
     </div>
 </div> <!-- /container -->
-
+<script>
+        document.querySelector('#fo-in').addEventListener('input',e=>{
+            document.querySelector('#fo-out').innerHTML= e.target.value;
+        });
+        document.querySelector('#re-in').addEventListener('input',e=>{
+            document.querySelector('#re-out').innerHTML= e.target.value;
+        });
+        document.querySelector('#ac-in').addEventListener('input',e=>{
+            document.querySelector('#ac-out').innerHTML= e.target.value;
+        });
+    </script>
 </body>
 </html>

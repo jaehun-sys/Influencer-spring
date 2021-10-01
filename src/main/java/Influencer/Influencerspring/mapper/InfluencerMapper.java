@@ -17,6 +17,6 @@ public interface InfluencerMapper {
     List<InfProEngTex> filterResults(InfProEngTex ipet);
 
     /* 상세 페이지 */
-    List<InfEngPro> details(InfEngPro iep);
+    List<InfEngPro> details(String username);
 
 }

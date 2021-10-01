@@ -23,7 +23,7 @@ public class FilteringListService {
     }
 
     /* 상세 페이지 */
-    public List<InfEngPro> details(InfEngPro iep){
-        return influencerMapper.details(iep);
+    public List<InfEngPro> details(String username){
+        return influencerMapper.details(username);
     }
 }
