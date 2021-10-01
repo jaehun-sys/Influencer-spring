@@ -2,6 +2,7 @@ package Influencer.Influencerspring.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
@@ -10,11 +11,6 @@ public class HomeController {
     @GetMapping("/")
     public String home(){   //우선 지금은 로그인창을 홈 화면으로 했음 2021-09-14
         return "temp/home";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "temp/login";
     }
 
     @GetMapping("/1")

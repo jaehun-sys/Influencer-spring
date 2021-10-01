@@ -38,8 +38,13 @@
                 <tbody>
                 <tr th:each="inf : ${userinfo}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                         <td>
-                            <p><img th:src="|pics/${inf.username}.jpg|"></p>        <!-- 얘랑(프사) -->
-                        </td>
+                            <p><img th:src="|pics/${inf.username}.jpg|"style="width:150px; height:150px; object-filter:cover;
+                                                                                    border: 3px solid gold;
+                                                                                    border-radius: 7px;
+                                                                                    -moz-border-radius: 160px;
+                                                                                    -khtml-border-radius: 160px;
+                                                                                    -webkit-border-radius: 160px;"></p>
+                        </td>                                                        <!-- 얘랑(프사) -->
                         <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
                             <!--둘째줄 왼쪽 시작 테이블-->
                             <table style="margin:auto; border:1px solid #444444;">

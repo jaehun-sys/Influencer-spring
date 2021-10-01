@@ -21,6 +21,11 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+    /* 로그인 */
+    public Optional<Member> findMemberId(String memberid){
+        return memberRepository.findByMemberid(memberid);
+    }
+
     /* 회원 가입 */
     public Long join(Member member) {
         //같은 이름이 있는 중복 회원X
