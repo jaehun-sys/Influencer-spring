@@ -16,6 +16,11 @@
     /*]]>
   */
 </script>
+<style>
+    #rowbtn:hover{
+        background-color: #BBDEFB;
+    }
+</style>
 <body>
 <div class="container">
 
@@ -143,10 +148,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                <tr th:each="ipet : ${List}" style="cursor:pointer;" id="rowbtn" th:onclick="|location.href='@{/Detail(username = ${ipet.username})}'|"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                     <td><span th:text="${ipet.rankno}"></span></td>
                     <td>
-                        <p><img th:src="|pics/${ipet.username}.jpg|"></p>        <!-- 얘랑 -->
+                        <p><img th:src="|/pics/${ipet.username}.jpg|"></p>     <!-- 얘랑 -->
                     </td>
                     <td>                                                         <!-- 얘를 표 thead 하나 같이 씀(합침)-->
                     <!--둘째줄 왼쪽 시작 테이블-->
@@ -155,7 +160,7 @@
                                 <td>
     <!--                                계정명-->
                                     <strong>
-                                        <a th:href = "@{/Detail(username = ${ipet.username})}">
+                                        <a> <!-- <a th:href = "@{/Detail(username = ${ipet.username})}"> -->
                                         <span th:text="${ipet.username}"></span>
                                         </a>
                                     </strong>
