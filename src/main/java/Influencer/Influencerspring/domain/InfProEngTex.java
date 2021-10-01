@@ -11,12 +11,50 @@ public class InfProEngTex {
     private String activity;
     private String followers;
 
+    /* 연산할 변수 */
+    private String realInf;
+
     /* 입력(조건) 변수 */
     private String inputCat;
     private String inputInfAge;
     private String inputInfSex;
     private String inputAudSex;
     private String inputAudAge;
+    private double rf_weight;
+    private double re_weight;
+    private double ac_weight;
+
+    public double getRf_weight() {
+        return rf_weight;
+    }
+
+    public void setRf_weight(double rf_weight) {
+        this.rf_weight = rf_weight;
+    }
+
+    public double getRe_weight() {
+        return re_weight;
+    }
+
+    public void setRe_weight(double re_weight) {
+        this.re_weight = re_weight;
+    }
+
+    public double getAc_weight() {
+        return ac_weight;
+    }
+
+    public void setAc_weight(double ac_weight) {
+        this.ac_weight = ac_weight;
+    }
+
+    public String getRealInf() {
+        return realInf;
+    }
+
+    public void setRealInf(String realInf) {
+        this.realInf = realInf;
+    }
 
     public int getRankno() {
         return rankno;

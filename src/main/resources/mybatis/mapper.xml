@@ -4,14 +4,17 @@
 
 <mapper namespace="Influencer.Influencerspring.mapper.InfluencerMapper">
     <select id="filterResults" resultType="Influencer.Influencerspring.domain.InfProEngTex">
-        select 				RANK() over (order by ie.avg_post desc) as rankno,
-        ip.PIC_URL		 					 	as pic,
-        ip.INF_USERNAME 						as username,
-        ip.BIO 									as bio,
-        ip.CAT 									as cat,
-        ie.ALL_FEED_AVG 						as reaction,
-        ie.AVG_POST 							as activity,
-        ip.FOL_COUNT 							as followers
+        select
+        RANK() over (order by realInf desc)        					    as rankno,
+        ip.INF_USERNAME 						                        as username,
+        round(	ie.REAL_FOL_MAX * #{rf_weight} +
+                ie.ALL_FEED_AVG * #{re_weight} +
+                ie.AVG_POST     * #{ac_weight}, 1)              		as realInf,
+        ip.BIO 									                        as bio,
+        ip.CAT 									                        as cat,
+        ie.ALL_FEED_AVG 						                        as reaction,
+        ie.AVG_POST 							                        as activity,
+        ip.FOL_COUNT 							                        as followers
         from				inf_profile ip
         left outer join		inf_engage ie
         on				    ip.inf_pk = ie.inf_pk
@@ -84,7 +87,7 @@
     </select>
 
     <select id="details" resultType="Influencer.Influencerspring.domain.InfEngPro">
-        select				ip.PIC_URL 				as pic,
+        select
                             ip.INF_USERNAME 		as username,
                             ip.BIO 					as bio,
                             ip.CAT 					as category,

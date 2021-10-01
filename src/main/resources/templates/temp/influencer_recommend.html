@@ -18,12 +18,11 @@
 </script>
 <body>
 <div class="container">
-    <div>
-
 
             <h2>* 인플루언서 추천</h2>
-            <form action="/2" method="GET">
+            <form action="/influencer_recommend/results" method="GET">
 
+                <div>
                 <!-- 켐페인 선택 -->
                 <span>캠페인 선택</span>
                 <select name="inputCat">
@@ -72,109 +71,116 @@
                     <option value="40~50">40~50</option>
                     <option value="50+">50+</option>
                 </select>
+                </div>
 
-                <button>추천</button>
+                <!-- 가중치 start -->
+                <div style="margin-top:10px">
+
+                    <table style="float:left;">
+                        <thead>
+                        <tr>
+                            <th>
+                                <span>진짜팔로워</span>
+                            </th>
+                            <th>
+                                <span>반응도</span>
+                            </th>
+                            <th>
+                                <span>활성도</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="range" name="rf_weight" id="fo-in" min="0" max="1" step="0.1">
+                                <div id="fo-out" ></div>
+                            </td>
+                            <td>
+                                <input type="range" name="re_weight" id="re-in" min="0" max="1" step="0.1" >
+                                <div id="re-out" ></div>
+                            </td>
+                            <td>
+                                <input type="range" name="ac_weight" id="ac-in" min="0" max="1" step="0.1">
+                                <div id="ac-out"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+<!--                    <button style="margin-top:20px; line-height:150%;">가중치 적용</button>-->
+
+                </div>
+                <!-- 가중치 end -->
+
+                <button style="float:right; margin-right:700px; line-height:200%;">추천</button>
                 <!--                <input type="submit" value="검색">-->
             </form>
 
             <!--캠페인 관련 키워드 start-->
+        <div style="margin-top:10px;">
 <!--            <form style="float:left;">-->
+
                 <span>캠페인 관련 키워드</span>
                 <input type="text" name="keyword" size=40 placeholder="켐페인 관련 키워드를 입력하세요">
 <!--            </form>-->
+        </div>
             <!--캠페인 관련 키워드 end-->
-            <!-- 가중치 start -->
-<!--            <form action="" method="">-->
-                <table style="float:left;">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span>진짜팔로워</span>
-                        </th>
-                        <th>
-                            <span>반응도</span>
-                        </th>
-                        <th>
-                            <span>활성도</span>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <input type="range" min="0" max="10" id="fo-in">
-                            <div id="fo-out" ></div>
-                        </td>
-                        <td>
-                            <input type="range" min="0" max="10" id="re-in">
-                            <div id="re-out" ></div>
-                        </td>
-                        <td>
-                            <input type="range" min="0" max="10" id="ac-in">
-                            <div id="ac-out"></div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <button style="float:left; line-height:200%;">입력</button>
-<!--            </form>-->
-            <!-- 가중치 end -->
-
-        <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse; ">
-            <thead >
-            <tr>
-                <th>순위</th>
-
-                <th colspan="2">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
-
-                <th>반응도</th>
-                <th>활성도</th>
-                <th>팔로워</th>
-                <th>카테고리</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                <td><span th:text="${ipet.rankno}"></span></td>
 
 
-                <td>
-                    <p><img th:src="|pics/${ipet.username}.jpg|"></p>        <!-- 얘랑 -->
-                </td>
-                <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
-                <!--둘째줄 왼쪽 시작 테이블-->
-                    <table style="margin:auto; border:1px solid #444444;">
-                        <tr>
-                            <td>
-<!--                                계정명-->
-                                <strong>
-                                    <a th:href = "@{/Detail(username = ${ipet.username})}">
-                                    <span th:text="${ipet.username}"></span>
-                                    </a>
-                                </strong>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-<!--                                바이오-->
-                                <span th:text="${ipet.bio}"></span>
-                            </td>
-                        </tr>
-                    </table>
-               <!--둘째줄 왼쪽 끝 테이블-->
-                </td>
-                <td><span th:text="${ipet.reaction}"></span></td>
-                <td><span th:text="${ipet.activity}"></span></td>
-                <td><span th:text="${ipet.followers}"></span></td>
-                <td><span th:text="${ipet.cat}"></span></td>
-                <!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
-                </a>
-            </tr>
-            </tbody>
-        </table>
 
-    </div>
+        <div style="margin-top:28px;">
+            <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse; ">
+                <thead >
+                <tr>
+                    <th>순위</th>
+                    <th colspan="2">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
+                    <th>진짜영향력</th>
+                    <th>반응도</th>
+                    <th>활성도</th>
+                    <th>팔로워</th>
+                    <th>카테고리</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ipet : ${List}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+                    <td><span th:text="${ipet.rankno}"></span></td>
+                    <td>
+                        <p><img th:src="|pics/${ipet.username}.jpg|"></p>        <!-- 얘랑 -->
+                    </td>
+                    <td>                                                         <!-- 얘를 표 thead 하나 같이 씀(합침)-->
+                    <!--둘째줄 왼쪽 시작 테이블-->
+                        <table style="margin:auto; border:1px solid #444444;">
+                            <tr>
+                                <td>
+    <!--                                계정명-->
+                                    <strong>
+                                        <a th:href = "@{/Detail(username = ${ipet.username})}">
+                                        <span th:text="${ipet.username}"></span>
+                                        </a>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+    <!--                                바이오-->
+                                    <span th:text="${ipet.bio}"></span>
+                                </td>
+                            </tr>
+                        </table>
+                   <!--둘째줄 왼쪽 끝 테이블-->
+                    </td>
+                    <td><span th:text="${ipet.realInf}"></span> </td>
+                    <td><span th:text="${ipet.reaction}"></span></td>
+                    <td><span th:text="${ipet.activity}"></span></td>
+                    <td><span th:text="${ipet.followers}"></span></td>
+                    <td><span th:text="${ipet.cat}"></span></td>
+                    <!--                <td><span th:text="${inf_profile.rate_real}"></span></td>-->
+                    </a>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 </div> <!-- /container -->
 <script>
         document.querySelector('#fo-in').addEventListener('input',e=>{

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -54,7 +55,17 @@ public class InfluencerController {
         for (int i=0; i<hashtags.size(); i++){
             System.out.println("result"+i+": "+hashtags.get(i));
         }
+
+//        List<String> relatedDatas = new ArrayList<>();
+//        relatedDatas.add(hashtags.get(0).getKeyword());
+//        relatedDatas.add(hashtags.get(0).getAvg_liked());
+//        relatedDatas.add(hashtags.get(0).getRelated_username());
+//        for (int i=0; i<hashtags.size(); i++){
+//            System.out.println(relatedDatas.get(i));
+//        }
+
         model.addAttribute("hashtags", hashtags);
+//        model.addAttribute("relatedDatas",relatedDatas);
 
         return "temp/hashtag_search";
     }
@@ -64,7 +75,7 @@ public class InfluencerController {
         return "temp/influencer_recommend";
     }
 
-    @GetMapping("/2")
+    @GetMapping("/influencer_recommend/results")
     public String influencerRecommend(@ModelAttribute InfProEngTex form, Model model){
 
 
@@ -73,17 +84,20 @@ public class InfluencerController {
         System.out.println("인프연령: " + form.getInputInfAge());
         System.out.println("오디성별: " + form.getInputAudSex());
         System.out.println("오디연령: " + form.getInputAudAge());
+        System.out.println("RF가중치: " + form.getRf_weight());
+        System.out.println("RE가중치: " + form.getRe_weight());
+        System.out.println("AC가중치: " + form.getAc_weight());
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
             System.out.println("순위: "+String.valueOf(filterResults.get(i).getRankno()));
             System.out.println("계정명: "+String.valueOf(filterResults.get(i).getUsername()));
+            System.out.println("진짜영향력: "+String.valueOf(filterResults.get(i).getRealInf()));
             System.out.println("바이오: "+String.valueOf(filterResults.get(i).getBio()));
             System.out.println("카테고리: "+String.valueOf(filterResults.get(i).getCat()));
             System.out.println("팔로워수: "+String.valueOf(filterResults.get(i).getFollowers()));
             System.out.println("활성도: "+String.valueOf(filterResults.get(i).getActivity()));
             System.out.println("반응도: "+String.valueOf(filterResults.get(i).getReaction()));
-
         }
 
         model.addAttribute("List",filteringListService.filterResults(form));
