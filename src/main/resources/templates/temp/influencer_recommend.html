@@ -25,6 +25,7 @@
                 <!-- 켐페인 선택 -->
                 <span>캠페인선택</span>
                 <select name="inputCat">
+                    <option value="">전체</option>
                     <option value="여행">여행</option>
                     <option value="뷰티">뷰티</option>
                     <option value="홈러빙">홈러빙</option>
@@ -80,9 +81,6 @@
             </form>
 
 
-
-
-
         <table style = "width:100%; text-align:center; border:1px solid #444444; border-collapse: collapse;">
             <thead >
             <tr>
@@ -103,14 +101,20 @@
                 <td><span th:text="${ipet.rankno}"></span></td>
 
 
-                <td><span th:text="${ipet.pic}"></span></td>   <!-- 얘랑 -->
+                <td>
+                    <p><img th:src="|pics/${ipet.username}.jpg|"></p>        <!-- 얘랑 -->
+                </td>
                 <td>                                                         <!-- 얘를 표 head 하나 같이 씀(합침)-->
                 <!--둘째줄 왼쪽 시작 테이블-->
                     <table style="margin:auto; border:1px solid #444444;">
                         <tr>
                             <td>
 <!--                                계정명-->
-                                <span th:text="${ipet.username}"></span>
+                                <strong>
+                                    <a th:href = "@{/Detail(username = ${ipet.username})}">
+                                    <span th:text="${ipet.username}"></span>
+                                    </a>
+                                </strong>
                             </td>
                         </tr>
                         <tr>
@@ -122,7 +126,7 @@
                     </table>
                <!--둘째줄 왼쪽 끝 테이블-->
                 </td>
-                <td><a th:href = "@{/Detail(username = ${ipet.username})}"><span th:text="${ipet.reaction}"></span></a></td>
+                <td><span th:text="${ipet.reaction}"></span></td>
                 <td><span th:text="${ipet.activity}"></span></td>
                 <td><span th:text="${ipet.followers}"></span></td>
                 <td><span th:text="${ipet.cat}"></span></td>

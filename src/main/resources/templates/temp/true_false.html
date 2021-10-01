@@ -32,7 +32,10 @@
             <tbody>
             <tr th:each="inf_profile : ${inf_profile}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                 <td><span th:text="${inf_profile.inf_username}"></span></td>
-                <td><span th:text="${inf_profile.pic_url}"></span></td>
+                <td>
+                    <p><img th:src="|pics/${inf_profile.inf_username}.jpg|"></p>
+<!--                    <span th:text="${inf_profile.pic_url}"></span>-->
+                </td>
                 <td><span th:text="${inf_profile.fol_count}"></span></td>
                 <td><span th:text="${inf_profile.folwing_count}"></span></td>
                 <td><span th:text="${inf_profile.real_fol_count}"></span></td>

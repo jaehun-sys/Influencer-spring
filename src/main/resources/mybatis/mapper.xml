@@ -15,7 +15,7 @@
         from				inf_profile ip
         left outer join		inf_engage ie
         on				    ip.inf_pk = ie.inf_pk
-        where  				ip.cat = #{inputCat}
+        where  				ip.cat like concat('%',#{inputCat},'%')
 
         <choose>
             <when test='inputInfSex.equals("F")'>
@@ -80,6 +80,33 @@
                 and             ie.avg_age is not null          #기본값 : 모두
             </otherwise>
         </choose>
+
+    </select>
+
+    <select id="details" resultType="Influencer.Influencerspring.domain.InfEngPro">
+        select				ip.PIC_URL 				as pic,
+                            ip.INF_USERNAME 		as username,
+                            ip.BIO 					as bio,
+                            ip.CAT 					as category,
+                            ie.FEED_COUNT 			as feeds,
+                            ip.FOL_COUNT 			as followers,
+                            ip.FOLWING_COUNT		as followings,
+                            ie.REAL_FOL_MIN 		as real_min,
+                            ie.REAL_FOL_MAX 		as real_max,
+                            ie.ALL_FEED_AVG 		as reaction,
+                            ie.AVG_POST 			as activity,
+                            ie.AVG_AGE				as avg_age,
+                            case
+                            <![CDATA[
+                            when	ie.RATE_SEX_F > 50	then	CONCAT('여성(', ie.RATE_SEX_F, 	  '%)')
+                            when	ie.RATE_SEX_F < 50	then	CONCAT('남성(', 100-ie.RATE_SEX_F, '%)')
+                            ]]>
+                            else								'성비 동일'
+                            end 					as aud_sex
+        from 				inf_profile ip
+        left outer join 	inf_engage ie
+        on				    ip.INF_PK = ie.INF_PK
+        where				ip.inf_username = #{username}
 
     </select>
 </mapper>

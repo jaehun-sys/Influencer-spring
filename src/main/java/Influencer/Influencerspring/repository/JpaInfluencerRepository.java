@@ -1,17 +1,9 @@
 package Influencer.Influencerspring.repository;
 
-import Influencer.Influencerspring.domain.Hashtag;
-import Influencer.Influencerspring.domain.InfFolRate;
 import Influencer.Influencerspring.domain.InfProfile;
-import Influencer.Influencerspring.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.web.HateoasPageableHandlerMethodArgumentResolver;
 
-import javax.management.Query;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.Optional;
 
 public class JpaInfluencerRepository implements InfluencerRepository{
 

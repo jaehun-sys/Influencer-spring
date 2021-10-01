@@ -1,7 +1,6 @@
 package Influencer.Influencerspring.service;
 
-import Influencer.Influencerspring.domain.FilterForm;
-import Influencer.Influencerspring.domain.FilterResult;
+import Influencer.Influencerspring.domain.InfEngPro;
 import Influencer.Influencerspring.domain.InfProEngTex;
 import Influencer.Influencerspring.mapper.InfluencerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +17,13 @@ public class FilteringListService {
         this.influencerMapper = influencerMapper;
     }
 
-    public List<InfProEngTex> filteringList(InfProEngTex ipet){
-        return influencerMapper.filteringList(ipet);
-    }
-
+    /* 인플루언서 추천 필터링 */
     public List<InfProEngTex> filterResults(InfProEngTex ipet){
         return influencerMapper.filterResults(ipet);
+    }
+
+    /* 상세 페이지 */
+    public List<InfEngPro> details(InfEngPro iep){
+        return influencerMapper.details(iep);
     }
 }
