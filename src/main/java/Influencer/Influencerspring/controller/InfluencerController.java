@@ -28,10 +28,6 @@ public class InfluencerController {
     }
 
     @GetMapping("/fake-real")
-    public String fakeReal(){
-        return "fake-real";
-    }
-    @GetMapping("/fake-real-re")
     public String fakeRealRe(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
 
@@ -42,6 +38,29 @@ public class InfluencerController {
 
         model.addAttribute("inf_profile", inf_profile);
         return "fake-real";
+    }
+
+    @GetMapping("/search-hash")
+    public String searchHashRe(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
+        List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
+
+        System.out.println("해시태그 키워드: " + keyword);
+        for (int i=0; i<hashtags.size(); i++){
+            System.out.println("result"+i+": "+hashtags.get(i));
+        }
+
+//        List<String> relatedDatas = new ArrayList<>();
+//        relatedDatas.add(hashtags.get(0).getKeyword());
+//        relatedDatas.add(hashtags.get(0).getAvg_liked());
+//        relatedDatas.add(hashtags.get(0).getRelated_username());
+//        for (int i=0; i<hashtags.size(); i++){
+//            System.out.println(relatedDatas.get(i));
+//        }
+
+        model.addAttribute("hashtags", hashtags);
+//        model.addAttribute("relatedDatas",relatedDatas);
+
+        return "search-hash";
     }
 
 
