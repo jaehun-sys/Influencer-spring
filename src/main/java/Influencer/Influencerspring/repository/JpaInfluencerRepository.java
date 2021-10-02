@@ -23,7 +23,10 @@ public class JpaInfluencerRepository implements InfluencerRepository{
 //        typedQuery.setParameter("inf_username", inf_username);
 //        List<InfProfile> resultList = typedQuery.getResultList();
 
-        List<InfProfile> resultList = em.createQuery("select i from InfProfile i where i.inf_username = :inf_username", InfProfile.class)
+/*        List<InfProfile> resultList = em.createQuery("select i from InfProfile i where i.inf_username = :inf_username", InfProfile.class)
+                .setParameter("inf_username",inf_username)
+                .getResultList();*/
+        List<InfProfile> resultList = em.createQuery("select i from InfProfile i where i.inf_username LIKE CONCAT ( '%',:inf_username, '%')", InfProfile.class)
                 .setParameter("inf_username",inf_username)
                 .getResultList();
 
