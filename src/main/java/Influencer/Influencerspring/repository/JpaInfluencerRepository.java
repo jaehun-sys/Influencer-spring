@@ -14,12 +14,6 @@ public class JpaInfluencerRepository implements InfluencerRepository{
 
     @Override
     public List<InfProfile> findByInf_username(String inf_username) {
-//        List<InfProfile> result = null;
-//        List<InfProfile> result = em.createQuery("select i.inf_username, i.pic_url, i.fol_count, i.folwing_count, i.real_fol_count from InfProfile i where i.inf_username = :inf_username", InfProfile.class)
-//                .setParameter("inf_username", inf_username)
-//                .getResultList();
-//        TypedQuery typedQuery = em.createQuery("select i.inf_username, i.pic_url, i.fol_count, i.folwing_count, i.real_fol_count from InfProfile i where i.inf_username = :inf_username", InfProfile.class);
-
 //        typedQuery.setParameter("inf_username", inf_username);
 //        List<InfProfile> resultList = typedQuery.getResultList();
 

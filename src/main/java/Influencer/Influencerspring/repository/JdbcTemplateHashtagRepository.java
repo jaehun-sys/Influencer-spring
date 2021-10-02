@@ -24,7 +24,7 @@ public class JdbcTemplateHashtagRepository implements HashtagRepository{
     public List<Hashtag> findByKeyword(String keyword) {
         List<Hashtag> resultList = jdbcTemplate.query("select keyword, related_hash, avg_liked, related_username " +
                 "from hashtag " +
-                "where keyword like ? " +
+                "where keyword like concat('%',?,'%') " +
                 "order by related_rank ", hashtagRowMapper(), keyword);
         return resultList;
     }

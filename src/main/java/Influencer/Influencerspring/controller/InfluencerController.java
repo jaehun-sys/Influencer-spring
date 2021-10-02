@@ -28,11 +28,24 @@ public class InfluencerController {
     }
 
     @GetMapping("/fake-real")
-    public String trueFalseResult1(){//@RequestParam(value="username", required=false) String username, Model model) throws Exception{
-//        List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
-//        model.addAttribute("inf_profile", inf_profile);
+    public String fakeReal(){
         return "fake-real";
     }
+    @GetMapping("/fake-real-re")
+    public String fakeRealRe(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
+        List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+
+        System.out.println("username: " + username);
+        for(int i=0; i<inf_profile.size(); i++){
+            System.out.println("result"+i+": "+ inf_profile.get(i));
+        }
+
+        model.addAttribute("inf_profile", inf_profile);
+        return "fake-real";
+    }
+
+
+    /* ↓ 샘플링 ↓ */
 
     @GetMapping("/true_false")
     public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{

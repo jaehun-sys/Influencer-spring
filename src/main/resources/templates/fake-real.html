@@ -103,12 +103,17 @@
                         <p class="text-dark m-b-20" style="font-size:18px; margin-top:16px;">*검색창에 찾고 싶은 인플루언서의 계정명을 입력하세요.</p>
 
                         <div class="clearfix"></div>
-                        <div style="margin-top:100px; margin-bottom:100px; margin-left:30%;">
+                        <div style="margin-top:5%; margin-bottom:5%; margin-left:30%;">
 <!--                           border-bottom: 2px solid #adadad;-->
 <!--                           margin: 30px;-->
+                           <!-- GET 방식으로 보낼 것 start -->
+                           <form action="/fake-real" method="GET">
                            <input type="text" name="username" size=30 style="margin-left:5px; padding:5px 5px;" placeholder="인플루언서 계정을 입력하세요">
                            <button type="button" style="margin-left:3px; margin-bottom:2px; height: 27pt" class="btn btn-success waves-effect waves-light ">검색</button>
+                           </form>
+                           <!-- GET 방식으로 보낼 것 end -->
                         </div>
+
 
 <!--                        <h2>This is a Heading 2</h2>-->
 <!--                        <p class="text-muted m-b-20">In nec rhoncus eros. Vestibulum eu mattis nisl. Quisque viverra viverra magna nec pulvinar. Maecenas pellentesque porta augue, consectetur facilisis diam porttitor sed. Suspendisse tempor est sodales augue rutrum tincidunt. Quisque-->
@@ -145,21 +150,46 @@
             <!-- Row start -->
             <div class="row">
                <div class="col-sm-12">
+                  <!-- Hover effect table starts -->
                   <div class="card">
                      <div class="card-header">
-                        <h5 class="card-header-text">Display headings</h5>
-                        <p class="text-muted">
-                           Traditional heading elements are designed to work best in the meat of your page content. When you need a heading to stand out, consider using a <strong>display heading</strong>&mdash;a larger, slightly more opinionated heading
-                           style.
-                        </p>
+                        <h5 class="card-header-text">Fake vs Real</h5>
+<!--                        <p>Add <code>.table-hover</code> Class in table tag</p>-->
                      </div>
                      <div class="card-block">
-                        <h1 class="display-1">Display 1</h1>
-                        <h1 class="display-2">Display 2</h1>
-                        <h1 class="display-3">Display 3</h1>
-                        <h1 class="display-4">Display 4</h1>
+                        <div class="row">
+                           <div class="col-sm-12 table-responsive">
+                              <table class="table table-hover">
+                                 <thead>
+                                 <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                    <th>Nickname</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 <tr th:each="inf_profile : ${inf_profile}" style="cursor:pointer;">
+                                    <td>
+                                       <p><img th:src="|pics/${inf_profile.inf_username}.jpg|" style="width:150px; height:150px; object-filter:cover;
+                                                                                    border: 3px solid gold;
+                                                                                    border-radius: 7px;
+                                                                                    -moz-border-radius: 160px;
+                                                                                    -khtml-border-radius: 160px;
+                                                                                    -webkit-border-radius: 160px;"></p>
+                                       <!--                    <span th:text="${inf_profile.pic_url}"></span>-->
+                                    </td>
+                                    <td><span th:text="${inf_profile.fol_count}"></span></td>
+                                    <td><span th:text="${inf_profile.folwing_count}"></span></td>
+                                    <td><span th:text="${inf_profile.real_fol_count}"></span></td>
+                                 </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
                      </div>
                   </div>
+                  <!-- Hover effect table ends -->
                </div>
             </div>
             <!-- Row end -->
