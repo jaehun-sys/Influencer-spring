@@ -27,7 +27,15 @@ public class InfluencerController {
 
     }
 
-    @GetMapping("/fake-real")
+    @GetMapping("/fake-real")/* 기본적으로 전체 목록 출력 */
+    public String fakeReal(String username, Model model) throws Exception{
+        username="";
+        List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+        model.addAttribute("inf_profile", inf_profile);
+        return "fake-real";
+    }
+
+    @GetMapping("/fake-real-re")
     public String fakeRealRe(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
 
@@ -40,7 +48,15 @@ public class InfluencerController {
         return "fake-real";
     }
 
-    @GetMapping("/search-hash")
+    @GetMapping("/search-hash")/* 기본적으로 전체 목록 출력 */
+    public String searchHash(String keyword, Model model) throws Exception{
+        keyword="";
+        List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
+        model.addAttribute("hashtags", hashtags);
+        return "search-hash";
+    }
+
+    @GetMapping("/search-hash-re")
     public String searchHashRe(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
 
@@ -67,7 +83,7 @@ public class InfluencerController {
     /* ↓ 샘플링 ↓ */
 
     @GetMapping("/true_false")
-    public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
+    public String trueFalseResult(@RequestParam(value="username", required=true) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
 
         System.out.println("username: " + username);
@@ -80,7 +96,7 @@ public class InfluencerController {
     }
 
     @GetMapping("/hashtag_search")
-    public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
+    public String hashtagSearch(@RequestParam(value="keyword", required=true) String keyword, Model model) throws Exception{
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
 
         System.out.println("해시태그 키워드: " + keyword);
