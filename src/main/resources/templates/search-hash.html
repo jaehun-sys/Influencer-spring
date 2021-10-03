@@ -97,14 +97,14 @@
 <!--                        </p>-->
 <!--                        <div class="clearfix"></div>-->
 <!--                     </div>-->
-                     <form action="/search-hash" method="GET">
+                     <form action="/search-hash-re" method="GET">
                      <div class="card-block" style="margin-right:auto; margin-left:auto;">
                         <h1>Hashtag Search</h1>
                         <p class="text-dark m-b-20" style="font-size:18px; margin-top:30px;">*해시태그와 연관된 인플루언서 중 가장 높은 연관도를 가진 인플루언서를 소개해드립니다!</p>
                         <p class="text-dark m-b-20" style="font-size:18px; margin-top:16px;">*검색창에 찾고 싶은 해시태그를 입력하세요.</p>
 
                         <div class="clearfix"></div>
-                        <div style="margin-top:5%; margin-bottom:3%; margin-left:35%;">
+                        <div style="margin-top:5%; margin-bottom:3%;" align="center">
 <!--                           border-bottom: 2px solid #adadad;-->
 <!--                           margin: 30px;-->
                            <!-- GET 방식으로 보낼 것 start -->
@@ -162,18 +162,24 @@
                                    <table class="table table-hover" align="center" style="text-align:center;">
                                        <thead>
                                        <tr>
-                                           <th style="text-align:center;">해시태그</th>
-                                           <th style="text-align:center;">연관 해시태그</th>
-                                           <th style="text-align:center;">인기 게시물 평균 좋아요</th>
-                                           <th style="text-align:center;">연관 인플루언서</th>
+                                           <th width="15%" style="text-align:center;">해시태그</th>
+                                           <th width="15%" style="text-align:center;">연관 해시태그</th>
+                                           <th width="20%" style="text-align:center;">인기 게시물 평균 좋아요</th>
+                                           <th width="20%" colspan="2" style="text-align:center;">연관 인플루언서</th>
                                        </tr>
                                        </thead>
                                        <tbody>
                                        <tr th:each="hashtag : ${hashtags}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-                                           <td><span th:text="${hashtag.keyword}"></span></td>
-                                           <td><span th:text="${hashtag.related_hash}"></span></td>
-                                           <td><span th:text="${hashtag.avg_liked}"></span></td>
-                                           <td><span th:text="${hashtag.related_username}"></span></td>
+                                           <td style="vertical-align:middle;"><span th:text="${hashtag.keyword}"></span></td>
+                                           <td style="vertical-align:middle;"><span th:text="${hashtag.related_hash}"></span></td>
+                                           <td style="vertical-align:middle;"><span th:text="${hashtag.avg_liked}"></span></td>
+                                           <td style="text-align:right;"><p><img th:src="|pics/${hashtag.related_username}.jpg|" style="width:50px; height:50px; object-filter:cover;
+                                                                                        border: 2.5px solid palegreen;
+                                                                                        border-radius: 7px;
+                                                                                        -moz-border-radius: 160px;
+                                                                                        -khtml-border-radius: 160px;
+                                                                                        -webkit-border-radius: 160px;"></p></td>
+                                           <td style="vertical-align:middle; text-align:left;"><span th:text="${hashtag.related_username}"></span></td>
                                        </tr>
                                        </tbody>
                                    </table>
