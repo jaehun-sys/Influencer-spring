@@ -15,9 +15,9 @@ import java.util.List;
 @Controller
 public class InfluencerController {
 
-    private InfluencerService influencerService;
-    private HashtagService hashtagService;
-    private FilteringListService filteringListService;
+    private final InfluencerService influencerService;
+    private final HashtagService hashtagService;
+    private final FilteringListService filteringListService;
 
     @Autowired
     public InfluencerController(InfluencerService influencerService, HashtagService hashtagService, FilteringListService filteringListService) {
@@ -84,6 +84,9 @@ public class InfluencerController {
         return "recommend-influencer";
     }
 
+    @GetMapping("/3")
+    public String recommendTemp(){return "recommend-influencer-result";}
+
     @GetMapping("/recommend-influencer/results")
     public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model){
 
@@ -98,19 +101,18 @@ public class InfluencerController {
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
-            System.out.println("순위: "+String.valueOf(filterResults.get(i).getRankno()));
-            System.out.println("계정명: "+String.valueOf(filterResults.get(i).getUsername()));
-            System.out.println("진짜영향력: "+String.valueOf(filterResults.get(i).getRealInf()));
-            System.out.println("바이오: "+String.valueOf(filterResults.get(i).getBio()));
-            System.out.println("카테고리: "+String.valueOf(filterResults.get(i).getCat()));
-            System.out.println("팔로워수: "+String.valueOf(filterResults.get(i).getFollowers()));
-            System.out.println("활성도: "+String.valueOf(filterResults.get(i).getActivity()));
-            System.out.println("반응도: "+String.valueOf(filterResults.get(i).getReaction()));
+            System.out.println("순위: "+ filterResults.get(i).getRankno());
+            System.out.println("계정명: "+ filterResults.get(i).getUsername());
+            System.out.println("바이오: "+ filterResults.get(i).getBio());
+            System.out.println("카테고리: "+ filterResults.get(i).getCat());
+            System.out.println("팔로워수: "+ filterResults.get(i).getFollowers());
+            System.out.println("활성도: "+ filterResults.get(i).getActivity());
+            System.out.println("반응도: "+ filterResults.get(i).getReaction());
         }
 
         model.addAttribute("List",filteringListService.filterResults(form));
 
-        return "recommend-influencer";
+        return "recommend-influencer-result";
     }
 
 
@@ -120,7 +122,7 @@ public class InfluencerController {
     /* ↓ 샘플링 ↓ */
 
     @GetMapping("/true_false")
-    public String trueFalseResult(@RequestParam(value="username", required=true) String username, Model model) throws Exception{
+    public String trueFalseResult(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
 
         System.out.println("username: " + username);
@@ -133,7 +135,7 @@ public class InfluencerController {
     }
 
     @GetMapping("/hashtag_search")
-    public String hashtagSearch(@RequestParam(value="keyword", required=true) String keyword, Model model) throws Exception{
+    public String hashtagSearch(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
 
         System.out.println("해시태그 키워드: " + keyword);
@@ -175,14 +177,14 @@ public class InfluencerController {
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
-            System.out.println("순위: "+String.valueOf(filterResults.get(i).getRankno()));
-            System.out.println("계정명: "+String.valueOf(filterResults.get(i).getUsername()));
-            System.out.println("진짜영향력: "+String.valueOf(filterResults.get(i).getRealInf()));
-            System.out.println("바이오: "+String.valueOf(filterResults.get(i).getBio()));
-            System.out.println("카테고리: "+String.valueOf(filterResults.get(i).getCat()));
-            System.out.println("팔로워수: "+String.valueOf(filterResults.get(i).getFollowers()));
-            System.out.println("활성도: "+String.valueOf(filterResults.get(i).getActivity()));
-            System.out.println("반응도: "+String.valueOf(filterResults.get(i).getReaction()));
+            System.out.println("순위: "+ filterResults.get(i).getRankno());
+            System.out.println("계정명: "+ filterResults.get(i).getUsername());
+            System.out.println("진짜영향력: "+ filterResults.get(i).getRealInf());
+            System.out.println("바이오: "+ filterResults.get(i).getBio());
+            System.out.println("카테고리: "+ filterResults.get(i).getCat());
+            System.out.println("팔로워수: "+ filterResults.get(i).getFollowers());
+            System.out.println("활성도: "+ filterResults.get(i).getActivity());
+            System.out.println("반응도: "+ filterResults.get(i).getReaction());
         }
 
         model.addAttribute("List",filteringListService.filterResults(form));
@@ -213,9 +215,5 @@ public class InfluencerController {
 
         return "temp/Detail";
     }
-
-
-
-
 
 }
