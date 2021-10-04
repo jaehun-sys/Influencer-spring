@@ -56,7 +56,7 @@ public class InfluencerController {
         return "search-hash";
     }
 
-    @GetMapping("/search-hash-re")
+    @GetMapping("/search-hash/results")
     public String searchHashRe(@RequestParam(value="keyword", required=false) String keyword, Model model) throws Exception{
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
 
@@ -78,6 +78,43 @@ public class InfluencerController {
 
         return "search-hash";
     }
+
+    @GetMapping("/recommend-influencer")
+    public String recommendInf(){
+        return "recommend-influencer";
+    }
+
+    @GetMapping("/recommend-influencer/results")
+    public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model){
+
+        System.out.println("인프성별: " + form.getInputAudSex());
+        System.out.println("인프캠페인: " + form.getInputCat());
+        System.out.println("인프연령: " + form.getInputInfAge());
+        System.out.println("오디성별: " + form.getInputAudSex());
+        System.out.println("오디연령: " + form.getInputAudAge());
+        System.out.println("RF가중치: " + form.getRf_weight());
+        System.out.println("RE가중치: " + form.getRe_weight());
+        System.out.println("AC가중치: " + form.getAc_weight());
+
+        List<InfProEngTex> filterResults = filteringListService.filterResults(form);
+        for(int i=0; i<filterResults.size(); i++){
+            System.out.println("순위: "+String.valueOf(filterResults.get(i).getRankno()));
+            System.out.println("계정명: "+String.valueOf(filterResults.get(i).getUsername()));
+            System.out.println("진짜영향력: "+String.valueOf(filterResults.get(i).getRealInf()));
+            System.out.println("바이오: "+String.valueOf(filterResults.get(i).getBio()));
+            System.out.println("카테고리: "+String.valueOf(filterResults.get(i).getCat()));
+            System.out.println("팔로워수: "+String.valueOf(filterResults.get(i).getFollowers()));
+            System.out.println("활성도: "+String.valueOf(filterResults.get(i).getActivity()));
+            System.out.println("반응도: "+String.valueOf(filterResults.get(i).getReaction()));
+        }
+
+        model.addAttribute("List",filteringListService.filterResults(form));
+
+        return "recommend-influencer";
+    }
+
+
+
 
 
     /* ↓ 샘플링 ↓ */

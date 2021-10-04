@@ -47,8 +47,8 @@
 
 </head>
 <style>
-    #rowbtn:hover{
-        background-color: #BBDEFB;
+    #rowbtn1:hover{
+        background-color: #E3FAD4;
     }
 </style>
 <body class="sidebar-mini fixed">
@@ -139,33 +139,39 @@
                         <div class="row">
                            <div class="col-sm-12 table-responsive">
 
-                              <table th:each="index : ${inf_profile}" width="70%" align="center" style="margin-left:auto; margin-right:auto; margin-top:3px; margin-bottom:2px;
-                              cursor:pointer;" id="rowbtn" th:onclick="window.open('https://www.instagram.com/'+[[${index.inf_username}]])" title="인스타그램으로 이동">
+                              <table th:each="index : ${inf_profile}" id="rowbtn1" width="70%" align="center" style="margin-left:auto;
+                                                                                                                    margin-right:auto;
+                                                                                                                    margin-top:3px;
+                                                                                                                    margin-bottom:2px;
+                                                                                                                    border-bottom: 2px solid #eceeef;" >
 <!--                                     <thead>-->
 
-                                     <tr class="table table-hover" >
+                                     <tr >
                                         <td rowspan="3" width="20%" style="text-align:right;padding:10px;"><p><img th:src="|pics/${index.inf_username}.jpg|" style="width:150px; height:150px; object-filter:cover;
                                                                                         border: 3px solid gold;
                                                                                         border-radius: 7px;
                                                                                         -moz-border-radius: 160px;
                                                                                         -khtml-border-radius: 160px;
-                                                                                        -webkit-border-radius: 160px;"></p></td> <!-- 프사(3행 병합) -->
-                                        <td colspan="2" style="text-align:left;">계정명</td>
-                                        <td rowspan="2" width="25%" style="text-align:right;"><p><img class="media-object img-circle" src="assets/images/people.png"></p></td>
-                                        <td width="25%" style="text-align:center;">진짜 팔로워</td>
+                                                                                        -webkit-border-radius: 160px;
+                                                                                        cursor:pointer;"
+                                                                                        th:onclick="window.open('https://www.instagram.com/'+[[${index.inf_username}]])"
+                                                                                        data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동" ></p></td> <!-- 프사(3행 병합) -->
+                                        <td colspan="2" style="text-align:left; vertical-align:bottom;">계정명</td>
+                                        <td rowspan="2" width="20%" style="text-align:center; vertical-align:bottom;"><p><img src="assets/images/people.png" style="width:100px; height:60px;"></p></td>
+                                        <td width="25%" style="text-align:left; vertical-align:bottom;">진짜 팔로워</td>
                                      </tr>
     <!--                                 </thead>-->
     <!--                                 <tbody>-->
                                      <tr>
-                                        <td colspan="2" style="text-align:left; padding:0px 0px 0px 7px;"><span th:text="${index.inf_username}" style="font-size:2.0em; color:green;"></span></td> <!-- 계정명 4열 병합 -->
+                                        <td colspan="2" style="text-align:left; vertical-align:top; padding:0px 0px 0px 10px;"><span th:text="${index.inf_username}" style="font-size:2.0em; color:green;"></span></td> <!-- 계정명 4열 병합 -->
 <!--                                        <td style="text-align:center;"><span></span></td>-->
-                                        <td colspan="3" style="text-align:center;"><span th:text="${index.real_fol_count}" style="font-size:1.6em;padding:5px;"></span><span>명</span></td>
+                                        <td colspan="3" style="text-align:left; vertical-align:top; padding:0px 0px 0px 10px;"><span th:text="${index.real_fol_count}" style="font-size:1.6em;padding:5px;"></span><span>명</span></td>
                                      </tr>
                                      <tr>
-                                        <td width="18%" style="text-align:left;"><span style="padding:0px 0px 0px 7px;">팔로워</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span></td>
-                                        <td width="20%" style="text-align:left;"><span style="padding:0px 0px 0px 7px;">팔로잉</span><span th:text="${index.folwing_count}" style="font-size:1.6em;padding:10px;"></span></td>
-                                        <td style="text-align:center; padding:10px;"><span style="padding:10px;">전체</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span><span>명 중</span></td>
-                                        <td style="text-align:center; padding:10px;"><strong><span th:text="${index.real_fol_count}" style="font-size:1.6em; padding:5px;"></span></strong><span>명이 진짜입니다.</span></td>
+                                        <td width="18%" style="text-align:left; vertical-align:top; padding:11px 0px 0px 5px;"><span style="padding:0px 0px 0px 7px;">팔로워</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span></td>
+                                        <td width="20%" style="text-align:left; vertical-align:top; padding:11px 0px 0px 5px;"><span style="padding:0px 0px 0px 7px;">팔로잉</span><span th:text="${index.folwing_count}" style="font-size:1.6em;padding:10px;"></span></td>
+                                        <td style="text-align:left; vertical-align:top; padding:11px 0px 10px 10px;"><span style="padding:10px;">전체</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span><span>명 중</span></td>
+                                        <td style="text-align:left; vertical-align:top; padding:0px 0px 10px 10px;"><strong><span th:text="${index.real_fol_count}" style="font-size:2.3em; color:deeppink; padding:0px 5px 0px 0px;"></span></strong><span>명이 진짜입니다.</span></td>
                                      </tr>
 
     <!--                                 </tbody>-->
