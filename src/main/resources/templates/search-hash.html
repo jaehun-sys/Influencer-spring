@@ -20,30 +20,29 @@
    <meta name="author" content="codedthemes">
 
    <!-- Favicon icon -->
-   <link rel="shortcut icon" href="assets/images/favicon_mic.png" type="image/x-icon">
-   <link rel="icon" href="assets/images/favicon_mic.ico" type="image/x-icon">
+   <link rel="shortcut icon" href="/assets/images/favicon_mic.png" type="image/x-icon">
+   <link rel="icon" href="/assets/images/favicon_mic.ico" type="image/x-icon">
 
    <!-- Google font-->
    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
 
    <!-- themify -->
-   <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+   <link rel="stylesheet" type="text/css" href="/assets/icon/themify-icons/themify-icons.css">
 
    <!-- iconfont -->
-   <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+   <link rel="stylesheet" type="text/css" href="/assets/icon/icofont/css/icofont.css">
 
    <!-- simple line icon -->
-   <link rel="stylesheet" type="text/css" href="assets/icon/simple-line-icons/css/simple-line-icons.css">
+   <link rel="stylesheet" type="text/css" href="/assets/icon/simple-line-icons/css/simple-line-icons.css">
 
    <!-- Required Fremwork -->
-   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
 
    <!-- Style.css -->
-   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
    <!-- Responsive.css-->
-   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
-
+   <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
 
 </head>
 <style>
@@ -103,12 +102,12 @@
 <!--                     </div>-->
                      <form action="/search-hash/results" method="GET">
                      <div class="card-block" style="margin-right:auto; margin-left:auto;">
-                        <h1>Hashtag Search</h1>
-                        <p class="text-dark m-b-20" style="font-size:18px; margin-top:30px;">*해시태그와 연관된 인플루언서 중 가장 높은 연관도를 가진 인플루언서를 소개해드립니다!</p>
-                        <p class="text-dark m-b-20" style="font-size:18px; margin-top:16px;">*검색창에 찾고 싶은 해시태그를 입력하세요.</p>
+                        <h1 align="center" style="margin-top:30px;">Hashtag Search</h1>
+                        <p class="text-dark m-b-20" align="center" style="font-size:18px; margin-top:30px;">*해시태그와 연관된 인플루언서 중 가장 높은 연관도를 가진 인플루언서를 소개해드립니다!</p>
+                        <p class="text-dark m-b-20" align="center" style="font-size:18px; margin-top:16px;">*검색창에 찾고 싶은 해시태그를 입력하세요.</p>
 
                         <div class="clearfix"></div>
-                        <div style="margin-top:5%; margin-bottom:3%;" align="center">
+                        <div style="margin-top:2%; margin-bottom:3%;" align="center">
 <!--                           border-bottom: 2px solid #adadad;-->
 <!--                           margin: 30px;-->
                            <!-- GET 방식으로 보낼 것 start -->
@@ -177,7 +176,7 @@
                                            <td style="vertical-align:middle;"><span th:text="${hashtag.keyword}"></span></td>
                                            <td style="vertical-align:middle;"><span th:text="${hashtag.related_hash}"></span></td>
                                            <td style="vertical-align:middle;"><span th:text="${hashtag.avg_liked}"></span></td>
-                                           <td style="text-align:right; padding:10px;"><p><img th:src="|pics/${hashtag.related_username}.jpg|" style="width:50px; height:50px; object-filter:cover;
+                                           <td style="text-align:right; padding:10px;"><p><img th:src="|/pics/${hashtag.related_username}.jpg|" style="width:50px; height:50px; object-filter:cover;
                                                                                         border: 2.5px solid palegreen;
                                                                                         border-radius: 7px;
                                                                                         -moz-border-radius: 160px;
@@ -446,31 +445,31 @@
         <ul class="iew-download">
             <li>
                 <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <img src="/assets/images/browser/chrome.png" alt="Chrome">
                     <div>Chrome</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <img src="/assets/images/browser/firefox.png" alt="Firefox">
                     <div>Firefox</div>
                 </a>
             </li>
             <li>
                 <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <img src="/assets/images/browser/opera.png" alt="Opera">
                     <div>Opera</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <img src="/assets/images/browser/safari.png" alt="Safari">
                     <div>Safari</div>
                 </a>
             </li>
             <li>
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
+                    <img src="/assets/images/browser/ie.png" alt="">
                     <div>IE (9 & above)</div>
                 </a>
             </li>
@@ -482,31 +481,31 @@
    <!-- Warning Section Ends -->
 
    <!-- Required Jqurey -->
-   <script src="assets/plugins/jquery/dist/jquery.min.js"></script>
-   <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-   <script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+   <script src="/assets/plugins/jquery/dist/jquery.min.js"></script>
+   <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <script src="/assets/plugins/tether/dist/js/tether.min.js"></script>
 
    <!-- Required Fremwork -->
-   <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+   <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
    <!-- waves effects.js -->
-   <script src="assets/plugins/Waves/waves.min.js"></script>
+   <script src="/assets/plugins/Waves/waves.min.js"></script>
 
    <!-- Scrollbar JS-->
-   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-   <script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+   <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+   <script src="/assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
    <!--classic JS-->
-   <script src="assets/plugins/classie/classie.js"></script>
+   <script src="/assets/plugins/classie/classie.js"></script>
 
    <!-- notification -->
-   <script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+   <script src="/assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
    <!-- custom js -->
-   <script type="text/javascript" src="assets/js/main.min.js"></script>
-   <script src="assets/pages/typicon.js"></script>
-   <script type="text/javascript" src="assets/pages/elements.js"></script>
-   <script type="text/javascript" src="assets/js/menu.min.js"></script>
+   <script type="text/javascript" src="/assets/js/main.min.js"></script>
+   <script src="/assets/pages/typicon.js"></script>
+   <script type="text/javascript" src="/assets/pages/elements.js"></script>
+   <script type="text/javascript" src="/assets/js/menu.min.js"></script>
 
 </body>
 

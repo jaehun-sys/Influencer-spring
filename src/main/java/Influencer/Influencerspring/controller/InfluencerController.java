@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 public class InfluencerController {
@@ -116,6 +119,98 @@ public class InfluencerController {
         model.addAttribute("List",filteringListService.filterResults(form));
 
         return "recommend-influencer-result";
+    }
+
+    @RequestMapping(value = "/aaa", method = RequestMethod.POST)
+    public String result2(@RequestParam("redirect") String redirect, @RequestParam("rf") Double rf, @RequestParam("re") Double re, @RequestParam("ac") Double ac,Model model){
+        System.out.println(redirect);
+        InfProEngTex form = new InfProEngTex();
+
+        System.out.println("rf가중치: "+rf);
+        System.out.println("re가중치: "+re);
+        System.out.println("ac가중치: "+ac);
+
+        //카테고리, 인프성별, 인프나이, 오디성별
+        ArrayList<String> list = new ArrayList<String>();
+        Pattern pattern = Pattern.compile("[=](.*?)[&]");
+        Matcher matcher = pattern.matcher(redirect);
+        while(matcher.find()){
+            list.add(matcher.group(1));
+            if(matcher.group(1)==null)
+                break;
+        }
+        //오디나이
+        String piece = redirect.substring(redirect.indexOf("inputAudAge"));
+
+        System.out.println("in카테고리: " + list.get(0));
+        System.out.println("in인프성별: " + list.get(1));
+        System.out.println("in인프나이: " + list.get(2));
+        System.out.println("in오디성별: " + list.get(3));
+        System.out.println("in오디나이: " + piece.substring(12));
+
+        form.setCat(list.get(0));
+        form.setInputInfSex(list.get(1));
+        form.setInputInfAge(list.get(2));
+        form.setInputAudSex(list.get(3));
+        form.setInputAudAge(piece.substring(12));
+        form.setRe_weight(re);
+        form.setAc_weight(ac);
+        form.setRf_weight(rf);
+
+        System.out.println("form에 들어간 cat: "+ form.getCat());
+        System.out.println("form에 들어간 인프성별: "+ form.getInputInfSex());
+        System.out.println("form에 들어간 in인프나이: "+ form.getInputInfAge());
+        System.out.println("form에 들어간 in오디성별: "+ form.getInputAudSex());
+        System.out.println("form에 들어간 in오디나이: "+ form.getInputAudAge());
+        System.out.println("form에 들어간 re: "+ form.getRe_weight());
+        System.out.println("form에 들어간 ac: "+ form.getAc_weight());
+        System.out.println("form에 들어간 rf: "+ form.getRf_weight());
+
+        List<InfProEngTex> filterResults = filteringListService.filterResults(form);
+        System.out.println("사이즈 체크 : "+filterResults.size());
+        for(int i=0; i<filterResults.size(); i++){
+            System.out.println("순위: "+ filterResults.get(i).getRankno());
+            System.out.println("계정명: "+ filterResults.get(i).getUsername());
+            System.out.println("바이오: "+ filterResults.get(i).getBio());
+            System.out.println("카테고리: "+ filterResults.get(i).getCat());
+            System.out.println("팔로워수: "+ filterResults.get(i).getFollowers());
+            System.out.println("활성도: "+ filterResults.get(i).getActivity());
+            System.out.println("반응도: "+ filterResults.get(i).getReaction());
+            System.out.println("--------------------------");
+        }
+
+        model.addAttribute("List", filteringListService.filterResults(form));
+
+        return "recommend-influencer-result";
+    }
+
+
+    /* 인플루언서 세부 정보 */
+    @GetMapping("/5")
+    public String detailpage(){return "detail-influencer";}
+
+    @GetMapping("/detail")
+    public String detail(@RequestParam("username") String username, Model model){
+        System.out.println("상세페이지로 갈 username: " + username);
+
+        List<InfEngPro> result = filteringListService.details(username);
+        for(int i=0; i<result.size(); i++){
+            System.out.println(i+"계정명: "+result.get(i).getUsername());
+            System.out.println(i+"오디성별: "+result.get(i).getAud_sex());
+            System.out.println(i+"활성도: "+result.get(i).getActivity());
+            System.out.println(i+"바이오: "+result.get(i).getBio());
+            System.out.println(i+"오디연령: "+result.get(i).getAvg_age());
+            System.out.println(i+"카테고리: "+result.get(i).getCategory());
+            System.out.println(i+"피드수: "+result.get(i).getFeeds());
+            System.out.println(i+"팔로워수: "+result.get(i).getFollowers());
+            System.out.println(i+"팔로윙수: "+result.get(i).getFollowings());
+            System.out.println(i+"반응도: "+result.get(i).getReaction());
+            System.out.println(i+"진짜최소: "+result.get(i).getReal_min());
+            System.out.println(i+"진짜최대: "+result.get(i).getReal_max());
+        }
+        model.addAttribute("userinfo", filteringListService.details(username));
+
+        return "detail";
     }
 
 

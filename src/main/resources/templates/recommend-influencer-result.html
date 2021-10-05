@@ -19,39 +19,55 @@
 	<meta name="author" content="codedthemes">
 
 	<!-- Favicon icon -->
-	<link rel="shortcut icon" href="assets/images/favicon_mic.png" type="image/x-icon">
-	<link rel="icon" href="assets/images/favicon_mic.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/images/favicon_mic.png" type="image/x-icon">
+	<link rel="icon" href="/assets/images/favicon_mic.ico" type="image/x-icon">
 
 	<!-- Google font-->
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
 
 	<!-- themify -->
-	<link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="/assets/icon/themify-icons/themify-icons.css">
 
 	<!-- iconfont -->
-	<link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+	<link rel="stylesheet" type="text/css" href="/assets/icon/icofont/css/icofont.css">
 
 	<!-- simple line icon -->
-	<link rel="stylesheet" type="text/css" href="assets/icon/simple-line-icons/css/simple-line-icons.css">
+	<link rel="stylesheet" type="text/css" href="/assets/icon/simple-line-icons/css/simple-line-icons.css">
 
 	<!-- bash syntaxhighlighter css -->
-	<link type="text/css" rel="stylesheet" href="assets/plugins/syntaxhighlighter/styles/shCoreDjango.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/plugins/syntaxhighlighter/styles/shCoreDjango.css" />
 
    <!-- Required Fremwork -->
-   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
 
 	<!-- Style.css -->
 	<!-- Style.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
 	<!-- Responsive.css-->
-	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
 
 	<!--color css-->
-	<link rel="stylesheet" type="text/css" href="assets/css/color/color-1.min.css" id="color" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/color/color-1.min.css" id="color" />
 
 </head>
-
+<style>
+    #rowbtn3:hover{
+        background-color: #C7E9FE;
+    }
+    #bioverflow{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 150px;
+        height: 20px;
+    }
+</style>
+<!-- Required Jqurey -->
+<script src="/assets/plugins/jquery/dist/jquery.min.js"></script>
+<script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/assets/plugins/tether/dist/js/tether.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 <body class="sidebar-mini fixed">
 	<div class="wrapper">
 		<div class="loader-bg">
@@ -90,167 +106,239 @@
 				</div>
 				<!-- end of row -->
 
-				<!-- Row start -->
-				<div class="row">
-					<div class="col-lg-4">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-block" style="text-align:center;">
-									<label style="padding:10px">진짜팔로워</label>
-									<input type="range" name="rf_weight" id="fo-in" min="0" max="1" step="0.1">
-									<div id="fo-out"></div>
 
-								</div>
+				<div class="row box-shadow">
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-header-text">가중치를 설정하여 랭킹을 조정할 수 있습니다.</h5>
+<!--								<div class="f-right">-->    <!-- 모달? -->
+<!--									<a href="" data-toggle="modal" data-target="#shadow-left">-->
+<!--										<i class="icofont icofont-code-alt"></i>-->
+<!--									</a>-->
+<!--								</div>-->
+								<p>합이 1이 되도록 설정해주세요.</p>
 							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-block" style="text-align:center;">
-									<label style="padding:10px">반응도</label>
-									<input type="range" name="re_weight" id="re-in" min="0" max="1" step="0.1" >
-									<div id="re-out" ></div>
+
+<!--							<div class="modal fade modal-flex" tabindex="-1" role="dialog">-->
+<!--								<div class="modal-dialog modal-lg" role="document">-->
+<!--									<div class="modal-content">-->
+<!--										<div class="modal-header">-->
+<!--											<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--												<span aria-hidden="true">&times;</span>-->
+<!--											</button>-->
+<!--											<h5 class="modal-title">Code Explanation for Left Side Shadow </h5>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; end of modal-header &ndash;&gt;-->
+<!--										<div class="modal-body">-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--										</div>-->
+<!--										&lt;!&ndash; end of modal-body &ndash;&gt;-->
+<!--									</div>-->
+<!--									&lt;!&ndash; end of modal-content &ndash;&gt;-->
+<!--								</div>-->
+<!--								&lt;!&ndash; end of modal-dialog &ndash;&gt;-->
+<!--							</div>-->
+							<!-- end of modal -->
+
+
+							<div class="card-block row box-list">
+								<!-- Start a Box p-20 -->
+								<div class="col-lg-4">
+									<div class="p-20 z-depth-left-0" align="center">
+<!--										data-toggle="tooltip" data-placement="top" title=".z-depth-left-0">-->
+										<label style="padding:10px">진짜팔로워</label>
+										<input class="waves-effect" type="range" name="rf_weight" id="fo-in" min="0" max="1" step="0.1">
+										<div id="fo-out"></div>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="p-20 z-depth-left-1" align="center">
+<!--										data-toggle="tooltip" data-placement="top" title=".z-depth-left-1">-->
+										<label style="padding:10px">반응도</label>
+										<input class="waves-effect" type="range" name="re_weight" id="re-in" min="0" max="1" step="0.1" >
+										<div id="re-out"></div>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="p-20 z-depth-left-2" align="center">
+<!--										data-toggle="tooltip" data-placement="top" title=".z-depth-left-2">-->
+										<label style="padding:10px">활성도</label>
+										<input class="waves-effect" type="range" name="ac_weight" id="ac-in" min="0" max="1" step="0.1">
+										<div id="ac-out"></div>
+									</div>
 								</div>
 
 							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-block" style="text-align:center;">
-									<label style="padding:10px">활성도</label>
-									<input type="range" name="ac_weight" id="ac-in" min="0" max="1" step="0.1">
-									<div id="ac-out"></div>
-								</div>
+							<!-- end of card-content -->
 
+							<div align="center">
+								<button type="button" style="margin-left:3px; margin-bottom:17px; height: 27pt;" class="btn btn-inverse-info waves-effect waves-light " id = "aaa">적용</button>
 							</div>
+
+
 						</div>
+						<!-- end of card-main -->
 					</div>
+					<!-- end of col-sm-12 -->
 				</div>
-
+				<!-- end of row -->
+				<script>
+					$("button[id='aaa']").click(function(){
+						console.log('가중치ㅋㅋㅋㅋㅋㅋ');
+<!--						  if (confirm("ㄱ?")) {-->
+							var html = "";
+							var uri = '/aaa'
+							let redirect = window.location.href;
+							let rf = $("input[id='fo-in']").val();
+							let re = $("input[id='re-in']").val();
+							let ac = $("input[id='ac-in']").val();
+							html += '<form name="dataForm" action="'+uri+'" method="post">';
+							html += '<input type="hidden" name="redirect" value="'+redirect+'" />';
+							html += '<input type="hidden" name="rf" value="'+rf+'" />';
+							html += '<input type="hidden" name="re" value="'+re+'" />';
+							html += '<input type="hidden" name="ac" value="'+ac+'" />';
+							html += '</form>';
+							var decodeStr = decodeURI(html);
+							console.log(decodeStr);
+							$("body").append(decodeStr);
+							document.dataForm.submit();
+<!--						  }-->
+					 });
+				</script>
 				<!-- Row start -->
 				<div class="row box-shadow">
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
 								<h5 class="card-header-text">Result Lists</h5>
-								<div class="f-right">
-									<a href="" data-toggle="modal" data-target="#shadow-left">
-										<i class="icofont icofont-code-alt"></i>
-									</a>
-								</div>
-								<p>가중치를 설정하여 랭킹을 조정할 수 있습니다.</p>
+<!--								<div class="f-right">-->  <!-- 모달? -->
+<!--									<a href="" data-toggle="modal" data-target="#shadow-left">-->
+<!--										<i class="icofont icofont-code-alt"></i>-->
+<!--									</a>-->
+<!--								</div>-->
 							</div>
 
-							<div class="modal fade modal-flex" id="shadow-left" tabindex="-1" role="dialog">
-								<div class="modal-dialog modal-lg" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-											<h5 class="modal-title">Code Explanation for Left Side Shadow </h5>
-										</div>
-										<!-- end of modal-header -->
-										<div class="modal-body">
-											<pre class="brush: html;">
+<!--							<div class="modal fade modal-flex" id="shadow-left" tabindex="-1" role="dialog">-->
+<!--								<div class="modal-dialog modal-lg" role="document">-->
+<!--									<div class="modal-content">-->
+<!--										<div class="modal-header">-->
+<!--											<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--											<span aria-hidden="true">&times;</span>-->
+<!--										</button>-->
+<!--											<h5 class="modal-title">Code Explanation for Left Side Shadow </h5>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; end of modal-header &ndash;&gt;-->
+<!--										<div class="modal-body">-->
+<!--											<pre class="brush: html;">-->
 
-				                      	/* Use for left Shadow 0 */
+<!--				                      	/* Use for left Shadow 0 */-->
 
-				                      	&lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-0 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-0"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;/div&gt;
+<!--				                      	&lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-0 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-0"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;/div&gt;-->
 
-				                      	/* Use for left Shadow 1 */
+<!--				                      	/* Use for left Shadow 1 */-->
 
-				                      	&lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-1 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-1"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;/div&gt;
+<!--				                      	&lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-1 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-1"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;/div&gt;-->
 
-				                      	/* Use for left Shadow 2 */
+<!--				                      	/* Use for left Shadow 2 */-->
 
-				                      	&lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-2 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-2"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;/div&gt;
+<!--				                      	&lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-2 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-2"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;/div&gt;-->
 
-				                      	/* Use for left Shadow 3 */
+<!--				                      	/* Use for left Shadow 3 */-->
 
-				                      	&lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-3 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-3"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;/div&gt;
+<!--				                      	&lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-3 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-3"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;/div&gt;-->
 
-				                      	/* Use for left Shadow 4 */
+<!--				                      	/* Use for left Shadow 4 */-->
 
-				                      	&lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-4 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-4"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;/div&gt;
+<!--				                      	&lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-4 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-4"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;/div&gt;-->
 
-										/* Use for left Shadow 5 */
+<!--										/* Use for left Shadow 5 */-->
 
-				                      &lt;div class="col-lg-4"&gt;
-				                      		&lt;div class="p-20 z-depth-left-5 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-5"&gt;
-				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;
-				                      		&lt;/div&gt;
-				                      	&lt;div&gt;
+<!--				                      &lt;div class="col-lg-4"&gt;-->
+<!--				                      		&lt;div class="p-20 z-depth-left-5 waves-effect" data-toggle="tooltip" data-placement="top" title=".z-depth-left-5"&gt;-->
+<!--				                      			&lt;p class="text-sm-center"&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p&gt;-->
+<!--				                      		&lt;/div&gt;-->
+<!--				                      	&lt;div&gt;-->
 
-				                      </pre>
-										</div>
-										<!-- end of modal-body -->
-									</div>
-									<!-- end of modal-content -->
-								</div>
-								<!-- end of modal-dialog -->
-							</div>
+<!--				                      </pre>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; end of modal-body &ndash;&gt;-->
+<!--									</div>-->
+<!--									&lt;!&ndash; end of modal-content &ndash;&gt;-->
+<!--								</div>-->
+<!--								&lt;!&ndash; end of modal-dialog &ndash;&gt;-->
+<!--							</div>-->
 							<!-- end of modal -->
 
 							<div class="card-block row box-list">
 								<!-- Start a Box p-20 -->
 								<div class="col-lg-12">
-									<div class="col-xs-12 z-depth-left-0 waves-effect">
-<!--										<p class="text-sm-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-										<div class="col-sm-12 table-responsive">
-											<table align="center" width="70%" style="text-align:center;">
+									<div class="col-xs-12 z-depth-left-0">
+										<!--										<p class="text-sm-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+										<div class="col-sm-12 table-responsive" style="padding:20px">
+											<table align="center" width="90%" style="text-align:center;">
 												<thead>
-												<tr style="border-bottom: 2px solid #eceeef;">
-													<th>순위</th>
-													<th colspan="2">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
-													<th>진짜영향력</th>
-													<th>반응도</th>
-													<th>활성도</th>
-													<th>팔로워</th>
-													<th>카테고리</th>
+												<tr style="border-bottom:2px solid #eceeef;">
+													<th style="text-align:center;">순위</th>
+													<th colspan="2" style="text-align:center;">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
+													<th style="text-align:center;">진짜영향력</th>
+													<th style="text-align:center;">반응도</th>
+													<th style="text-align:center;">활성도</th>
+													<th style="text-align:center;">팔로워</th>
+													<th style="text-align:center;">카테고리</th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr th:each="ipet : ${List}" id="rowbtn2" style="border-top: 1px solid #eceeef;" ><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
-													<td rowspan="2"><span th:text="${ipet.rankno}"></span></td>
-													<td rowspan="2"><p><img th:src="|/pics/${ipet.username}.jpg|"style="width:70px; height:70px; object-filter:cover;
-                                                                                    border: 3px solid gold;
+
+												<tbody th:each="ipet : ${List}" id="rowbtn3" style="border-top: 1px solid #eceeef;">
+												<tr ><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+													<td rowspan="2" width="12%"><span th:text="${ipet.rankno}"></span></td>
+													<td rowspan="2" width="12%" align="right" style="padding:10px 20px 10px 0px"><p><img th:src="|/pics/${ipet.username}.jpg|"style="width:70px; height:70px; object-filter:cover;
+                                                                                    border: 2.5px solid #EE82EE;
                                                                                     border-radius: 7px;
                                                                                     -moz-border-radius: 160px;
                                                                                     -khtml-border-radius: 160px;
-                                                                                    -webkit-border-radius: 160px;"></td>
-													<td><span th:text="${ipet.username}"></span></td>
-													<td rowspan="2"><span th:text="${ipet.realInf}"></span> </td>
-													<td rowspan="2"><span th:text="${ipet.reaction}"></span></td>
-													<td rowspan="2"><span th:text="${ipet.activity}"></span></td>
-													<td rowspan="2"><span th:text="${ipet.followers}"></span></td>
-													<td rowspan="2"><span th:text="${ipet.cat}"></span></td>
+                                                                                    -webkit-border-radius: 160px;
+                                                                                    cursor:pointer;"
+																					th:onclick="window.open('https://www.instagram.com/'+[[${ipet.username}]])"
+																					data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동"></p></td>
+													<td align="left" style="padding:10px 0px 0px 0px" width="16%">
+														<span th:text="${ipet.username}"
+															  th:onclick="|location.href='@{/Detail(username = ${ipet.username})}'|"
+															  data-toggle="tooltip" data-placement="top" title data-original-title="상세 결과로 이동"
+															  style="font-size:1.1em; font-weight:bold; cursor:pointer;"></span>
+													</td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.realInf}"></span> </td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.reaction}"></span></td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.activity}"></span></td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.followers}"></span></td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.cat}"></span></td>
 												</tr>
 												<tr>
-													<td><span th:text="${ipet.bio}"><p>바이오</p></span></td>
+													<td align="left" style="">
+														<div id="bioverflow">
+															<span th:text="${ipet.bio}"></span>
+														</div>
+													</td>
 												</tr>
 												</tbody>
 											</table>
@@ -282,31 +370,31 @@
         <ul class="iew-download">
             <li>
                 <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <img src="/assets/images/browser/chrome.png" alt="Chrome">
                     <div>Chrome</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <img src="/assets/images/browser/firefox.png" alt="Firefox">
                     <div>Firefox</div>
                 </a>
             </li>
             <li>
                 <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <img src="/assets/images/browser/opera.png" alt="Opera">
                     <div>Opera</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <img src="/assets/images/browser/safari.png" alt="Safari">
                     <div>Safari</div>
                 </a>
             </li>
             <li>
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
+                    <img src="/assets/images/browser/ie.png" alt="">
                     <div>IE (9 & above)</div>
                 </a>
             </li>
@@ -314,57 +402,57 @@
     </div>
     <p>Sorry for the inconvenience!</p>
 </div>
-<script>
-        document.querySelector('#fo-in').addEventListener('input',e=>{
-            document.querySelector('#fo-out').innerHTML= e.target.value;
-        });
-        document.querySelector('#re-in').addEventListener('input',e=>{
-            document.querySelector('#re-out').innerHTML= e.target.value;
-        });
-        document.querySelector('#ac-in').addEventListener('input',e=>{
-            document.querySelector('#ac-out').innerHTML= e.target.value;
-        });
-</script>
+
 <![endif]-->
 	<!-- Warning Section Ends -->
 
 
 
-   <!-- Required Jqurey -->
-   <script src="assets/plugins/jquery/dist/jquery.min.js"></script>
-   <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-   <script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+<!--   &lt;!&ndash; Required Jqurey &ndash;&gt;-->
+<!--   <script src="/assets/plugins/jquery/dist/jquery.min.js"></script>-->
+<!--   <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>-->
+<!--   <script src="/assets/plugins/tether/dist/js/tether.min.js"></script>-->
 
    <!-- Required Fremwork -->
-   <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+   <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
    <!-- waves effects.js -->
-   <script src="assets/plugins/Waves/waves.min.js"></script>
+   <script src="/assets/plugins/Waves/waves.min.js"></script>
 
    <!-- Scrollbar JS-->
-   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-   <script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+   <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+   <script src="/assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
    <!--classic JS-->
-   <script src="assets/plugins/classie/classie.js"></script>
+   <script src="/assets/plugins/classie/classie.js"></script>
 
    <!-- notification -->
-   <script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+   <script src="/assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
 	<!-- Highliter js -->
-	<script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
-	<script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-	<script type="text/javascript" src="assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="/assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="/assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="/assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
 	<script type="text/javascript">
 		SyntaxHighlighter.all();
 	</script>
 
 	<!-- custom js -->
-	<script type="text/javascript" src="assets/js/main.min.js"></script>
-	<script type="text/javascript" src="assets/pages/elements.js"></script>
-	<script src="assets/js/menu.min.js"></script>
+	<script type="text/javascript" src="/assets/js/main.min.js"></script>
+	<script type="text/javascript" src="/assets/pages/elements.js"></script>
+	<script src="/assets/js/menu.min.js"></script>
 
-
+	<script>
+	document.querySelector('#fo-in').addEventListener('input',e=>{
+		document.querySelector('#fo-out').innerHTML= e.target.value;
+	});
+	document.querySelector('#re-in').addEventListener('input',e=>{
+		document.querySelector('#re-out').innerHTML= e.target.value;
+	});
+	document.querySelector('#ac-in').addEventListener('input',e=>{
+		document.querySelector('#ac-out').innerHTML= e.target.value;
+	});
+</script>
 
 </body>
 
