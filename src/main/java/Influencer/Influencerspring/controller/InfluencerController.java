@@ -89,6 +89,9 @@ public class InfluencerController {
 
     @GetMapping("/recommend-influencer/results")
     public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model){
+        form.setAc_weight(0.4);
+        form.setRe_weight(0.4);
+        form.setRf_weight(0.3);
 
         System.out.println("인프성별: " + form.getInputAudSex());
         System.out.println("인프캠페인: " + form.getInputCat());
