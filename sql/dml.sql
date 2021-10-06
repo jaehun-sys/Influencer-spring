@@ -125,3 +125,12 @@ where  a.inf_username = 'ddins_official';
 --    and d.WORD like '%추위%'
 --    and a.INF_SEX = '-'
 --    ;
+
+#키워드 연관키워드
+SELECT t.TERM_RANK, t.RELATED_TERM, t.SIMILARITY
+FROM   TERM t
+left outer join inf_profile ip
+on 	   t.INF_PK = ip.INF_PK
+WHERE  KEYTERM LIKE '%코디%'
+and    ip.INF_USERNAME = 'fingersuit_kr'
+order by term_rank;
