@@ -18,6 +18,7 @@ public class InfEngPro {
     private String avg_age;
     private String aud_sex;
 
+
     public String getUsername() {
         return username;
     }

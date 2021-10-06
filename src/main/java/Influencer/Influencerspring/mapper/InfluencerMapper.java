@@ -2,6 +2,7 @@ package Influencer.Influencerspring.mapper;
 
 import Influencer.Influencerspring.domain.InfEngPro;
 import Influencer.Influencerspring.domain.InfProEngTex;
+import Influencer.Influencerspring.domain.Term;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -18,5 +19,8 @@ public interface InfluencerMapper {
 
     /* 상세 페이지 */
     List<InfEngPro> details(String username);
+
+    /* 키워드 연관 키워드 */
+    List<Term> relatedKeyterms(Term tForm);
 
 }

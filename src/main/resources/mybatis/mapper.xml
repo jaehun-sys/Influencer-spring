@@ -112,4 +112,18 @@
         where				ip.inf_username = #{username}
 
     </select>
+
+    <select id="relatedKeyterms" resultType="Influencer.Influencerspring.domain.Term">
+        SELECT
+            RANK() over (order by 1-SIMILARITY) 	as term_rank,
+            t.RELATED_TERM	                        as related_term,
+            t.SIMILARITY	                        as similarity
+        FROM  				TERM t
+        left outer join 	inf_profile ip
+        on 	   				t.INF_PK = ip.INF_PK
+        WHERE  				t.KEYTERM LIKE concat('%',#{keyterm},'%')
+        and    				ip.INF_USERNAME = #{username}
+        LIMIT               5
+
+    </select>
 </mapper>

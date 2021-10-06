@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -36,6 +37,15 @@ public class InfluencerController {
     public String fakeReal(String username, Model model) throws Exception{
         username="";
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+
+        //숫자 콤마 표시
+        DecimalFormat formatter = new DecimalFormat("###,###");
+        for(int i=0; i<inf_profile.size(); i++){
+            inf_profile.get(i).setFol_count(  formatter.format(Integer.parseInt(inf_profile.get(i).getFol_count()))  );
+            inf_profile.get(i).setFolwing_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getFolwing_count()))   );
+            inf_profile.get(i).setReal_fol_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getReal_fol_count()))   );
+        }
+
         model.addAttribute("inf_profile", inf_profile);
         return "fake-real";
     }
@@ -43,6 +53,14 @@ public class InfluencerController {
     @GetMapping("/fake-real-re")
     public String fakeRealRe(@RequestParam(value="username", required=false) String username, Model model) throws Exception{
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+
+        //숫자 콤마 표시
+        DecimalFormat formatter = new DecimalFormat("###,###");
+        for(int i=0; i<inf_profile.size(); i++){
+            inf_profile.get(i).setFol_count(  formatter.format(Integer.parseInt(inf_profile.get(i).getFol_count()))  );
+            inf_profile.get(i).setFolwing_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getFolwing_count()))   );
+            inf_profile.get(i).setReal_fol_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getReal_fol_count()))   );
+        }
 
         System.out.println("username: " + username);
         for(int i=0; i<inf_profile.size(); i++){
@@ -57,6 +75,13 @@ public class InfluencerController {
     public String searchHash(String keyword, Model model) throws Exception{
         keyword="";
         List<Hashtag> hashtags = hashtagService.findHashtag(keyword);
+
+        //숫자 콤마 표시. 하지말자. 소수점이 없어진다.
+//        DecimalFormat formatter = new DecimalFormat("###,###");
+//        for(int i=0; i<hashtags.size(); i++){
+//            hashtags.get(i).setAvg_liked(  formatter.format(Double.parseDouble(hashtags.get(i).getAvg_liked()))  );
+//        }
+
         model.addAttribute("hashtags", hashtags);
         return "search-hash";
     }
@@ -89,11 +114,12 @@ public class InfluencerController {
         return "recommend-influencer";
     }
 
-    @GetMapping("/3")
-    public String recommendTemp(){return "recommend-influencer-result";}
+//    @GetMapping("/3")
+//    public String recommendTemp(){return "recommend-influencer-result";}
 
     @GetMapping("/recommend-influencer/results")
-    public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model, HttpSession session){
+    public String recommendInfResults(@ModelAttribute InfProEngTex form,
+                                      @RequestParam("keyTerm") String keyTerm, Model model, HttpSession session){
         form.setAc_weight(0.4);
         form.setRe_weight(0.4);
         form.setRf_weight(0.3);
@@ -107,15 +133,23 @@ public class InfluencerController {
         System.out.println("RE가중치: " + form.getRe_weight());
         System.out.println("AC가중치: " + form.getAc_weight());
 
+
         /* 다음 페이지에도 이어지기 위해 session에 저장 */
         session.setAttribute("inputInfAge", form.getInputAudSex() );
         session.setAttribute("inputCat", form.getInputCat() );
         session.setAttribute("inputInfAge", form.getInputInfAge() );
         session.setAttribute("inputAudSex", form.getInputAudSex() );
         session.setAttribute("inputAudAge", form.getInputAudAge() );
+        session.setAttribute("keyterm",keyTerm);
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
+            //숫자 콤마 표시
+            DecimalFormat formatter = new DecimalFormat("###,###");
+            filterResults.get(i).setFollowers(  formatter.format(Integer.parseInt(filterResults.get(i).getFollowers()))  );
+            filterResults.get(i).setReaction(   formatter.format(Integer.parseInt(filterResults.get(i).getReaction()))   );
+
+            System.out.println("=============================");
             System.out.println("순위: "+ filterResults.get(i).getRankno());
             System.out.println("계정명: "+ filterResults.get(i).getUsername());
             System.out.println("바이오: "+ filterResults.get(i).getBio());
@@ -125,7 +159,7 @@ public class InfluencerController {
             System.out.println("반응도: "+ filterResults.get(i).getReaction());
         }
 
-        model.addAttribute("List",filteringListService.filterResults(form));
+        model.addAttribute("List", filterResults);
 
         return "recommend-influencer-result";
     }
@@ -151,9 +185,8 @@ public class InfluencerController {
         form.setRe_weight(re);
         form.setAc_weight(ac);
         form.setRf_weight(rf);
-
-        String age = (String) session.getAttribute("age") ;
-        System.out.println(age);
+//        String age = (String) session.getAttribute("age") ;
+//        System.out.println(age);
 
 //        //카테고리, 인프성별, 인프나이, 오디성별
 //        ArrayList<String> list = new ArrayList<String>();
@@ -190,10 +223,16 @@ public class InfluencerController {
         System.out.println("form에 들어간 re: "+ form.getRe_weight());
         System.out.println("form에 들어간 ac: "+ form.getAc_weight());
         System.out.println("form에 들어간 rf: "+ form.getRf_weight());
+        System.out.println("--------- 결과 페이지 ---------");
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
-        System.out.println("사이즈 체크 : "+filterResults.size());
         for(int i=0; i<filterResults.size(); i++){
+            //숫자 콤마 표시
+            DecimalFormat formatter = new DecimalFormat("###,###");
+            filterResults.get(i).setFollowers(  formatter.format(Integer.parseInt(filterResults.get(i).getFollowers()))  );
+            filterResults.get(i).setReaction(   formatter.format(Integer.parseInt(filterResults.get(i).getReaction()))   );
+
+            System.out.println("=======================");
             System.out.println("순위: "+ filterResults.get(i).getRankno());
             System.out.println("계정명: "+ filterResults.get(i).getUsername());
             System.out.println("바이오: "+ filterResults.get(i).getBio());
@@ -201,25 +240,40 @@ public class InfluencerController {
             System.out.println("팔로워수: "+ filterResults.get(i).getFollowers());
             System.out.println("활성도: "+ filterResults.get(i).getActivity());
             System.out.println("반응도: "+ filterResults.get(i).getReaction());
-            System.out.println("--------------------------");
         }
 
-        model.addAttribute("List", filteringListService.filterResults(form));
-
+        model.addAttribute("List", filterResults);
         return "recommend-influencer-result";
     }
 
 
     /* 인플루언서 세부 정보 */
-    @GetMapping("/5")
-    public String detailpage(){return "detail-influencer";}
+//    @GetMapping("/5")
+//    public String detailpage(){return "detail-page";}
 
     @GetMapping("/detail-page")
-    public String detail(@RequestParam("username") String username, Model model){
+    public String detail(@ModelAttribute Term tForm, @RequestParam("username") String username, Model model, HttpSession session){
+
+        String keyterm = (String)session.getAttribute("keyterm");
+        System.out.println("상세페이지로 갈 keyterm: " + keyterm);
+        tForm.setKeyterm(keyterm);
+        List<Term> termResult = filteringListService.relatedKeyterms(tForm);
+
         System.out.println("상세페이지로 갈 username: " + username);
+        System.out.println("---------상세 페이지---------");
 
         List<InfEngPro> result = filteringListService.details(username);
         for(int i=0; i<result.size(); i++){
+            //숫자 콤마 표시
+            DecimalFormat formatter = new DecimalFormat("###,###");
+            result.get(i).setFeeds(  formatter.format(Integer.parseInt(result.get(i).getFeeds()))  );
+            result.get(i).setFollowers(   formatter.format(Integer.parseInt(result.get(i).getFollowers()))   );
+            result.get(i).setReal_max(   formatter.format(Integer.parseInt(result.get(i).getReal_max()))   );
+            result.get(i).setReal_min(   formatter.format(Integer.parseInt(result.get(i).getReal_min()))   );
+            result.get(i).setReaction(   formatter.format(Integer.parseInt(result.get(i).getReaction()))   );
+            result.get(i).setFollowings(   formatter.format(Integer.parseInt(result.get(i).getFollowings()))   );
+
+            System.out.println("===========================");
             System.out.println(i+"계정명: "+result.get(i).getUsername());
             System.out.println(i+"오디성별: "+result.get(i).getAud_sex());
             System.out.println(i+"활성도: "+result.get(i).getActivity());
@@ -233,12 +287,11 @@ public class InfluencerController {
             System.out.println(i+"진짜최소: "+result.get(i).getReal_min());
             System.out.println(i+"진짜최대: "+result.get(i).getReal_max());
         }
-        model.addAttribute("userinfo", filteringListService.details(username));
+        model.addAttribute("userinfo", result);
+        model.addAttribute("keyterms", termResult);
 
         return "detail-page";
     }
-
-
 
 
 

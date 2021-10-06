@@ -183,7 +183,9 @@
                         <h5 class="card-header-text">Word cloud</h5>
                      </div>
                      <div class="card-block">
-                        <div style="min-width: 250px; height: 330px; margin: 0 auto"></div>
+                        <div style="min-width: 250px; height: 330px; margin: 0 auto" align="center">
+                           <img th:src="|pics/wordcloud/${inf.username}_wordcloud.png|">
+                        </div>
                      </div>
                   </div>
                </div>
@@ -192,8 +194,28 @@
                      <div class="card-header">
                         <h5 class="card-header-text">Main keywords</h5>
                      </div>
-                     <div class="card-block">
-                        <div id="barchart" style="min-width: 250px; height: 330px; margin: 0 auto"></div>
+                     <div class="card-block" >
+                        <div class="row">
+                              <div class="col-sm-12 table-responsive">
+                              <table class="table" width="80%" align="center" style="text-align:center;">
+                                 <thead>
+                                 <tr>
+                                    <th style="text-align:center;">#</th>
+                                    <th style="text-align:center;">연관 키워드</th>
+                                    <th style="text-align:center;">유사도</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 <tr th:each="keyterm : ${keyterms}">
+                                    <td><span th:text="${keyterm.term_rank}" ></span></td>
+                                    <td><span th:text="${keyterm.related_term}"></span></td>
+                                    <td><span th:text="${keyterm.similarity}"></span></td>
+                                 </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+<!--                        <div id="barchart" style="min-width: 250px; height: 330px; margin: 0 auto"></div>-->
                      </div>
                   </div>
                </div>
