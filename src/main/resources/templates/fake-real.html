@@ -156,22 +156,22 @@
                                                                                         cursor:pointer;"
                                                                                         th:onclick="window.open('https://www.instagram.com/'+[[${index.inf_username}]])"
                                                                                         data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동" ></p></td> <!-- 프사(3행 병합) -->
-                                        <td colspan="2" style="text-align:left; vertical-align:bottom;">계정명</td>
-                                        <td rowspan="2" width="20%" style="text-align:center; vertical-align:bottom;"><p><img src="assets/images/people.png" style="width:100px; height:60px;"></p></td>
-                                        <td width="25%" style="text-align:left; vertical-align:bottom;">진짜 팔로워</td>
+                                        <td colspan="2" style="text-align:left; padding:20px 0px 0px 10px; vertical-align:bottom;">계정명</td>
+                                        <td rowspan="2" width="18%" style="text-align:center; vertical-align:bottom;"><p><img src="assets/images/people.png" style="width:100px; height:60px;"></p></td>
+                                        <td width="25%" style="text-align:left; padding:0px 0px 0px 5px; vertical-align:bottom;">진짜 팔로워</td>
                                      </tr>
     <!--                                 </thead>-->
     <!--                                 <tbody>-->
                                      <tr>
                                         <td colspan="2" style="text-align:left; vertical-align:top; padding:0px 0px 0px 10px;"><span th:text="${index.inf_username}" style="font-size:2.0em; color:green;"></span></td> <!-- 계정명 4열 병합 -->
 <!--                                        <td style="text-align:center;"><span></span></td>-->
-                                        <td colspan="3" style="text-align:left; vertical-align:top; padding:0px 0px 0px 10px;"><span th:text="${index.real_fol_count}" style="font-size:1.6em;padding:5px;"></span><span>명</span></td>
+                                        <td colspan="3" style="text-align:left; vertical-align:top; padding:0px 0px 0px 0px;"><span th:text="${index.real_fol_count}" style="font-size:1.6em;padding:5px;"></span><span>명</span></td>
                                      </tr>
                                      <tr>
                                         <td width="18%" style="text-align:left; vertical-align:top; padding:11px 0px 0px 5px;"><span style="padding:0px 0px 0px 7px;">팔로워</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span></td>
                                         <td width="20%" style="text-align:left; vertical-align:top; padding:11px 0px 0px 5px;"><span style="padding:0px 0px 0px 7px;">팔로잉</span><span th:text="${index.folwing_count}" style="font-size:1.6em;padding:10px;"></span></td>
-                                        <td style="text-align:left; vertical-align:top; padding:11px 0px 10px 10px;"><span style="padding:10px;">전체</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span><span>명 중</span></td>
-                                        <td style="text-align:left; vertical-align:top; padding:0px 0px 10px 10px;"><strong><span th:text="${index.real_fol_count}" style="font-size:2.3em; color:deeppink; padding:0px 5px 0px 0px;"></span></strong><span>명이 진짜입니다.</span></td>
+                                        <td style="text-align:left; vertical-align:top; padding:11px 0px 10px 0px;"><span style="padding:10px 0px 10px 0px;">전체</span><span th:text="${index.fol_count}" style="font-size:1.6em;padding:10px;"></span><span>명 중</span></td>
+                                        <td style="text-align:left; vertical-align:top; padding:0px 0px 10px 0px;"><strong><span th:text="${index.real_fol_count}" style="font-size:2.3em; color:deeppink; padding:0px 5px 0px 0px;"></span></strong><span>명이 진짜입니다.</span></td>
                                      </tr>
 
     <!--                                 </tbody>-->

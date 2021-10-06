@@ -38,7 +38,7 @@
                 <tbody>
                 <tr th:each="inf : ${userinfo}"><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
                         <td>
-                            <p><img th:src="|pics/${inf.username}.jpg|"style="width:150px; height:150px; object-filter:cover;
+                            <p><img th:src="|pics/${inf.username}.jpg|" style="width:150px; height:150px; object-filter:cover;
                                                                                     border: 3px solid gold;
                                                                                     border-radius: 7px;
                                                                                     -moz-border-radius: 160px;

@@ -4,11 +4,13 @@ import Influencer.Influencerspring.domain.*;
 import Influencer.Influencerspring.service.FilteringListService;
 import Influencer.Influencerspring.service.HashtagService;
 import Influencer.Influencerspring.service.InfluencerService;
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +93,7 @@ public class InfluencerController {
     public String recommendTemp(){return "recommend-influencer-result";}
 
     @GetMapping("/recommend-influencer/results")
-    public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model){
+    public String recommendInfResults(@ModelAttribute InfProEngTex form, Model model, HttpSession session){
         form.setAc_weight(0.4);
         form.setRe_weight(0.4);
         form.setRf_weight(0.3);
@@ -104,6 +106,13 @@ public class InfluencerController {
         System.out.println("RF가중치: " + form.getRf_weight());
         System.out.println("RE가중치: " + form.getRe_weight());
         System.out.println("AC가중치: " + form.getAc_weight());
+
+        /* 다음 페이지에도 이어지기 위해 session에 저장 */
+        session.setAttribute("inputInfAge", form.getInputAudSex() );
+        session.setAttribute("inputCat", form.getInputCat() );
+        session.setAttribute("inputInfAge", form.getInputInfAge() );
+        session.setAttribute("inputAudSex", form.getInputAudSex() );
+        session.setAttribute("inputAudAge", form.getInputAudAge() );
 
         List<InfProEngTex> filterResults = filteringListService.filterResults(form);
         for(int i=0; i<filterResults.size(); i++){
@@ -121,8 +130,11 @@ public class InfluencerController {
         return "recommend-influencer-result";
     }
 
-    @RequestMapping(value = "/aaa", method = RequestMethod.POST)
-    public String result2(@RequestParam("redirect") String redirect, @RequestParam("rf") Double rf, @RequestParam("re") Double re, @RequestParam("ac") Double ac,Model model){
+    @RequestMapping(value = "/recommend-influencer/results2", method = RequestMethod.POST)
+    public String result2(@RequestParam("redirect") String redirect,
+                          @RequestParam("rf_weight") Double rf,
+                          @RequestParam("re_weight") Double re,
+                          @RequestParam("ac_weight") Double ac, Model model, HttpSession session){
         System.out.println(redirect);
         InfProEngTex form = new InfProEngTex();
 
@@ -130,34 +142,47 @@ public class InfluencerController {
         System.out.println("re가중치: "+re);
         System.out.println("ac가중치: "+ac);
 
-        //카테고리, 인프성별, 인프나이, 오디성별
-        ArrayList<String> list = new ArrayList<String>();
-        Pattern pattern = Pattern.compile("[=](.*?)[&]");
-        Matcher matcher = pattern.matcher(redirect);
-        while(matcher.find()){
-            list.add(matcher.group(1));
-            if(matcher.group(1)==null)
-                break;
-        }
-        //오디나이
-        String piece = redirect.substring(redirect.indexOf("inputAudAge"));
-
-        System.out.println("in카테고리: " + list.get(0));
-        System.out.println("in인프성별: " + list.get(1));
-        System.out.println("in인프나이: " + list.get(2));
-        System.out.println("in오디성별: " + list.get(3));
-        System.out.println("in오디나이: " + piece.substring(12));
-
-        form.setCat(list.get(0));
-        form.setInputInfSex(list.get(1));
-        form.setInputInfAge(list.get(2));
-        form.setInputAudSex(list.get(3));
-        form.setInputAudAge(piece.substring(12));
+        /* session에서 가져온걸로 form에 넣기 */
+        form.setInputCat((String)session.getAttribute("inputCat"));
+        form.setInputInfSex((String)session.getAttribute("inputCat"));
+        form.setInputInfAge((String)session.getAttribute("inputInfAge"));
+        form.setInputAudSex((String)session.getAttribute("inputAudSex"));
+        form.setInputAudAge((String)session.getAttribute("inputAudAge"));
         form.setRe_weight(re);
         form.setAc_weight(ac);
         form.setRf_weight(rf);
 
-        System.out.println("form에 들어간 cat: "+ form.getCat());
+        String age = (String) session.getAttribute("age") ;
+        System.out.println(age);
+
+//        //카테고리, 인프성별, 인프나이, 오디성별
+//        ArrayList<String> list = new ArrayList<String>();
+//        Pattern pattern = Pattern.compile("[=](.*?)[&]");
+//        Matcher matcher = pattern.matcher(redirect);
+//        while(matcher.find()){
+//            list.add(matcher.group(1));
+//            if(matcher.group(1)==null)
+//                break;
+//        }
+//        //오디나이
+//        String piece = redirect.substring(redirect.indexOf("inputAudAge"));
+//
+//        System.out.println("in카테고리: " + list.get(0));
+//        System.out.println("in인프성별: " + list.get(1));
+//        System.out.println("in인프나이: " + list.get(2));
+//        System.out.println("in오디성별: " + list.get(3));
+//        System.out.println("in오디나이: " + piece.substring(12));
+
+//        form.setInputCat(list.get(0));
+//        form.setInputInfSex(list.get(1));
+//        form.setInputInfAge(list.get(2));
+//        form.setInputAudSex(list.get(3));
+//        form.setInputAudAge(piece.substring(12));
+//        form.setRe_weight(re);
+//        form.setAc_weight(ac);
+//        form.setRf_weight(rf);
+
+        System.out.println("form에 들어간 cat: "+ form.getInputCat());
         System.out.println("form에 들어간 인프성별: "+ form.getInputInfSex());
         System.out.println("form에 들어간 in인프나이: "+ form.getInputInfAge());
         System.out.println("form에 들어간 in오디성별: "+ form.getInputAudSex());
@@ -189,7 +214,7 @@ public class InfluencerController {
     @GetMapping("/5")
     public String detailpage(){return "detail-influencer";}
 
-    @GetMapping("/detail")
+    @GetMapping("/detail-page")
     public String detail(@RequestParam("username") String username, Model model){
         System.out.println("상세페이지로 갈 username: " + username);
 
@@ -210,7 +235,7 @@ public class InfluencerController {
         }
         model.addAttribute("userinfo", filteringListService.details(username));
 
-        return "detail";
+        return "detail-page";
     }
 
 
