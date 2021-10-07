@@ -95,7 +95,7 @@
             <!-- 1-3-block row start -->
             <div class="row">
                <div class="col-lg-4">
-                  <div class="card">
+                  <div class="card" style="height:600px">
                      <div class="user-block-2">
                         <img class="img-fluid" th:src="|pics/${inf.username}.jpg|" alt="user-header" style="width:195px; height:195px;
 <!--                                                                                                            object-filter:cover;-->
@@ -122,13 +122,12 @@
                               <label class="label label-primary">Biography</label>
                            </div>
                         </div>
-                        <div class="text-center">
-                           <button type="button" class="btn btn-warning waves-effect waves-light text-uppercase m-r-30">
-                                    Follows
-                                </button>
-                           <button type="button" class="btn btn-primary waves-effect waves-light text-uppercase">
-                                    Message
-                                </button>
+                        <br><br><br>
+                        <div class="text-center" style="padding:0px 0px 0px 10px">
+                           <button type="button" class="btn btn-instagram waves-effect waves-light" th:onclick="window.open('https://www.instagram.com/'+[[${inf.username}]])"
+                                   data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동">
+                              <span><i class="icofont icofont-social-instagram"></i></span>instagram
+                           </button>
                         </div>
                      </div>
                   </div>
@@ -178,7 +177,7 @@
                </div>
 
                <div class="col-lg-4">
-                  <div class="card">
+                  <div class="card" style="height:472px">
                      <div class="card-header">
                         <h5 class="card-header-text" style="font-weight:bold;">팔로워 타입</h5>
                      </div>
@@ -190,29 +189,29 @@
                   </div>
                </div>
                <div class="col-lg-4">
-                  <div class="card">
-                     <div class="card-header">
+                  <div class="card" style="height:221px">
+                     <div class="card-header" style="padding:10px 20px 10px 20px;">
                         <h5 class="card-header-text">Word cloud</h5>
                      </div>
-                     <div class="card-block">
+                     <div class="card-block" style="padding:0px 20px 0px 20px;">
                         <div style=" text-align:center;" align="center"><!-- min-width: 250px; height: 298px; -->
-                           <img th:src="|pics/wordcloud/${inf.username}_wordcloud.png|">
+                           <img th:src="|pics/wordcloud/${inf.username}_wordcloud.png|" style="width:350px; height:175px;">
                         </div>
                      </div>
                   </div>
                </div>
                <div class="col-lg-4">
-                  <div class="card">
-                     <div class="card-header">
+                  <div class="card" style="height:221px;">
+                     <div class="card-header" style="padding:10px 20px 10px 20px;">
                         <h5 class="card-header-text">Main keywords</h5>
                      </div>
-                     <div class="card-block" >
+                     <div class="card-block" style="padding:0px 20px 0px 20px; height:160px;overflow:auto;">
                         <div class="row">
                               <div class="col-sm-12 table-responsive">
                               <table class="table" width="80%" align="center" style="text-align:center;">
                                  <thead>
                                  <tr>
-                                    <th style="text-align:center;">#</th>
+                                    <th style="text-align:center;">순위</th>
                                     <th style="text-align:center;">연관 키워드</th>
                                     <th style="text-align:center;">유사도</th>
                                  </tr>
