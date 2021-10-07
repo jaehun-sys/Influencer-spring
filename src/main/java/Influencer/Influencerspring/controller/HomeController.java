@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     //localhost:8080으로 들어오면 바로 뜨는 창
+    @GetMapping("/home")
+    public String main(){ return "main";}
+
     @GetMapping("/")
     public String home(){   //우선 지금은 로그인창을 홈 화면으로 했음 2021-09-14
         return "temp/home";

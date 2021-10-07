@@ -124,9 +124,14 @@
                         </div>
                         <br><br><br>
                         <div class="text-center" style="padding:0px 0px 0px 10px">
-                           <button type="button" class="btn btn-instagram waves-effect waves-light" th:onclick="window.open('https://www.instagram.com/'+[[${inf.username}]])"
-                                   data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동">
+                           <button type="button" class="btn btn-dribbble waves-effect waves-light" th:onclick="window.open('https://www.instagram.com/'+[[${inf.username}]])"
+                                   data-toggle="tooltip" data-placement="top" style="width:140px;" title data-original-title="instagram으로 이동">
                               <span><i class="icofont icofont-social-instagram"></i></span>instagram
+                           </button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <button type="button" class="btn btn-linkedin waves-effect waves-light" th:onclick="window.open('https://public.tableau.com/app/profile/lina3518/viz/' + [[${inf.username}]] + '/sheet0')"
+                                   data-toggle="tooltip" data-placement="top" style="width:140px;" title data-original-title="tableau로 이동">
+                              <span><i class="icofont icofont-social-tumblr"></i></span>tableau
                            </button>
                         </div>
                      </div>
