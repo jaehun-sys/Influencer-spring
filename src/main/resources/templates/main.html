@@ -53,32 +53,168 @@ body, html {
 .bgimg {
     border: 0;
     padding: 0;
-    background-image: url('/assets/images/main1.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url('/assets/images/main3.jpg');
     min-height: 100%;
     background-position: center;
     background-size: cover;
 }
+
+
+
+.animation_canvas{
+     overflow: hidden;
+     position: relative;
+<!--     width: 600px; height: 400px;-->
+}
+
+ /* Slider Panel */
+.slider_panel { width:3000px; position:relative; }
+.slider_image { float:left; width:600px; height:400px; }
+
+/* Slider Text Panel */
+.slider_text_panel { position:absolute; top:200px; left:50px; }
+.slider_text { position:absolute; width:250px; height:150px; }
+
+/*Control panel*/
+.control_panel{
+<!--position: absolute; top: 380px;-->
+<!--left: 270px; height: 13px;-->
+overflow: hidden;
+}
+
+.control_button{
+<!--width: 12px; height: 46px;-->
+position: relative;
+float: left; cursor: pointer;
+background:url('point_button.png');
+}
+.control_button:hover{top: -16px;}
+.control_button.active{top: -31px;}
 </style>
 <body class="sidebar-mini fixed">
-<div class="bgimg"></div>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function (){
+//초기 텍스트 위치를 지정합니다.
+$('.slider_text').css('left', -300).each(function (index){
+   $(this).attr('data-index', index);//data-index 라는 커스텀 속성을 넣습니다 그 값은 index로
+});
+
+//컨트롤 버튼의 클릭 리스너 지정 및 data-index 할당
+$('.control_button').each(function (index){
+   $(this).attr('data-index', index);//data-index라는 커스텀 속성을 넣습니다. 그 값은 index
+});
+
+function moveSlider(index){
+//슬라이더를 이동합니다.
+var willMoveLeft = -(index*600);
+$('.slider_panel').animate({left: willMoveLeft }, 'slow');
+
+//control_button에 active 클래스를 부여/제거합니다.
+$('.control_button[data-index=' + index + ']').addClass('active');//여기는 버튼을 누르면 파란색으로 변하게 함
+$('.control_button[data-index!=' + index + ']').removeClass('active');//나머지 속성은 하얀색으로 변하게함
+
+//글자를 이동합니다.
+$('.slider_text[data-index=' + index + ']').show().animate({
+left: 0
+}, 'slow');//왼쪽에서 글자가 나타나게 함.
+
+$('.slider_text[data-index!=' + index + ']').hide('slow', function(){
+$(this).css('left', -300);
+});//글자를 사라지게 하고 -300으로 보냄.
+}
+
+//초기 텍스트 위치 지정 및 data-index 할당
+$('.slider_text').css('left', -300).each(function (index){
+$(this).attr('data-index', index);
+});
+
+//컨트롤 버튼의 클릭 리스너 지정 및 data-index 할당
+$('.control_button').each(function (index){
+$(this).attr('data-index', index);
+}).click(function (){
+var index = $(this).attr('data-index');
+moveSlider(index);
+});
+
+//초기 슬라이더 위치 지정
+var randomNumber = Math.round(Math.random() * 4);
+moveSlider(randomNumber);
+});
+</script>
+<div class="animation_canvas">
+   <div class="slider_panel">
+      <img src="/assets/images/main3.jpg" class="slider_image"/>
+      <img src="/assets/images/main2.jpg" class="slider_image"/>
+<!--      <img src="Jellyfish.jpg" class="slider_image"/>-->
+<!--      <img src="Koala.jpg" class="slider_image"/>-->
+<!--      <img src="Lighthouse.jpg" class="slider_image"/>-->
+   </div>
+
+   <div class="slider_text_panel">
+      <div class="slider_text">
+         <h1>Lorem ipsum</h1>
+         <p>Lorem ipsumdolorsitamet,consecteturadipiscingelit.</p>
+      </div>
+      <div class="slider_text">
+         <h1>Nulla eget</h1>
+         <p>Nulla egetsapienmauris,ornareelementumelit.</p>
+      </div>
+<!--      <div class="slider_text">-->
+<!--         <h1>Quisque eleifend</h1>-->
+<!--         <p>Quisque eleifendaugueneclacuslobortisporta.</p>-->
+<!--      </div>-->
+<!--      <div class="slider_text">-->
+<!--         <h1>Donec</h1>-->
+<!--         <p>Donec a ligulalectus,euiaculisjusto.</p>-->
+<!--      </div>-->
+<!--      <div class="slider_text">-->
+<!--         <h1>Vivamus scelerisque</h1>-->
+<!--         <p>Vivamus scelerisquemaurisidnuncdictumsitamet.</p>-->
+<!--      </div>-->
+   </div>
+
+   <div class="control_panel">
+      <div class="control_button"></div>
+      <div class="control_button"></div>
+<!--      <div class="control_button"></div>-->
+<!--      <div class="control_button"></div>-->
+<!--      <div class="control_button"></div>-->
+   </div>
+</div>
+
+
+
+
+<!--<div class="bgimg" style="image-rendering: auto;-->
+<!--                           image-rendering: crisp-edges;-->
+<!--                           image-rendering: pixelated;">-->
+
+<!--</div>-->
+
+
+
    <div class="wrapper">
-      <div class="loader-bg">
-         <div class="loader-bar">
-         </div>
-      </div>
-      <!-- Navbar-->
-       <header th:replace="fragments/header :: header"></header>
-       <!-- Side-Nav-->
-       <aside th:replace="fragments/sideNav :: sideNav"></aside>
+<!--      <div class="loader-bg">-->
+<!--         <div class="loader-bar">-->
+<!--         </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; Navbar&ndash;&gt;-->
+<!--       <header th:replace="fragments/header :: header"></header>-->
+<!--       &lt;!&ndash; Side-Nav&ndash;&gt;-->
+<!--       <aside th:replace="fragments/sideNav :: sideNav"></aside>-->
 
-       <!-- Sidebar chat start -->
-       <div th:replace="fragments/sideChat :: sideChat"></div>
-      <!-- Sidebar chat end-->
-      <div class="content-wrapper">
-         <!-- Container-fluid starts -->
+<!--       &lt;!&ndash; Sidebar chat start &ndash;&gt;-->
+<!--       <div th:replace="fragments/sideChat :: sideChat"></div>-->
+<!--      &lt;!&ndash; Sidebar chat end&ndash;&gt;-->
+<!--      <div class="content-wrapper">-->
+<!--         &lt;!&ndash; Container-fluid starts &ndash;&gt;-->
 
-         <!-- Container-fluid ends -->
-      </div>
+<!--         &lt;!&ndash; Container-fluid ends &ndash;&gt;-->
+<!--      </div>-->
    </div>
    <!-- Warning Section Starts -->
    <!-- Older IE warning message -->
@@ -148,10 +284,10 @@ body, html {
    <script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
    <!-- custom js -->
-   <script type="text/javascript" src="assets/js/main.min.js"></script>
-   <script src="assets/pages/notification.js"></script>
-   <script type="text/javascript" src="assets/pages/elements.js"></script>
-   <script src="assets/js/menu.min.js"></script>
+   <script type="text/javascript" src="/assets/js/main.min.js"></script>
+   <script src="/assets/pages/notification.js"></script>
+   <script type="text/javascript" src="/assets/pages/elements.js"></script>
+   <script src="/assets/js/menu.min.js"></script>
 
 </body>
 

@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
 </head>
+
 <body>
 <header class="main-header-top hidden-print" th:fragment="header">
-    <a href="/1" class="logo"><img  src="/assets/images/logo_mic.png" style="width:220px;" alt="Theme-logo"></a><!-- class="img-fluid able-logo" -->
+    <a href="/home" class="logo"><img  src="/assets/images/logo_mic.png" style="max-width:1398px; width:105%; height:auto   ;
+                                                                                                 image-rendering: -moz-crisp-edges;          /* Firefox */
+                                                                                                 image-rendering:   -o-crisp-edges;          /* Opera */
+                                                                                                 image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+                                                                                                 image-rendering: crisp-edges;
+                                                                                                 -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
+                                                                                                 "
+                                                                                                 alt="Theme-logo"></a><!-- class="img-fluid able-logo" -->
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button-->
         <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>

@@ -216,16 +216,16 @@
                               <table class="table" width="80%" align="center" style="text-align:center;">
                                  <thead>
                                  <tr>
-                                    <th style="text-align:center;">순위</th>
-                                    <th style="text-align:center;">연관 키워드</th>
-                                    <th style="text-align:center;">유사도</th>
+                                    <th style="text-align:center; padding:5px;">순위</th>
+                                    <th style="text-align:center; padding:5px;">연관 키워드</th>
+                                    <th style="text-align:center; padding:5px;">유사도</th>
                                  </tr>
                                  </thead>
                                  <tbody>
                                  <tr th:each="keyterm : ${keyterms}">
-                                    <td><span th:text="${keyterm.term_rank}" ></span></td>
-                                    <td><span th:text="${keyterm.related_term}"></span></td>
-                                    <td><span th:text="${keyterm.similarity}"></span></td>
+                                    <td style="padding:10px;"><span th:text="${keyterm.term_rank}" ></span></td>
+                                    <td style="padding:10px;"><span th:text="${keyterm.related_term}"></span></td>
+                                    <td style="padding:10px;"><span th:text="${keyterm.similarity}"></span></td>
                                  </tr>
                                  </tbody>
                               </table>

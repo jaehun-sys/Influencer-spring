@@ -11,6 +11,9 @@ public class HomeController {
     @GetMapping("/home")
     public String main(){ return "main";}
 
+    @GetMapping("/home1")
+    public String main1(){ return "main1";}
+
     @GetMapping("/")
     public String home(){   //우선 지금은 로그인창을 홈 화면으로 했음 2021-09-14
         return "temp/home";
