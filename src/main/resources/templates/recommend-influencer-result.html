@@ -91,7 +91,7 @@
 						<div class="main-header">
 							<h4 style="font-weight:bold;">인플루언서 추천</h4>
 							<ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-								<li class="breadcrumb-item"><a href="/1">
+								<li class="breadcrumb-item"><a href="/main">
 									<i class="icofont icofont-home"></i></a>
 								</li>
 								<li class="breadcrumb-item"><a href="#!">솔루션</a>
@@ -111,6 +111,15 @@
 				<div class="row box-shadow">
 					<div class="col-sm-12">
 						<div class="card">
+
+							<!-- modal -->
+							<div class="f-right" style="padding:30px 50px 0px 0px">
+								<a href="" data-toggle="modal" data-target="#raised-Modal">
+									<i class="icofont icofont-question"></i>
+								</a>
+							</div>
+							<!-- modal -->
+
 							<div class="card-header">
 								<h5 class="card-header-text">가중치를 설정하여 랭킹을 조정할 수 있습니다.</h5>
 <!--								<div class="f-right">-->    <!-- 모달? -->
@@ -122,6 +131,9 @@
 							</div>
 
 							<div class="card-block row box-list">
+
+
+
 								<!-- Start a Box p-20 -->
 								<div class="col-lg-4">
 									<div class="p-20 z-depth-left-0 rf-slider" align="center">
@@ -161,6 +173,33 @@
 
 						</div>
 						<!-- end of card-main -->
+
+						<!-- start modal -->
+						<div class="modal fade modal-flex" id="raised-Modal" tabindex="-1" role="dialog">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h5 class="modal-title">인플루언서 추천 결과가 궁금하셨나요?</h5>
+									</div>
+									<!-- end of modal-header -->
+									<div class="modal-body">
+										<!--                                    <pre class="brush: html;">-->
+										<h6>
+											직접 중요도를 설정하고 종합 점수로 인플루언서를 빠르게 추천 받으세요.<br>
+										</h6>
+										<!--                                    </pre>-->
+									</div>
+									<!-- end of modal-body -->
+								</div>
+								<!-- end of modal-content -->
+							</div>
+							<!-- end of modal-dialog -->
+						</div>
+						<!-- end of modal -->
+
 					</div>
 					<!-- end of col-sm-12 -->
 				</div>
@@ -172,11 +211,7 @@
 						<div class="card">
 							<div class="card-header">
 								<h5 class="card-header-text">Result Lists</h5>
-<!--								<div class="f-right">-->  <!-- 모달? -->
-<!--									<a href="" data-toggle="modal" data-target="#shadow-left">-->
-<!--										<i class="icofont icofont-code-alt"></i>-->
-<!--									</a>-->
-<!--								</div>-->
+
 							</div>
 
 
@@ -248,7 +283,13 @@
 			</div>
 			<!-- end of container fluid -->
 			<!-- Container-fluid ends -->
+
+
+
 		</div>
+
+		<footer th:replace="fragments/footer :: footer"></footer>
+
 	</div>
 	<!-- Warning Section Starts -->
 	<!-- Older IE warning message -->

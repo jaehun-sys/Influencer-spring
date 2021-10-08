@@ -99,6 +99,7 @@
                             ie.ALL_FEED_AVG 		as reaction,
                             ie.AVG_POST 			as activity,
                             ie.AVG_AGE				as avg_age,
+                            ie.TABLEAU 				as tableau,
                             case
                             <![CDATA[
                             when	ie.RATE_SEX_F > 50	then	CONCAT('여성(', ie.RATE_SEX_F, 	  '%)')

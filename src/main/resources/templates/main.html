@@ -44,250 +44,239 @@
    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
 </head>
-<style>
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-.bgimg {
-    border: 0;
-    padding: 0;
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-image: url('/assets/images/main3.jpg');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
 
-
-
-.animation_canvas{
-     overflow: hidden;
-     position: relative;
-<!--     width: 600px; height: 400px;-->
-}
-
- /* Slider Panel */
-.slider_panel { width:3000px; position:relative; }
-.slider_image { float:left; width:600px; height:400px; }
-
-/* Slider Text Panel */
-.slider_text_panel { position:absolute; top:200px; left:50px; }
-.slider_text { position:absolute; width:250px; height:150px; }
-
-/*Control panel*/
-.control_panel{
-<!--position: absolute; top: 380px;-->
-<!--left: 270px; height: 13px;-->
-overflow: hidden;
-}
-
-.control_button{
-<!--width: 12px; height: 46px;-->
-position: relative;
-float: left; cursor: pointer;
-background:url('point_button.png');
-}
-.control_button:hover{top: -16px;}
-.control_button.active{top: -31px;}
-</style>
 <body class="sidebar-mini fixed">
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script>
-$(document).ready(function (){
-//초기 텍스트 위치를 지정합니다.
-$('.slider_text').css('left', -300).each(function (index){
-   $(this).attr('data-index', index);//data-index 라는 커스텀 속성을 넣습니다 그 값은 index로
-});
-
-//컨트롤 버튼의 클릭 리스너 지정 및 data-index 할당
-$('.control_button').each(function (index){
-   $(this).attr('data-index', index);//data-index라는 커스텀 속성을 넣습니다. 그 값은 index
-});
-
-function moveSlider(index){
-//슬라이더를 이동합니다.
-var willMoveLeft = -(index*600);
-$('.slider_panel').animate({left: willMoveLeft }, 'slow');
-
-//control_button에 active 클래스를 부여/제거합니다.
-$('.control_button[data-index=' + index + ']').addClass('active');//여기는 버튼을 누르면 파란색으로 변하게 함
-$('.control_button[data-index!=' + index + ']').removeClass('active');//나머지 속성은 하얀색으로 변하게함
-
-//글자를 이동합니다.
-$('.slider_text[data-index=' + index + ']').show().animate({
-left: 0
-}, 'slow');//왼쪽에서 글자가 나타나게 함.
-
-$('.slider_text[data-index!=' + index + ']').hide('slow', function(){
-$(this).css('left', -300);
-});//글자를 사라지게 하고 -300으로 보냄.
-}
-
-//초기 텍스트 위치 지정 및 data-index 할당
-$('.slider_text').css('left', -300).each(function (index){
-$(this).attr('data-index', index);
-});
-
-//컨트롤 버튼의 클릭 리스너 지정 및 data-index 할당
-$('.control_button').each(function (index){
-$(this).attr('data-index', index);
-}).click(function (){
-var index = $(this).attr('data-index');
-moveSlider(index);
-});
-
-//초기 슬라이더 위치 지정
-var randomNumber = Math.round(Math.random() * 4);
-moveSlider(randomNumber);
-});
-</script>
-<div class="animation_canvas">
-   <div class="slider_panel">
-      <img src="/assets/images/main3.jpg" class="slider_image"/>
-      <img src="/assets/images/main2.jpg" class="slider_image"/>
-<!--      <img src="Jellyfish.jpg" class="slider_image"/>-->
-<!--      <img src="Koala.jpg" class="slider_image"/>-->
-<!--      <img src="Lighthouse.jpg" class="slider_image"/>-->
-   </div>
-
-   <div class="slider_text_panel">
-      <div class="slider_text">
-         <h1>Lorem ipsum</h1>
-         <p>Lorem ipsumdolorsitamet,consecteturadipiscingelit.</p>
+<div class="wrapper">
+   <div class="loader-bg">
+      <div class="loader-bar">
       </div>
-      <div class="slider_text">
-         <h1>Nulla eget</h1>
-         <p>Nulla egetsapienmauris,ornareelementumelit.</p>
+   </div>
+   <!-- Navbar-->
+   <header th:replace="fragments/header :: header"></header>
+   <!-- Side-Nav-->
+   <aside th:replace="fragments/sideNav :: sideNav"></aside>
+
+   <!-- Sidebar chat start -->
+   <div th:replace="fragments/sideChat :: sideChat"></div>
+   <!-- Sidebar chat end-->
+   <div class="content-wrapper">
+      <!-- Container-fluid starts -->
+      <div class="container-fluid notifications">
+         <!-- Main content starts -->
+         <div class="btn-page">
+            <!-- Row Starts -->
+            <div class="row">
+               <div class="col-lg-12 p-0">
+                  <div class="main-header">
+                     <h4>Main Page</h4>
+<!--                     <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">-->
+<!--                        <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>-->
+<!--                        </li>-->
+<!--                        <li class="breadcrumb-item"><a href="#!"> Advance components</a>-->
+<!--                        </li>-->
+<!--                        <li class="breadcrumb-item"><a href="notification.html">Notification</a>-->
+<!--                        </li>-->
+<!--                     </ol>-->
+                  </div>
+               </div>
+            </div>
+            <!-- Row end -->
+
+            <!-- Row start -->
+            <div class="row">
+               <div class="col-lg-6">
+                  <div class="card">
+                     <div class="card-header">
+                        <h5 class="card-header-text">Notification Position</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                     </div>
+
+                     <div class="card-block button-list notifications">
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="top" data-align="left" data-icon="fa fa-check">Top Left</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-comments">Top Right</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="top" data-align="center" data-icon="fa fa-comments">Top Center</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="bottom" data-align="left">Bottom Left</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="bottom" data-align="right">Bottom Right</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-from="bottom" data-align="center">Bottom Center</a>
+
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-lg-6">
+                  <div class="card">
+                     <div class="card-header">
+                        <h5 class="card-header-text">Notification Type</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                     </div>
+                     <div class="card-block button-list notifications">
+
+                        <a href="#!" class="btn btn-inverse waves-effect" data-type="inverse">Inverse</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="info">Info</a>
+
+
+                        <a href="#!" class="btn btn-success waves-effect" data-type="success">Success</a>
+
+
+                        <a href="#!" class="btn btn-warning waves-effect" data-type="warning">Warning</a>
+
+
+                        <a href="#!" class="btn btn-danger waves-effect" data-type="danger">Danger</a>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Row end -->
+
+            <!-- Row start -->
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="card">
+                     <div class="card-header">
+                        <h5 class="card-header-text">Notification Behaviour</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                     </div>
+                     <div class="card-block button-list notifications">
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated fadeIn" data-animation-out="animated fadeOut">Fade In</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated fadeInLeft" data-animation-out="animated fadeOutLeft">Fade In Left</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated fadeInRight" data-animation-out="animated fadeOutRight">Fade In Right</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated fadeInUp" data-animation-out="animated fadeOutUp">Fade In Up</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated fadeInDown" data-animation-out="animated fadeOutDown">Fade In Down</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated bounceIn" data-animation-out="animated bounceOut">Bounce In</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated bounceInLeft" data-animation-out="animated bounceOutLeft">Bounce In Left</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated bounceInRight" data-animation-out="animated bounceOutRight">Bounce In Right</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated bounceInUp" data-animation-out="animated bounceOutUp">Bounce In Up</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-animation-in="animated rotateInDownRight" data-animation-out="animated rotateOutUpRight">Fall In Right</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated rotateIn" data-animation-out="animated rotateOut">Rotate In</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated flipInX" data-animation-out="animated flipOutX">Flip In X</a>
+
+
+                        <a href="#!" class="btn btn-info waves-effect" data-type="inverse" data-animation-in="animated flipInY" data-animation-out="animated flipOutY">Flip In Y</a>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Row end -->
+
+         </div>
       </div>
-<!--      <div class="slider_text">-->
-<!--         <h1>Quisque eleifend</h1>-->
-<!--         <p>Quisque eleifendaugueneclacuslobortisporta.</p>-->
-<!--      </div>-->
-<!--      <div class="slider_text">-->
-<!--         <h1>Donec</h1>-->
-<!--         <p>Donec a ligulalectus,euiaculisjusto.</p>-->
-<!--      </div>-->
-<!--      <div class="slider_text">-->
-<!--         <h1>Vivamus scelerisque</h1>-->
-<!--         <p>Vivamus scelerisquemaurisidnuncdictumsitamet.</p>-->
-<!--      </div>-->
+      <!-- Container-fluid ends -->
+
    </div>
 
-   <div class="control_panel">
-      <div class="control_button"></div>
-      <div class="control_button"></div>
-<!--      <div class="control_button"></div>-->
-<!--      <div class="control_button"></div>-->
-<!--      <div class="control_button"></div>-->
-   </div>
+   <footer th:replace="fragments/footer :: footer"></footer>
+
 </div>
-
-
-
-
-<!--<div class="bgimg" style="image-rendering: auto;-->
-<!--                           image-rendering: crisp-edges;-->
-<!--                           image-rendering: pixelated;">-->
-
-<!--</div>-->
-
-
-
-   <div class="wrapper">
-<!--      <div class="loader-bg">-->
-<!--         <div class="loader-bar">-->
-<!--         </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; Navbar&ndash;&gt;-->
-<!--       <header th:replace="fragments/header :: header"></header>-->
-<!--       &lt;!&ndash; Side-Nav&ndash;&gt;-->
-<!--       <aside th:replace="fragments/sideNav :: sideNav"></aside>-->
-
-<!--       &lt;!&ndash; Sidebar chat start &ndash;&gt;-->
-<!--       <div th:replace="fragments/sideChat :: sideChat"></div>-->
-<!--      &lt;!&ndash; Sidebar chat end&ndash;&gt;-->
-<!--      <div class="content-wrapper">-->
-<!--         &lt;!&ndash; Container-fluid starts &ndash;&gt;-->
-
-<!--         &lt;!&ndash; Container-fluid ends &ndash;&gt;-->
-<!--      </div>-->
-   </div>
-   <!-- Warning Section Starts -->
-   <!-- Older IE warning message -->
-   <!--[if lt IE 9]>
+<!-- Warning Section Starts -->
+<!-- Older IE warning message -->
+<!--[if lt IE 9]>
 <div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
+   <h1>Warning!!</h1>
+   <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+   <div class="iew-container">
+      <ul class="iew-download">
+         <li>
+            <a href="http://www.google.com/chrome/">
+               <img src="assets/images/browser/chrome.png" alt="Chrome">
+               <div>Chrome</div>
+            </a>
+         </li>
+         <li>
+            <a href="https://www.mozilla.org/en-US/firefox/new/">
+               <img src="assets/images/browser/firefox.png" alt="Firefox">
+               <div>Firefox</div>
+            </a>
+         </li>
+         <li>
+            <a href="http://www.opera.com">
+               <img src="assets/images/browser/opera.png" alt="Opera">
+               <div>Opera</div>
+            </a>
+         </li>
+         <li>
+            <a href="https://www.apple.com/safari/">
+               <img src="assets/images/browser/safari.png" alt="Safari">
+               <div>Safari</div>
+            </a>
+         </li>
+         <li>
+            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+               <img src="assets/images/browser/ie.png" alt="">
+               <div>IE (9 & above)</div>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <p>Sorry for the inconvenience!</p>
 </div>
 <![endif]-->
-   <!-- Warning Section Ends -->
+<!-- Warning Section Ends -->
 
 
-   <!-- Required Jqurey -->
-   <script src="assets/plugins/jquery/dist/jquery.min.js"></script>
-   <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-   <script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+<!-- Required Jqurey -->
+<script src="assets/plugins/jquery/dist/jquery.min.js"></script>
+<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/plugins/tether/dist/js/tether.min.js"></script>
 
-   <!-- Required Fremwork -->
-   <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Required Fremwork -->
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-   <!-- waves effects.js -->
-   <script src="assets/plugins/Waves/waves.min.js"></script>
+<!-- waves effects.js -->
+<script src="assets/plugins/Waves/waves.min.js"></script>
 
-   <!-- Scrollbar JS-->
-   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-   <script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+<!-- Scrollbar JS-->
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
-   <!--classic JS-->
-   <script src="assets/plugins/classie/classie.js"></script>
+<!--classic JS-->
+<script src="assets/plugins/classie/classie.js"></script>
 
-   <!-- notification -->
-   <script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+<!-- notification -->
+<!--<script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>-->
 
-   <!-- custom js -->
-   <script type="text/javascript" src="/assets/js/main.min.js"></script>
-   <script src="/assets/pages/notification.js"></script>
-   <script type="text/javascript" src="/assets/pages/elements.js"></script>
-   <script src="/assets/js/menu.min.js"></script>
+<!-- custom js -->
+<script type="text/javascript" src="assets/js/main.min.js"></script>
+<script src="assets/pages/notification.js"></script>
+<script type="text/javascript" src="assets/pages/elements.js"></script>
+<script src="assets/js/menu.min.js"></script>
 
 </body>
 

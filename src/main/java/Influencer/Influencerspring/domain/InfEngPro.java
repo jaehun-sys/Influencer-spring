@@ -17,7 +17,15 @@ public class InfEngPro {
     private String activity;
     private String avg_age;
     private String aud_sex;
+    private String tableau;
 
+    public String getTableau() {
+        return tableau;
+    }
+
+    public void setTableau(String tableau) {
+        this.tableau = tableau;
+    }
 
     public String getUsername() {
         return username;

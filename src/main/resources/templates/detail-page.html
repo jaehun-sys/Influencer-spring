@@ -129,7 +129,7 @@
                               <span><i class="icofont icofont-social-instagram"></i></span>instagram
                            </button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                           <button type="button" class="btn btn-linkedin waves-effect waves-light" th:onclick="window.open('https://public.tableau.com/app/profile/lina3518/viz/' + [[${inf.username}]] + '/sheet0')"
+                           <button type="button" class="btn btn-linkedin waves-effect waves-light" th:onclick="window.open([[${inf.tableau}]])"
                                    data-toggle="tooltip" data-placement="top" style="width:140px;" title data-original-title="tableau로 이동">
                               <span><i class="icofont icofont-social-tumblr"></i></span>tableau
                            </button>
@@ -521,12 +521,15 @@
          </div>
          <!-- Main content ends -->
          <!-- Container-fluid ends -->
-         <div class="fixed-button">
-            <a href="#!" class="btn btn-md btn-primary">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
-            </a>
-         </div>
+<!--         <div class="fixed-button">-->
+<!--            <a href="#!" class="btn btn-md btn-primary">-->
+<!--              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro-->
+<!--            </a>-->
+<!--         </div>-->
       </div>
+
+      <footer th:replace="fragments/footer :: footer"></footer>
+
    </div>
 
 
