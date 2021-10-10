@@ -18,6 +18,15 @@ public class InfEngPro {
     private String avg_age;
     private String aud_sex;
     private String tableau;
+    private String foltypepng;
+
+    public String getFoltypepng() {
+        return foltypepng;
+    }
+
+    public void setFoltypepng(String foltypepng) {
+        this.foltypepng = foltypepng;
+    }
 
     public String getTableau() {
         return tableau;
