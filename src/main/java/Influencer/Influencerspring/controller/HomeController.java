@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     //localhost:8080으로 들어오면 바로 뜨는 창
-    @GetMapping("/1")
-    public String main(){ return "temp/home";}
-
-    @GetMapping("/main")
-    public String main1(){ return "main";}
+//    @GetMapping("/1")
+//    public String main(){ return "temp/home";}
+//
+//    @GetMapping("/main")
+//    public String main1(){ return "main";}
 
     @GetMapping("/")
     public String home(){   //우선 지금은 로그인창을 홈 화면으로 했음 2021-09-14
         return "main1";
     }
 
-    @GetMapping("/dash")
-    public String index1(){
-        return "index";
-    }
+//    @GetMapping("/dash")
+//    public String index1(){
+//        return "index";
+//    }
 
-
+/*
     @GetMapping("/accordion")
     public String accordion(){
         return "accordion";
@@ -113,4 +113,6 @@ public class HomeController {
     public String samplePage(){
         return "sample-page";
     }
+*/
+
 }

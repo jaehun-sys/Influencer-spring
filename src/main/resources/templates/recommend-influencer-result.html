@@ -50,6 +50,7 @@
 	<!--color css-->
 	<link rel="stylesheet" type="text/css" href="/assets/css/color/color-1.min.css" id="color" />
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <style>
     #rowbtn3:hover{
@@ -62,6 +63,37 @@
         width: 150px;
         height: 20px;
     }
+    #remoCon:hover{
+        transition: transform 0.2s linear;
+        transform: scale(1.3);
+    }
+    #MOVE_TOP_BTN {
+        position: fixed;
+        right: 5%;
+        bottom: 50px;
+        display: none;
+        z-index: 999;
+        font-weight: bold;
+    }
+
+	/* 로딩 */
+    #wrap-loading { /*화면 전체를 어둡게 합니다.*/
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100;
+        bottom: 0;
+        /*display: none;*/
+        background: rgba(0,0,0,0.2); /*not in ie */
+        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000'); /* ie */
+    }
+    .loading { /*로딩 이미지*/
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+    }
 </style>
 <!-- Required Jqurey -->
 <script src="/assets/plugins/jquery/dist/jquery.min.js"></script>
@@ -69,6 +101,31 @@
 <script src="/assets/plugins/tether/dist/js/tether.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <body class="sidebar-mini fixed">
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+
+	window.onload = function(){
+        setTimeout(function() {
+          $('#wrap-loading').hide();
+        }, 500);
+
+    }
+</script>
 	<div class="wrapper">
 		<div class="loader-bg">
 			<div class="loader-bar">
@@ -91,7 +148,7 @@
 						<div class="main-header">
 							<h4 style="font-weight:bold;">인플루언서 추천</h4>
 							<ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-								<li class="breadcrumb-item"><a href="/main">
+								<li class="breadcrumb-item"><a href="/">
 									<i class="icofont icofont-home"></i></a>
 								</li>
 								<li class="breadcrumb-item"><a href="#!">솔루션</a>
@@ -107,27 +164,35 @@
 				<!-- end of row -->
 
 
+				<!-- Scroll Remote Controller -->
+				<a id="MOVE_TOP_BTN" href="#">
+					<!--                 <i class="icon icon-arrow-up"></i>-->
+					<img src="/assets/images/topAutoScroll.png" id="remoCon" style="margin-bottom: 24px;width: 50px;">
+				</a>
+				<!-- Scroll Controller end  -->
+
+
 				<!-- Row start -->
 				<div class="row box-shadow">
 					<div class="col-sm-12">
 						<div class="card">
 
 							<!-- modal -->
-							<div class="f-right" style="padding:30px 50px 0px 0px">
+							<div class="f-right" style="padding:20px 50px 0px 0px">
 								<a href="" data-toggle="modal" data-target="#raised-Modal">
-									<i class="icofont icofont-question"></i>
+									<i class="icofont icofont-question" style="font-size: 20px;"></i>
 								</a>
 							</div>
 							<!-- modal -->
 
 							<div class="card-header">
-								<h5 class="card-header-text">가중치를 설정하여 랭킹을 조정할 수 있습니다.</h5>
+								<h5 class="card-header-text" style="color:#2f2c2c;">가중치를 설정하여 랭킹을 조정할 수 있습니다.</h5>
 <!--								<div class="f-right">-->    <!-- 모달? -->
 <!--									<a href="" data-toggle="modal" data-target="#shadow-left">-->
 <!--										<i class="icofont icofont-code-alt"></i>-->
 <!--									</a>-->
 <!--								</div>-->
-								<p>합이 1이 되도록 설정해주세요.</p>
+									<p style="color:#ed4b3f;">합이 1이 되도록 설정해주세요.</p>
 							</div>
 
 							<div class="card-block row box-list" style="padding:0px 30px 0px 30px;">
@@ -138,7 +203,7 @@
 								<div class="col-lg-4">
 									<div class="p-20 z-depth-left-0 rf-slider" align="center">
 <!--										data-toggle="tooltip" data-placement="top" title=".z-depth-left-0">-->
-										<label style="padding:10px">진짜팔로워</label>
+										<label style="padding:10px">진짜 팔로워</label>
 										<input class="waves-effect rf_weight" type="range" name="rf_weight" id="rf-in" min="0" max="1" step="0.1">
 <!--										<div id="rf-out"></div>-->
 										<span class="rf-value">0.5</span>
@@ -182,14 +247,23 @@
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
-										<h5 class="modal-title">인플루언서 추천 결과가 궁금하셨나요?</h5>
+										<h5 class="modal-title" align="center">인플루언서 추천 결과가 궁금하셨나요?</h5>
 									</div>
 									<!-- end of modal-header -->
-									<div class="modal-body">
+									<div class="modal-body" style="padding:40px;">
 										<!--                                    <pre class="brush: html;">-->
-										<h6>
-											직접 중요도를 설정하고 종합 점수로 인플루언서를 빠르게 추천 받으세요.<br>
-										</h6>
+										<p style="font-size:1.2em; line-height:2em;">
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											직접 중요도를 설정하고 종합 점수로 인플루언서를 빠르게 추천 받으세요.<br><br>
+										</p>
+										<hr>
+										<p style="font-size:1.1em;" >
+											<br>
+											* <strong>'진짜 팔로워'</strong>, <strong>'반응도'</strong>, <strong>'활성도'</strong>의 가중치를 조정할 수 있습니다.<br><br>
+											* 연산된 값은 <strong>'진짜 영향력'</strong>에 반영되어 순위가 매겨집니다.<br><br>
+											* 프로필 사진을 클릭하면 해당 인플루언서의 <strong>인스타그램 페이지</strong>로 이동합니다.<br><br>
+											* 계정명을 클릭하면 해당 인플루언서의 <strong>상세 정보 페이지</strong>로 이동합니다..<br><br>
+										</p>
 										<!--                                    </pre>-->
 									</div>
 									<!-- end of modal-body -->
@@ -221,12 +295,21 @@
 									<div class="col-xs-12 z-depth-left-0">
 										<!--										<p class="text-sm-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
 										<div class="col-sm-12 table-responsive" style="padding:20px">
+
+
+											<div id="wrap-loading">
+												<!-- 로딩중 start -->
+												<img src="/assets/images/DoubleRing-1s-200px.gif" class="loading" style="width:50px;">
+												<!-- 로딩중 end -->
+											</div>
+
+
 											<table align="center" width="95%" style="text-align:center;">
 												<thead>
 												<tr style="border-bottom:2px solid #eceeef;">
 													<th style="text-align:center;">순위</th>
 													<th colspan="2" style="text-align:center;">프로필 정보</th>                         <!-- 밑에 2개 컬럼 같이 씀(합침) -->
-													<th style="text-align:center;">진짜영향력</th>
+													<th style="text-align:center;">진짜 영향력</th>
 													<th style="text-align:center;">반응도</th>
 													<th style="text-align:center;">활성도</th>
 													<th style="text-align:center;">팔로워</th>
@@ -235,24 +318,24 @@
 												</thead>
 
 												<tbody th:each="ipet : ${List}" id="rowbtn3" style="border-top: 1px solid #eceeef;">
-												<tr ><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
+												<tr><!-- $는 Model 안에서 꺼내 쓰는 것. th:each는 반복문(타임리프 문법임) -->
 													<td rowspan="2" width="12%"><span th:text="${ipet.rankno}"></span></td>
 													<td rowspan="2" width="12%" align="right" style="padding:10px 20px 10px 0px"><p><img th:src="|/pics/${ipet.username}.jpg|"style="width:70px; height:70px; object-filter:cover;
-                                                                                    border: 2.5px solid #EE82EE;
-                                                                                    border-radius: 7px;
-                                                                                    -moz-border-radius: 160px;
-                                                                                    -khtml-border-radius: 160px;
-                                                                                    -webkit-border-radius: 160px;
-                                                                                    cursor:pointer;"
+																																								border: 2.5px solid #EE82EE;
+																																								border-radius: 7px;
+																																								-moz-border-radius: 160px;
+																																								-khtml-border-radius: 160px;
+																																								-webkit-border-radius: 160px;
+																																								cursor:pointer;"
 																					th:onclick="window.open('https://www.instagram.com/'+[[${ipet.username}]])"
 																					data-toggle="tooltip" data-placement="top" title data-original-title="인스타그램으로 이동"></p></td>
 													<td align="left" style="padding:10px 0px 0px 0px" width="16%">
 														<span th:text="${ipet.username}"
 															  th:onclick="|location.href='@{/detail-page(username = ${ipet.username})}'|"
-															  data-toggle="tooltip" data-placement="top" title data-original-title="상세 결과로 이동"
+															  data-toggle="tooltip" data-placement="right" title data-original-title="상세 결과로 이동"
 															  style="font-size:1.1em; font-weight:bold; cursor:pointer;"></span>
 													</td>
-													<td rowspan="2" width="12%"><span th:text="${ipet.realInf}"></span> </td>
+													<td rowspan="2" width="12%"><span th:text="${ipet.realInf}" style="font-weight:bold;"></span> </td>
 													<td rowspan="2" width="12%"><span th:text="${ipet.reaction}"></span></td>
 													<td rowspan="2" width="12%"><span th:text="${ipet.activity}"></span></td>
 													<td rowspan="2" width="12%"><span th:text="${ipet.followers}"></span></td>
@@ -279,6 +362,8 @@
 					<!-- end of col-sm-12 -->
 				</div>
 				<!-- end of row -->
+
+
 
 			</div>
 			<!-- end of container fluid -->

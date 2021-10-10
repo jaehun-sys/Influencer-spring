@@ -45,7 +45,6 @@
    <!-- Weather css -->
    <link href="assets/css/svg-weather.css" rel="stylesheet">
 
-
    <!-- Style.css -->
    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
@@ -53,6 +52,27 @@
    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
 </head>
+<style>
+     /* 로딩 */
+    #wrap-loading { /*화면 전체를 어둡게 합니다.*/
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100;
+        bottom: 0;
+        z-index: 999;
+        /*display: none;*/
+        background: rgba(0,0,0,0.2); /*not in ie */
+        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000'); /* ie */
+    }
+    .loading { /*로딩 이미지*/
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+    }
+</style>
 <script th:inline="javascript">
   /*
     <![CDATA[*/
@@ -67,6 +87,14 @@
   */
 </script>
 <body class="sidebar-mini fixed">
+<script>
+   	window.onload = function(){
+        setTimeout(function() {
+          $('#wrap-loading').hide();
+        }, 500);
+
+    }
+</script>
    <div class="loader-bg">
       <div class="loader-bar">
       </div>
@@ -80,6 +108,13 @@
       <!-- Sidebar chat start -->
        <div th:replace="fragments/sideChat :: sideChat"></div>
       <!-- Sidebar chat end-->
+
+      <div id="wrap-loading">
+         <!-- 로딩중 start -->
+         <img src="/assets/images/DoubleRing-1s-200px.gif" class="loading" style="width:50px;">
+         <!-- 로딩중 end -->
+      </div>
+
 
       <div class="content-wrapper">
          <!-- Container-fluid starts -->
@@ -96,6 +131,7 @@
             <div class="row">
                <div class="col-lg-4">
                   <div class="card" style="height:600px">
+
                      <div class="user-block-2">
                         <img class="img-fluid" th:src="|pics/${inf.username}.jpg|" alt="user-header" style="width:195px; height:195px;
 <!--                                                                                                            object-filter:cover;-->
@@ -110,6 +146,7 @@
 <!--                        <h6 >카테고리</h6>-->
                      </div>
                      <div class="card-block" style="padding:23px 0px 23px 0px">
+
                         <div class="user-block-2-activities">
                            <div class="user-block-2-active">
                               <i class="icofont icofont-tags" style="flo; padding:0px 0px 0px 20px;"></i><strong><span th:text="${inf.category}" style="padding:0px 0px 0px 20px;"></span></strong>
@@ -128,7 +165,7 @@
                                    data-toggle="tooltip" data-placement="top" style="width:140px;" title data-original-title="instagram으로 이동">
                               <span><i class="icofont icofont-social-instagram"></i></span>instagram
                            </button>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <!-- 띄우기 -->
                            <button type="button" class="btn btn-linkedin waves-effect waves-light" th:onclick="window.open([[${inf.tableau}]])"
                                    data-toggle="tooltip" data-placement="top" style="width:140px;" title data-original-title="tableau로 이동">
                               <span><i class="icofont icofont-social-tumblr"></i></span>tableau

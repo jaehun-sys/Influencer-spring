@@ -44,14 +44,68 @@
    <!-- Responsive.css-->
    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <style>
-    #rowbtn1:hover{
-        background-color: #E3FAD4;
+    #remoCon:hover{
+        transition: transform 0.2s linear;
+        transform: scale(1.3);
+    }
+    #MOVE_TOP_BTN {
+        position: fixed;
+        right: 5%;
+        bottom: 50px;
+        display: none;
+        z-index: 999;
+        font-weight: bold;
+    }
+
+    /* 로딩 */
+    #wrap-loading { /*화면 전체를 어둡게 합니다.*/
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100;
+        bottom: 0;
+        /*display: none;*/
+        background: rgba(0,0,0,0.2); /*not in ie */
+        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000'); /* ie */
+    }
+    .loading { /*로딩 이미지*/
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
     }
 </style>
 <body class="sidebar-mini fixed">
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+
+
+    window.onload = function(){
+        setTimeout(function() {
+          $('#wrap-loading').hide();
+        }, 500);
+
+    }
+</script>
    <div class="wrapper">
       <div class="loader-bg">
          <div class="loader-bar">
@@ -74,7 +128,7 @@
                   <div class="main-header">
                      <h4 style="font-weight:bold;">진짜•가짜 판별</h4>
                      <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                        <li class="breadcrumb-item"><a href="/main">
+                        <li class="breadcrumb-item"><a href="/">
                            <i class="icofont icofont-home"></i></a>
                         </li>
                         <li class="breadcrumb-item"><a href="#!">솔루션</a>
@@ -86,6 +140,13 @@
                </div>
             </div>
             <!-- Row end -->
+
+            <!-- Scroll Remote Controller -->
+             <a id="MOVE_TOP_BTN" href="#">
+<!--                 <i class="icon icon-arrow-up"></i>-->
+                 <img src="/assets/images/topAutoScroll.png" id="remoCon" style="margin-bottom: 24px;width: 50px;">
+             </a>
+            <!-- Scroll Controller end  -->
 
             <!-- TrueFalse start -->
 
@@ -107,7 +168,7 @@
                          <!-- modal -->
                          <div class="f-right">
                              <a href="" data-toggle="modal" data-target="#raised-Modal">
-                                 <i class="icofont icofont-question"></i>
+                                 <i class="icofont icofont-question"  style="font-size: 20px;"></i>
                              </a>
                          </div>
                          <!-- modal -->
@@ -137,15 +198,23 @@
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                              <span aria-hidden="true">&times;</span>
                                          </button>
-                                         <h5 class="modal-title">눈으로는 확인하기 어려운 가짜 팔로워 구별</h5>
+                                         <h5 class="modal-title" align="center">눈으로는 확인하기 어려운 가짜 팔로워 구별</h5>
                                      </div>
                                      <!-- end of modal-header -->
-                                     <div class="modal-body" style="padding:20px;">
+                                     <div class="modal-body" align="justify" style="padding:40px;">
 <!--                                    <pre class="brush: html;">-->
-                                        <h6>
-                                            데이터 분석을 통해 피드나 통계로는 확인이 어려운 가짜 팔로워를 걸러내고,<br><br>
-                                             실제 활동중이며 마케팅에 유의미한 팔로우 유저들을 알려드립니다.<br>
-                                        </h6>
+                                        <p  style="font-size:1.2em; line-height:2em;">
+                                            &nbsp;&nbsp;&nbsp;
+                                            데이터 분석을 통해 피드나 통계로는 확인이 어려운 가짜 팔로워를 걸러내고, 실제 활동중이며
+                                            마케팅에 유의미한 팔로우 유저들을 알려드립니다.<br><br>
+                                        </p>
+                                        <hr>
+                                         <p style="font-size:1.1em;" >
+                                             <br>
+                                             * 인플루언서의 계정명을 입력하고 검색하세요.<br><br>
+                                             * <strong>필로워</strong>, <strong>팔로잉</strong> 정보와 <strong>진짜 팔로워</strong> 정보를 제공합니다.<br><br>
+                                             * 프로필 사진을 클릭하면 해당 인플루언서의 <strong>인스타그램 페이지</strong>로 이동합니다.<br><br>
+                                         </p>
 <!--                                    </pre>-->
                                      </div>
                                      <!-- end of modal-body -->
@@ -173,8 +242,17 @@
 <!--                        <p>Add <code>.table-hover</code> Class in table tag</p>-->
                      </div>
                      <div class="card-block">
-                        <div class="row">
+
+
+                         <div class="row">
                            <div class="col-sm-12 table-responsive">
+
+
+                               <div id="wrap-loading">
+                                   <!-- 로딩중 start -->
+                                   <img src="/assets/images/DoubleRing-1s-200px.gif" class="loading" style="width:50px;">
+                                   <!-- 로딩중 end -->
+                               </div>
 
                               <table th:each="index : ${inf_profile}" id="rowbtn1" width="70%" align="center" style="margin-left:auto;
                                                                                                                     margin-right:auto;
@@ -222,6 +300,9 @@
                </div>
             </div>
             <!-- Row end -->
+
+
+
          </div>
           <!-- Container-fluid ends -->
 
