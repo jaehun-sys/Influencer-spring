@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 @SpringBootApplication//(exclude = {DataSourceAutoConfiguration.class,
 						//			DataSourceTransactionManagerAutoConfiguration.class,
 						//			HibernateJpaAutoConfiguration.class})
-						//          ↑ 이 시바롬들은 죽어도 안까먹겠다 개새기들
+						//          ↑ 이 친구들은 죽어도 안까먹겠다. (Database 관련 auto configuration 비활성화)
 public class InfluencerSpringApplication {
 
 	public static void main(String[] args) {
