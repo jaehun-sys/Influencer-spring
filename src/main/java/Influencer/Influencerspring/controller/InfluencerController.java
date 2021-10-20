@@ -37,6 +37,7 @@ public class InfluencerController {
     public String fakeReal(String username, Model model) throws Exception{
         username="";
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
+        //PageRequest.of(1, 20)
 
         //숫자 콤마 표시
         DecimalFormat formatter = new DecimalFormat("###,###");
