@@ -35,10 +35,10 @@ public class InfluencerService {
     }
 
     /* 페이징 */
-/*    public Page<InfProfile> getCompanyPage(Pageable pageable) {
-        int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
-        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "id"));
-        return influencerRepository.findAll(pageable);
-    }*/
+///*    public Page<InfProfile> getCompanyPage(Pageable pageable) {
+//        int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
+//        pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "id"));
+//        return influencerRepository.findAll(pageable);
+//    }*/
 
 }
