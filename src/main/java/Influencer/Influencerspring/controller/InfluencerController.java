@@ -1,22 +1,19 @@
 package Influencer.Influencerspring.controller;
 
 import Influencer.Influencerspring.domain.*;
+import Influencer.Influencerspring.paging.Paging;
 import Influencer.Influencerspring.service.FilteringListService;
 import Influencer.Influencerspring.service.HashtagService;
 import Influencer.Influencerspring.service.InfluencerService;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Controller
 public class InfluencerController {
@@ -34,7 +31,7 @@ public class InfluencerController {
     }
 
     @GetMapping("/fake-real")/* 기본적으로 전체 목록 출력 */
-    public String fakeReal(String username, Model model) throws Exception{
+    public String fakeReal(String username, Model model, HttpServletRequest request) throws Exception{
         username="";
         List<InfProfile> inf_profile = influencerService.findTrueFalse(username);
         //PageRequest.of(1, 20)
@@ -46,6 +43,17 @@ public class InfluencerController {
             inf_profile.get(i).setFolwing_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getFolwing_count()))   );
             inf_profile.get(i).setReal_fol_count(   formatter.format(Integer.parseInt(inf_profile.get(i).getReal_fol_count()))   );
         }
+
+        // 리스트 가져오기(페이징)
+        int page = 1;
+
+        if(request.getParameter("page")!=null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        Paging paging = new Paging();
+        paging.setPage(page);
+        paging.setTotalRow(dao.getTotalRow(search, kwd));
+        paging.paging();
 
         model.addAttribute("inf_profile", inf_profile);
         return "fake-real";
