@@ -128,4 +128,11 @@
         LIMIT               5
 
     </select>
+
+    <select id="getTotalRow" resultType="int" parameterType="String">
+        SELECT COUNT(*)
+        FROM   InfProfile
+        WHERE  INF_USERNAME LIKE CONCAT ( '%', #{inf_username}, '%')
+    </select>
+
 </mapper>

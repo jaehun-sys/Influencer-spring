@@ -46,13 +46,14 @@ public class InfluencerController {
 
         // 리스트 가져오기(페이징)
         int page = 1;
+        String search = ""; //search에는 username이 들어갈 것.
 
         if(request.getParameter("page")!=null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
         Paging paging = new Paging();
         paging.setPage(page);
-        paging.setTotalRow(dao.getTotalRow(search, kwd));
+        paging.setTotalRow(filteringListService.getTotalRow(search));
         paging.paging();
 
         model.addAttribute("inf_profile", inf_profile);

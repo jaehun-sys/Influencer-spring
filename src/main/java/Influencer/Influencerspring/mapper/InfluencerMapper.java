@@ -23,4 +23,5 @@ public interface InfluencerMapper {
     /* 키워드 연관 키워드 */
     List<Term> relatedKeyterms(Term tForm);
 
+    int getTotalRow(String search);
 }

@@ -34,4 +34,8 @@ public class FilteringListService {
     public List<Term> relatedKeyterms(Term tForm){
         return influencerMapper.relatedKeyterms(tForm);
     }
+
+    /* 페이징 */
+    public int getTotalRow(String search){ return influencerMapper.getTotalRow(search); }
+
 }

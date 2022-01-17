@@ -34,6 +34,8 @@ public class InfluencerService {
         return influencerRepository.findByInf_username(inf_username);
     }
 
+
+
     /* 페이징 */
 ///*    public Page<InfProfile> getCompanyPage(Pageable pageable) {
 //        int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
